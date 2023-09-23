@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3165wqb57tpe"]
+[gd_scene load_steps=10 format=3 uid="uid://d3165wqb57tpe"]
 
 [ext_resource type="Script" path="res://Scripts/matato.gd" id="1_lkejc"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_1wiaq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmv1t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sp4be"]
 atlas = ExtResource("2_1wiaq")
@@ -52,10 +54,16 @@ animations = [{
 }]
 
 [node name="matato" type="CharacterBody2D"]
+position = Vector2(0, -3)
 script = ExtResource("1_lkejc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lmv1t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8yohp")
 animation = &"walkside"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+rotation_smoothing_enabled = true

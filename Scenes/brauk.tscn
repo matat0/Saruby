@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=3 uid="uid://dj3s58xxww607"]
+
+[ext_resource type="Script" path="res://Scripts/brauk.gd" id="1_1ctq2"]
+[ext_resource type="Texture2D" uid="uid://dbhp3305sdqo5" path="res://Assets/Bosses/Brauk/brauk.png" id="1_aajhy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bnemo"]
+radius = 25.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psg5j"]
+atlas = ExtResource("1_aajhy")
+region = Rect2(70, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msjxr"]
+atlas = ExtResource("1_aajhy")
+region = Rect2(210, 0, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2q13"]
+atlas = ExtResource("1_aajhy")
+region = Rect2(70, 93, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp2oh"]
+atlas = ExtResource("1_aajhy")
+region = Rect2(210, 93, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em2ce"]
+atlas = ExtResource("1_aajhy")
+region = Rect2(70, 186, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yosqj"]
+atlas = ExtResource("1_aajhy")
+region = Rect2(210, 186, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irps0"]
+atlas = ExtResource("1_aajhy")
+region = Rect2(70, 279, 70, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq281"]
+atlas = ExtResource("1_aajhy")
+region = Rect2(210, 279, 70, 93)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccmli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psg5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msjxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2q13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp2oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em2ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yosqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irps0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mq281")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t823t"]
+radius = 59.0085
+
+[node name="brauk" type="CharacterBody2D"]
+script = ExtResource("1_1ctq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 21)
+shape = SubResource("CircleShape2D_bnemo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ccmli")
+animation = &"idle"
+
+[node name="detection range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection range"]
+shape = SubResource("CircleShape2D_t823t")
