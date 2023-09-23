@@ -1,0 +1,64 @@
+{
+    "anims": [
+        {
+            "key": "matato_poopoowalk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "matato",
+                    "frame": "matato_left_1"
+                },
+                {
+                    "key": "matato",
+                    "frame": "matato_left_2"
+                },
+                {
+                    "key": "matato",
+                    "frame": "matato_left_3"
+                },
+                {
+                    "key": "matato",
+                    "frame": "matato_left_4"
+                }
+            ]
+        },
+        {
+            "key": "matato_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "matato",
+                    "frame": "matato_right_1"
+                }
+            ]
+        },
+        {
+            "key": "matato_rightwalk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "matato",
+                    "frame": "matato_right_1"
+                },
+                {
+                    "key": "matato",
+                    "frame": "matato_right_2"
+                },
+                {
+                    "key": "matato",
+                    "frame": "matato_right_3"
+                },
+                {
+                    "key": "matato",
+                    "frame": "matato_right_4"
+                }
+            ]
+        }
+    ]
+}

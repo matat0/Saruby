@@ -1,0 +1,14 @@
+{ "columns":29,
+ "image":"..\/..\/Nature\/Tilesets\/Tileset-Animated Terrains-8 frames-.png",
+ "imageheight":288,
+ "imagewidth":928,
+ "margin":0,
+ "name":"WATAAH",
+ "spacing":0,
+ "tilecount":261,
+ "tiledversion":"1.9.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.9"
+}

@@ -1,0 +1,44 @@
+{
+    "anims": [
+        {
+            "key": "brauk_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 10,
+            "frames": [
+                {
+                    "key": "brauk",
+                    "frame": "bringer-of-death_idle_1"
+                },
+                {
+                    "key": "brauk",
+                    "frame": "bringer-of-death_idle_2"
+                },
+                {
+                    "key": "brauk",
+                    "frame": "bringer-of-death_idle_3"
+                },
+                {
+                    "key": "brauk",
+                    "frame": "bringer-of-death_idle_4"
+                },
+                {
+                    "key": "brauk",
+                    "frame": "bringer-of-death_idle_5"
+                },
+                {
+                    "key": "brauk",
+                    "frame": "bringer-of-death_idle_6"
+                },
+                {
+                    "key": "brauk",
+                    "frame": "bringer-of-death_idle_7"
+                },
+                {
+                    "key": "brauk",
+                    "frame": "bringer-of-death_idle_8"
+                }
+            ]
+        }
+    ]
+}
