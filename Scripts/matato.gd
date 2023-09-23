@@ -7,6 +7,7 @@ var sprite_direction = "right": get = _get_sprite_direction
 
 @onready var sprite = $AnimatedSprite2D
 
+
 func _physics_process(delta):
 	velocity = input_direction * speed
 	move_and_slide()
