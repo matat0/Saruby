@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/a_green_start.mp3-051fcba69a59dc9ffb99db18c2c
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

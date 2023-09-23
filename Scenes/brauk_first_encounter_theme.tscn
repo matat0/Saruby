@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://u210et4e71ey"]
+
+[ext_resource type="AudioStream" uid="uid://ddr32ps2b2olk" path="res://Assets/Music/brauk_first_encounter.mp3" id="1_ljd62"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ljd62")
+autoplay = true
