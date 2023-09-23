@@ -1840,6 +1840,8 @@ layer_0/tile_data = PackedInt32Array(0, 2883586, 9, 65536, 2490370, 4, 65537, 25
 
 [node name="matato" parent="." instance=ExtResource("4_lkguw")]
 position = Vector2(423, 212)
+scale = Vector2(1.5, 1.5)
 
-[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("5_8txd3")]
+[node name="braukfight1" parent="." instance=ExtResource("5_8txd3")]
 volume_db = -15.0
+bus = &"Music"
