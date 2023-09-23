@@ -23,7 +23,9 @@ func set_animation(animation):
 		
 	else: 
 		sprite_direction
-	
+
+
+
 
 func _get_input_direction():
 	var x = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
