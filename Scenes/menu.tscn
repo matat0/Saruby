@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://2v034jhwqj5w"]
+[gd_scene load_steps=6 format=3 uid="uid://2v034jhwqj5w"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_g4w78"]
 [ext_resource type="Texture2D" uid="uid://u1q4gudoyc0i" path="res://Assets/saruby_background_blurred.png" id="2_3yhp4"]
 [ext_resource type="Texture2D" uid="uid://wh0xwed38nyg" path="res://Assets/Saruby.png" id="3_pet7p"]
+[ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_qus8j"]
 [ext_resource type="PackedScene" uid="uid://cjbucihcgyh78" path="res://Scenes/a_green_start.tscn" id="5_es1tr"]
 
 [node name="Menu" type="Control"]
@@ -45,14 +46,20 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_qus8j")
+theme_override_font_sizes/font_size = 50
 text = "Start"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_qus8j")
+theme_override_font_sizes/font_size = 50
 text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_qus8j")
+theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [node name="menu music" parent="." instance=ExtResource("5_es1tr")]

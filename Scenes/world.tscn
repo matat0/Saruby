@@ -1851,6 +1851,7 @@ layer_1/tile_data = PackedInt32Array(1572901, 2359298, 18, 1638437, 2359298, 19,
 position = Vector2(670, 749)
 
 [node name="braukfight1" parent="." instance=ExtResource("5_8txd3")]
+position = Vector2(674, 409)
 volume_db = -15.0
 bus = &"Music"
 

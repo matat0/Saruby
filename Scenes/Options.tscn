@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctuxfhv0tgvpr"]
+[gd_scene load_steps=5 format=3 uid="uid://ctuxfhv0tgvpr"]
 
 [ext_resource type="Script" path="res://Scripts/volume_slider.gd" id="1_vg5gc"]
 [ext_resource type="Script" path="res://Scripts/Options.gd" id="1_ykrve"]
 [ext_resource type="PackedScene" uid="uid://cjbucihcgyh78" path="res://Scenes/a_green_start.tscn" id="2_lqtry"]
+[ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_rkcq1"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -84,6 +85,8 @@ offset_left = 537.0
 offset_top = 399.0
 offset_right = 619.0
 offset_bottom = 452.0
+theme_override_fonts/font = ExtResource("4_rkcq1")
+theme_override_font_sizes/font_size = 32
 text = "Back"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
