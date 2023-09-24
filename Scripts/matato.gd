@@ -9,6 +9,7 @@ var enemy_in_range = false
 var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
+var attack_ip = false
 
 @onready var sprite = $AnimatedSprite2D
 
@@ -22,7 +23,7 @@ func _ready(): #uses the current tilemap to calculate camera boundaries, should 
 	
 	
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity = input_direction * speed
 	move_and_slide()
 	enemy_attack()
@@ -31,7 +32,7 @@ func _physics_process(delta):
 		health = 0
 		print("rip bozo")
 		self.queue_free() #replace with death screen or downed or something
-	
+	attack()
 	set_animation("walk")
 	if velocity == Vector2.ZERO:
 		sprite.stop()
@@ -43,8 +44,7 @@ func set_animation(animation):
 		sprite.flip_h = (sprite_direction == "left")
 		
 	else: 
-		sprite_direction
-
+		pass
 
 func _get_input_direction():
 	var x = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
@@ -87,3 +87,23 @@ func enemy_attack():
 
 func _on_damage_taken_cooldown_timeout():
 	enemy_attack_cooldown = true
+
+func attack():
+	if Input.is_action_just_pressed("attack"):
+		Global.player_current_attack = true
+		attack_ip = true
+		print("attack button pressed")
+	
+	
+
+	
+
+
+
+
+
+func _on_attack_cd_timeout():
+	$deal_attack_timer.stop()
+	Global.player_current_attack = false
+	attack_ip = false
+
