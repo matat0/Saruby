@@ -11,7 +11,7 @@ var player_in_range = false
 func _physics_process(delta):
 	deal_with_damage()
 	
-	if player_chase:
+	if player_chase and health > 0:
 		var direction_to_player = (player.position - position).normalized()
 		if direction_to_player.x < 0:
 			sprite.flip_h = false
