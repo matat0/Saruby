@@ -11,15 +11,7 @@ var health = 100
 var player_alive = true
 var attack_ip = false
 
-var Bullet = preload("res://Scenes/proj_frost_orb.tscn")
-var bulletDamage = 200
-var pathName
-var currTarget
-var curr
-
-
 @onready var sprite = $AnimatedSprite2D
-
 
 func _ready(): #uses the current tilemap to calculate camera boundaries, should work on any tilemap
 	var tilemap_rect = get_parent().get_node("TileMap").get_used_rect()
@@ -33,8 +25,6 @@ func _ready(): #uses the current tilemap to calculate camera boundaries, should 
 
 func _physics_process(_delta):
 	velocity = input_direction * speed
-	if Global.boss_slain == false:
-		attack()
 	move_and_slide()
 	enemy_attack()
 	if health <= 0:
@@ -42,6 +32,7 @@ func _physics_process(_delta):
 		health = 0
 		print("rip bozo")
 		self.queue_free() #replace with death screen or downed or something
+	attack()
 	set_animation("walk")
 	if velocity == Vector2.ZERO:
 		sprite.stop()
@@ -98,21 +89,13 @@ func _on_damage_taken_cooldown_timeout():
 	enemy_attack_cooldown = true
 
 func attack():
-	var enemy = get_parent().get_node("brauk")
-	if Input.is_action_just_pressed("attack") and enemy:
+	if Input.is_action_just_pressed("attack"):
 		Global.player_current_attack = true
 		attack_ip = true
 		print("attack button pressed")
-		var tempBullet = Bullet.instantiate()
-		tempBullet.target_position = enemy.global_position
-		tempBullet.bulletDamage = bulletDamage
-		get_node("BulletContainer").add_child(tempBullet)
-		tempBullet.global_position = $Aim.global_position
-		
-
-
 	
 	
+
 	
 
 

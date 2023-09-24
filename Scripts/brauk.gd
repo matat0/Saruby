@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 
+
 var speed = 200 #this value is inverse to the actual speed (higher # = slower movement)
 var player_chase = false
 var player = null
@@ -17,16 +18,14 @@ func _physics_process(delta):
 	if health <= 0:
 		health = 0
 		print("GZ u killed brauk")
-		Global.boss_slain = true
 		self.queue_free() 
-
 
 func enemy():
 	pass
 
 func _ready():
 	sprite.play("idle")
-	
+
 
 func _on_aggro_range_body_entered(body):
 	player = body
