@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed = 100
+const speed = 200
 
 var input_direction: get = _get_input_direction
 var sprite_direction = "right": get = _get_sprite_direction	
