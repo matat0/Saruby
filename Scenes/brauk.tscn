@@ -242,8 +242,7 @@ shape = SubResource("CircleShape2D_0iyvq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_drc0f")
-animation = &"braukwalk"
-frame_progress = 0.198183
+animation = &"braukdeath"
 
 [node name="brauk_hitbox" type="Area2D" parent="."]
 
@@ -253,9 +252,10 @@ shape = SubResource("RectangleShape2D_tlrem")
 
 [node name="boss_health" type="ProgressBar" parent="."]
 offset_left = -44.0
-offset_top = -38.0
+offset_top = -27.0
 offset_right = 44.0
-offset_bottom = -11.0
+offset_bottom = -15.0
+show_percentage = false
 script = ExtResource("3_tgsyp")
 
 [connection signal="body_entered" from="aggro_range" to="." method="_on_aggro_range_body_entered"]
