@@ -9,7 +9,7 @@ var health = 500
 var player_in_range = false
 
 func _physics_process(delta):
-	deal_with_damage()
+	#deal_with_damage() old melee function
 	
 	if player_chase and health > 0:
 		var direction_to_player = (player.position - position).normalized()
@@ -66,9 +66,9 @@ func _on_brauk_hitbox_body_exited(body):
 	if body.has_method("player"):
 		player_in_range = false
 
-func deal_with_damage():
-	if player_in_range and Global.player_current_attack:
-		health = health - 20
-		print("brauk health =", health)
-		
+#func deal_with_damage():    old meleee function, only keeping it for future melee attack reference
+#	if player_in_range and Global.player_current_attack:
+#		health = health - 20
+#		print("brauk health =", health)
+#		
 

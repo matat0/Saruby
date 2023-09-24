@@ -1,7 +1,7 @@
 extends Node2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	match Global.PlayerSelect:
 		0:
 			get_node("PlayerSelect").play("walkside")

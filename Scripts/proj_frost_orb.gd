@@ -9,7 +9,7 @@ var pathSpawnerNode
 
 
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	if target_position:
 		var direction = (target_position - global_position).normalized()
