@@ -87,8 +87,12 @@ wait_time = 0.75
 [node name="attack_cd" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="Aim" type="Marker2D" parent="."]
+
+[node name="BulletContainer" type="Node" parent="."]
+
 [connection signal="body_entered" from="matato_hitbox" to="." method="_on_matato_hitbox_body_entered"]
 [connection signal="body_exited" from="matato_hitbox" to="." method="_on_matato_hitbox_body_exited"]
 [connection signal="timeout" from="damage_taken_cooldown" to="." method="_on_damage_taken_cooldown_timeout"]
-[connection signal="timeout" from="attack_cd" to="." method="_on_attack_1_cd_timeout"]
 [connection signal="timeout" from="attack_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="attack_cd" to="." method="_on_attack_1_cd_timeout"]
