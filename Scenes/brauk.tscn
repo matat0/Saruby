@@ -1,7 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://fymr7ov40l8y"]
+[gd_scene load_steps=15 format=3 uid="uid://fymr7ov40l8y"]
+
 
 [ext_resource type="Script" path="res://Scripts/brauk.gd" id="1_pewwc"]
+
 [ext_resource type="Texture2D" uid="uid://dbhp3305sdqo5" path="res://Assets/Bosses/Brauk/brauk.png" id="2_ibeb8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcoid"]
+size = Vector2(27, 54)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0iyvq"]
+radius = 140.014
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4w82"]
 atlas = ExtResource("2_ibeb8")
@@ -67,13 +75,33 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlrem"]
+size = Vector2(42, 55)
+
 [node name="brauk" type="CharacterBody2D"]
-script = ExtResource("1_pewwc")
+script = ExtResource("1_hxv7a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 18)
+shape = SubResource("RectangleShape2D_tcoid")
+
+[node name="aggro_range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="aggro_range"]
+position = Vector2(0, 18)
+shape = SubResource("CircleShape2D_0iyvq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_drc0f")
 animation = &"idle"
 
-[node name="aggro_range" type="Area2D" parent="."]
+[node name="brauk_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brauk_hitbox"]
+position = Vector2(1, 18.5)
+shape = SubResource("RectangleShape2D_tlrem")
+
+[connection signal="body_entered" from="aggro_range" to="." method="_on_aggro_range_body_entered"]
+[connection signal="body_exited" from="aggro_range" to="." method="_on_aggro_range_body_exited"]
+[connection signal="body_entered" from="brauk_hitbox" to="." method="_on_brauk_hitbox_body_entered"]
+[connection signal="body_exited" from="brauk_hitbox" to="." method="_on_brauk_hitbox_body_exited"]
