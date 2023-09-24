@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/volume_slider.gd" id="1_vg5gc"]
 [ext_resource type="Script" path="res://Scripts/Options.gd" id="1_ykrve"]
 [ext_resource type="PackedScene" uid="uid://cjbucihcgyh78" path="res://Scenes/a_green_start.tscn" id="2_lqtry"]
-[ext_resource type="Theme" uid="uid://osj03rwdwf5i" path="res://button_theme.tres" id="3_8vuo3"]
+[ext_resource type="Theme" uid="uid://osj03rwdwf5i" path="res://Assets/button_theme.tres" id="3_8vuo3"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
