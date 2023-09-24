@@ -16,9 +16,14 @@ func _physics_process(delta):
 		
 	if health <= 0:
 		health = 0
-		print("GZ u killed brauk")
 		Global.boss_slain = true
-		self.queue_free() 
+		sprite.play("braukdeath") 
+
+		
+func _on_animated_sprite_2d_animation_finished():
+	print("GZ u killed brauk")
+	self.queue_free()
+
 
 
 func enemy():
@@ -53,3 +58,4 @@ func deal_with_damage():
 		health = health - 20
 		print("brauk health =", health)
 		
+

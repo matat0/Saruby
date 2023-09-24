@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://fymr7ov40l8y"]
+[gd_scene load_steps=26 format=3 uid="uid://fymr7ov40l8y"]
 
 [ext_resource type="Script" path="res://Scripts/brauk.gd" id="1_hxv7a"]
+[ext_resource type="Texture2D" uid="uid://bfaev1sy14ylw" path="res://Assets/Bosses/Brauk/SpriteSheet/Bringer-of-Death-SpritSheet_no-Effect.png" id="2_4nr8u"]
 [ext_resource type="Texture2D" uid="uid://dbhp3305sdqo5" path="res://Assets/Bosses/Brauk/brauk.png" id="2_ibeb8"]
 [ext_resource type="Script" path="res://Scenes/boss_health.gd" id="3_tgsyp"]
 
@@ -9,6 +10,42 @@ size = Vector2(27, 54)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0iyvq"]
 radius = 140.014
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dggp0"]
+atlas = ExtResource("2_4nr8u")
+region = Rect2(840, 279, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2jfv"]
+atlas = ExtResource("2_4nr8u")
+region = Rect2(980, 279, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf460"]
+atlas = ExtResource("2_4nr8u")
+region = Rect2(0, 372, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g435m"]
+atlas = ExtResource("2_4nr8u")
+region = Rect2(140, 372, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nslkx"]
+atlas = ExtResource("2_4nr8u")
+region = Rect2(280, 372, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwe24"]
+atlas = ExtResource("2_4nr8u")
+region = Rect2(420, 372, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrcdp"]
+atlas = ExtResource("2_4nr8u")
+region = Rect2(560, 372, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqn4i"]
+atlas = ExtResource("2_4nr8u")
+region = Rect2(700, 372, 140, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il2d6"]
+atlas = ExtResource("2_4nr8u")
+region = Rect2(840, 372, 140, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4w82"]
 atlas = ExtResource("2_ibeb8")
@@ -44,6 +81,38 @@ region = Rect2(210, 279, 70, 93)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drc0f"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dggp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2jfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf460")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g435m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nslkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwe24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrcdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqn4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il2d6")
+}],
+"loop": false,
+"name": &"braukdeath",
+"speed": 20.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c4w82")
@@ -92,7 +161,7 @@ shape = SubResource("CircleShape2D_0iyvq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_drc0f")
-animation = &"idle"
+animation = &"braukdeath"
 
 [node name="brauk_hitbox" type="Area2D" parent="."]
 
@@ -109,5 +178,6 @@ script = ExtResource("3_tgsyp")
 
 [connection signal="body_entered" from="aggro_range" to="." method="_on_aggro_range_body_entered"]
 [connection signal="body_exited" from="aggro_range" to="." method="_on_aggro_range_body_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="brauk_hitbox" to="." method="_on_brauk_hitbox_body_entered"]
 [connection signal="body_exited" from="brauk_hitbox" to="." method="_on_brauk_hitbox_body_exited"]
