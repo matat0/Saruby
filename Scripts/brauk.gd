@@ -5,7 +5,7 @@ extends CharacterBody2D
 var speed = 200 #this value is inverse to the actual speed (higher # = slower movement)
 var player_chase = false
 var player = null
-var health = 500
+var health = 5000
 var player_in_range = false
  
 func _physics_process(delta):
