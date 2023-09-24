@@ -5,6 +5,11 @@ const speed = 200
 var input_direction: get = _get_input_direction
 var sprite_direction = "right": get = _get_sprite_direction	
 
+var enemy_in_range = false
+var enemy_attack_cooldown = true
+var health = 100
+var player_alive = true
+
 @onready var sprite = $AnimatedSprite2D
 
 func _ready(): #uses the current tilemap to calculate camera boundaries, should work on any tilemap
@@ -20,6 +25,12 @@ func _ready(): #uses the current tilemap to calculate camera boundaries, should 
 func _physics_process(delta):
 	velocity = input_direction * speed
 	move_and_slide()
+	enemy_attack()
+	if health <= 0:
+		player_alive = false
+		health = 0
+		print("rip bozo")
+		self.queue_free() #replace with death screen or downed or something
 	
 	set_animation("walk")
 	if velocity == Vector2.ZERO:
@@ -53,3 +64,26 @@ func _get_sprite_direction():
 			sprite_direction = "down"
 	return sprite_direction
 
+func player():
+	pass
+
+func _on_matato_hitbox_body_entered(body):
+	if body.has_method("enemy"):
+		enemy_in_range = true
+
+
+func _on_matato_hitbox_body_exited(body):
+	if body.has_method("enemy"):
+		enemy_in_range = false
+
+func enemy_attack():
+	if enemy_in_range and enemy_attack_cooldown == true:
+		health = health - 20
+		enemy_attack_cooldown = false
+		$damage_taken_cooldown.start()
+		print(health)
+
+
+
+func _on_damage_taken_cooldown_timeout():
+	enemy_attack_cooldown = true
