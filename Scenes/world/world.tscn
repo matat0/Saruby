@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://paig47eyu87e" path="res://Assets/Nature/Tilesets/wall-8 - 2 tiles tall.png" id="1_xoau1"]
 [ext_resource type="Texture2D" uid="uid://gw38hoase41h" path="res://Assets/Nature/Tilesets/Tileset-Animated Terrains-8 frames-.png" id="2_s2vc0"]
 [ext_resource type="Texture2D" uid="uid://cpv58ypyf5f2b" path="res://Assets/Nature/Tilesets/Tileset-Terrain2.png" id="3_8v85w"]
-[ext_resource type="PackedScene" uid="uid://d3165wqb57tpe" path="res://Scenes/matato.tscn" id="4_lkguw"]
+[ext_resource type="PackedScene" uid="uid://d3165wqb57tpe" path="res://Scenes/entities/player/player_character/matato.tscn" id="4_lkguw"]
 [ext_resource type="PackedScene" uid="uid://u210et4e71ey" path="res://Scenes/brauk_first_encounter_theme.tscn" id="5_8txd3"]
-[ext_resource type="PackedScene" uid="uid://fymr7ov40l8y" path="res://Scenes/brauk.tscn" id="6_7ckdp"]
+[ext_resource type="PackedScene" uid="uid://fymr7ov40l8y" path="res://Scenes/entities/enemy/enemy_character/brauk.tscn" id="6_7ckdp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aks0s"]
 texture = ExtResource("1_xoau1")

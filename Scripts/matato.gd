@@ -11,7 +11,7 @@ var health = 100
 var player_alive = true
 var attack_ip = false
 
-var Bullet = preload("res://Scenes/proj_frost_orb.tscn")
+var Bullet = preload("res://Scenes/entities/player/player_character/player_projectiles/proj_frost_orb.tscn")
 var bulletDamage = 200
 var pathName
 var currTarget

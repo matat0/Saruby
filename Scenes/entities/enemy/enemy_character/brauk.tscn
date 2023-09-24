@@ -1,10 +1,10 @@
 [gd_scene load_steps=37 format=3 uid="uid://fymr7ov40l8y"]
 
-[ext_resource type="Script" path="res://Scripts/brauk.gd" id="1_hxv7a"]
-[ext_resource type="Texture2D" uid="uid://bfaev1sy14ylw" path="res://Assets/Bosses/Brauk/SpriteSheet/Bringer-of-Death-SpritSheet_no-Effect.png" id="2_4nr8u"]
-[ext_resource type="Texture2D" uid="uid://dbhp3305sdqo5" path="res://Assets/Bosses/Brauk/brauk.png" id="2_ibeb8"]
-[ext_resource type="Texture2D" uid="uid://bjixr67yfw1ro" path="res://Assets/Bosses/Brauk/SpriteSheet/Bringer-of-Death-SpritSheet.png" id="3_bfgqf"]
-[ext_resource type="Script" path="res://Scenes/boss_health.gd" id="3_tgsyp"]
+[ext_resource type="Script" path="res://Scripts/brauk.gd" id="1_j5mms"]
+[ext_resource type="Texture2D" uid="uid://bfaev1sy14ylw" path="res://Assets/Bosses/Brauk/SpriteSheet/Bringer-of-Death-SpritSheet_no-Effect.png" id="2_b727n"]
+[ext_resource type="Texture2D" uid="uid://bjixr67yfw1ro" path="res://Assets/Bosses/Brauk/SpriteSheet/Bringer-of-Death-SpritSheet.png" id="3_7mxod"]
+[ext_resource type="Texture2D" uid="uid://dbhp3305sdqo5" path="res://Assets/Bosses/Brauk/brauk.png" id="4_8lqrg"]
+[ext_resource type="Script" path="res://Scenes/entities/enemy/enemy_character/boss_health.gd" id="5_4jtik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcoid"]
 size = Vector2(27, 54)
@@ -13,111 +13,111 @@ size = Vector2(27, 54)
 radius = 140.014
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sofm6"]
-atlas = ExtResource("2_4nr8u")
+atlas = ExtResource("2_b727n")
 region = Rect2(770, 279, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1yqs6"]
-atlas = ExtResource("2_4nr8u")
+atlas = ExtResource("2_b727n")
 region = Rect2(910, 279, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dadmp"]
-atlas = ExtResource("2_4nr8u")
+atlas = ExtResource("2_b727n")
 region = Rect2(70, 372, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d8ncf"]
-atlas = ExtResource("2_4nr8u")
+atlas = ExtResource("2_b727n")
 region = Rect2(210, 372, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a62h8"]
-atlas = ExtResource("2_4nr8u")
+atlas = ExtResource("2_b727n")
 region = Rect2(350, 372, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ad1ch"]
-atlas = ExtResource("2_4nr8u")
+atlas = ExtResource("2_b727n")
 region = Rect2(490, 372, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7jibv"]
-atlas = ExtResource("2_4nr8u")
+atlas = ExtResource("2_b727n")
 region = Rect2(630, 372, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yg5d5"]
-atlas = ExtResource("2_4nr8u")
+atlas = ExtResource("2_b727n")
 region = Rect2(770, 372, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e14ue"]
-atlas = ExtResource("2_4nr8u")
+atlas = ExtResource("2_b727n")
 region = Rect2(910, 372, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8ner"]
-atlas = ExtResource("3_bfgqf")
+atlas = ExtResource("3_7mxod")
 region = Rect2(350, 279, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_loaf8"]
-atlas = ExtResource("3_bfgqf")
+atlas = ExtResource("3_7mxod")
 region = Rect2(490, 279, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eep85"]
-atlas = ExtResource("3_bfgqf")
+atlas = ExtResource("3_7mxod")
 region = Rect2(630, 279, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqwxd"]
-atlas = ExtResource("3_bfgqf")
+atlas = ExtResource("3_7mxod")
 region = Rect2(70, 93, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_puwph"]
-atlas = ExtResource("3_bfgqf")
+atlas = ExtResource("3_7mxod")
 region = Rect2(210, 93, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b3214"]
-atlas = ExtResource("3_bfgqf")
+atlas = ExtResource("3_7mxod")
 region = Rect2(350, 93, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eorv8"]
-atlas = ExtResource("3_bfgqf")
+atlas = ExtResource("3_7mxod")
 region = Rect2(490, 93, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p51ii"]
-atlas = ExtResource("3_bfgqf")
+atlas = ExtResource("3_7mxod")
 region = Rect2(630, 93, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ndf70"]
-atlas = ExtResource("3_bfgqf")
+atlas = ExtResource("3_7mxod")
 region = Rect2(770, 93, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h3pck"]
-atlas = ExtResource("3_bfgqf")
+atlas = ExtResource("3_7mxod")
 region = Rect2(910, 93, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4w82"]
-atlas = ExtResource("2_ibeb8")
+atlas = ExtResource("4_8lqrg")
 region = Rect2(70, 0, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xstss"]
-atlas = ExtResource("2_ibeb8")
+atlas = ExtResource("4_8lqrg")
 region = Rect2(210, 0, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbmv1"]
-atlas = ExtResource("2_ibeb8")
+atlas = ExtResource("4_8lqrg")
 region = Rect2(70, 93, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmp1d"]
-atlas = ExtResource("2_ibeb8")
+atlas = ExtResource("4_8lqrg")
 region = Rect2(210, 93, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oq215"]
-atlas = ExtResource("2_ibeb8")
+atlas = ExtResource("4_8lqrg")
 region = Rect2(70, 186, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_efftg"]
-atlas = ExtResource("2_ibeb8")
+atlas = ExtResource("4_8lqrg")
 region = Rect2(210, 186, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3ydk"]
-atlas = ExtResource("2_ibeb8")
+atlas = ExtResource("4_8lqrg")
 region = Rect2(70, 279, 70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjrnj"]
-atlas = ExtResource("2_ibeb8")
+atlas = ExtResource("4_8lqrg")
 region = Rect2(210, 279, 70, 93)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drc0f"]
@@ -228,7 +228,7 @@ animations = [{
 size = Vector2(42, 55)
 
 [node name="brauk" type="CharacterBody2D"]
-script = ExtResource("1_hxv7a")
+script = ExtResource("1_j5mms")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 18)
@@ -256,7 +256,7 @@ offset_top = -27.0
 offset_right = 44.0
 offset_bottom = -15.0
 show_percentage = false
-script = ExtResource("3_tgsyp")
+script = ExtResource("5_4jtik")
 
 [connection signal="body_entered" from="aggro_range" to="." method="_on_aggro_range_body_entered"]
 [connection signal="body_exited" from="aggro_range" to="." method="_on_aggro_range_body_exited"]

@@ -1,29 +1,29 @@
 [gd_scene load_steps=11 format=3 uid="uid://d3165wqb57tpe"]
 
-[ext_resource type="Script" path="res://Scripts/matato.gd" id="1_lkejc"]
-[ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_1wiaq"]
+[ext_resource type="Script" path="res://Scripts/matato.gd" id="1_5411w"]
+[ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_hlev0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcusi"]
 size = Vector2(14, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sp4be"]
-atlas = ExtResource("2_1wiaq")
+atlas = ExtResource("2_hlev0")
 region = Rect2(0, 0, 33, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nts6d"]
-atlas = ExtResource("2_1wiaq")
+atlas = ExtResource("2_hlev0")
 region = Rect2(0, 0, 33, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5svtn"]
-atlas = ExtResource("2_1wiaq")
+atlas = ExtResource("2_hlev0")
 region = Rect2(33, 0, 33, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5y5n"]
-atlas = ExtResource("2_1wiaq")
+atlas = ExtResource("2_hlev0")
 region = Rect2(0, 33, 33, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_teput"]
-atlas = ExtResource("2_1wiaq")
+atlas = ExtResource("2_hlev0")
 region = Rect2(33, 33, 33, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8yohp"]
@@ -58,7 +58,7 @@ animations = [{
 size = Vector2(20, 29)
 
 [node name="matato" type="CharacterBody2D"]
-script = ExtResource("1_lkejc")
+script = ExtResource("1_5411w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
