@@ -5,9 +5,9 @@ extends CharacterBody2D
 var speed = 200 #this value is inverse to the actual speed (higher # = slower movement)
 var player_chase = false
 var player = null
-var health = 5000
+var health = 500
 var player_in_range = false
- 
+
 func _physics_process(delta):
 	deal_with_damage()
 	
@@ -23,16 +23,15 @@ func _physics_process(delta):
 		
 		if direction_to_player.length() > 0.01:
 			sprite.play("braukwalk")
-		else:
-			sprite.play("idle")
-	
-	else:
-		sprite.play("idle")
-		
-	if health <= 0:
+			
+	elif health <= 0:
 		health = 0
 		Global.boss_slain = true
 		sprite.play("braukdeath")
+	
+	else:
+		sprite.play("idle")
+
 
 func _on_animated_sprite_2d_animation_finished():
 	print("GZ u killed brauk")
