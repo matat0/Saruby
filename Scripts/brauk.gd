@@ -43,8 +43,3 @@ func _on_brauk_hitbox_body_exited(body):
 
 func deal_damage():
 	pass
-		
-
-func _ready():
-	sprite.play("idle")
-
