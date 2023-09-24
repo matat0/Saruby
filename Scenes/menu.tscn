@@ -63,7 +63,17 @@ theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [node name="menu music" parent="." instance=ExtResource("5_es1tr")]
+position = Vector2(571, 226)
 bus = &"Music"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 617.0
+offset_right = 128.0
+offset_bottom = 643.0
+theme_override_font_sizes/font_size = 16
+text = "pre-alpha v0.2.0"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
