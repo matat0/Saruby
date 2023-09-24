@@ -12,14 +12,28 @@ func _physics_process(delta):
 	deal_with_damage()
 	
 	if player_chase:
+		var direction_to_player = (player.position - position).normalized()
+		if direction_to_player.x < 0:
+			sprite.flip_h = false
+		
+		elif direction_to_player.x > 0:
+			sprite.flip_h = true
+		
 		position += (player.position - position)/speed
+		
+		if direction_to_player.length() > 0.01:
+			sprite.play("braukwalk")
+		else:
+			sprite.play("idle")
+	
+	else:
+		sprite.play("idle")
 		
 	if health <= 0:
 		health = 0
 		Global.boss_slain = true
-		sprite.play("braukdeath") 
+		sprite.play("braukdeath")
 
-		
 func _on_animated_sprite_2d_animation_finished():
 	print("GZ u killed brauk")
 	self.queue_free()
@@ -30,7 +44,7 @@ func enemy():
 	pass
 
 func _ready():
-	sprite.play("idle")
+	pass
 	
 
 func _on_aggro_range_body_entered(body):
