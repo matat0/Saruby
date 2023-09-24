@@ -1,6 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://fymr7ov40l8y"]
 
-[ext_resource type="Script" path="res://Scripts/brauk.gd" id="1_hxv7a"]
+
+[ext_resource type="Script" path="res://Scripts/brauk.gd" id="1_pewwc"]
+
 [ext_resource type="Texture2D" uid="uid://dbhp3305sdqo5" path="res://Assets/Bosses/Brauk/brauk.png" id="2_ibeb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcoid"]
@@ -70,7 +72,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlrem"]

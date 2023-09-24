@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 
+
 var speed = 200 #this value is inverse to the actual speed (higher # = slower movement)
 var player_chase = false
 var player = null
@@ -43,3 +44,7 @@ func _on_brauk_hitbox_body_exited(body):
 func deal_damage():
 	pass
 		
+
+func _ready():
+	sprite.play("idle")
+
