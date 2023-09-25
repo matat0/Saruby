@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var target_position: Vector2
 var target
-var speed = 200
+var speed = 300
 var pathName = ""
 var bulletDamage
 var pathSpawnerNode

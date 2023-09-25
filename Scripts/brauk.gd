@@ -6,7 +6,7 @@ extends CharacterBody2D
 var speed = 200 #this value is inverse to the actual speed (higher # = slower movement)
 var player_chase = false
 var player = null
-var health = 500
+var health = 5000
 var player_in_range = false
 signal enemy_defeated
 var loot = 500
@@ -57,6 +57,7 @@ func enemy():
 
 func _ready():
 	Global.enemy = $"."
+	sprite.play("idle")
 	
 
 func _on_aggro_range_body_entered(body):
