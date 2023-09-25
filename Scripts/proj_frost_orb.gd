@@ -15,12 +15,10 @@ func _physics_process(_delta):
 		var direction = (target_position - global_position).normalized()
 		velocity = direction * speed
 		move_and_slide()
-	
-	
 
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("enemy"):
 		body.health -= bulletDamage
-		boss_hurt.emit()
+		emit_signal("boss_hurt")
 		queue_free()
