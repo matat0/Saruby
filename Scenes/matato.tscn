@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://cgqayyxalekat"]
+
+[ext_resource type="Script" path="res://Scripts/matato.gd" id="1_lkejc"]
+[ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_1wiaq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcusi"]
+size = Vector2(14, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp4be"]
+atlas = ExtResource("2_1wiaq")
+region = Rect2(0, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nts6d"]
+atlas = ExtResource("2_1wiaq")
+region = Rect2(0, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5svtn"]
+atlas = ExtResource("2_1wiaq")
+region = Rect2(33, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5y5n"]
+atlas = ExtResource("2_1wiaq")
+region = Rect2(0, 33, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teput"]
+atlas = ExtResource("2_1wiaq")
+region = Rect2(33, 33, 33, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8yohp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp4be")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nts6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5svtn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5y5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_teput")
+}],
+"loop": true,
+"name": &"walkside",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkqb4"]
+size = Vector2(20, 29)
+
+[node name="matato" type="CharacterBody2D"]
+script = ExtResource("1_lkejc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_vcusi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8yohp")
+animation = &"walkside"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+
+[node name="matato_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="matato_hitbox"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_kkqb4")
+
+[node name="damage_taken_cooldown" type="Timer" parent="."]
+wait_time = 0.75
+
+[node name="attack_cd" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Aim" type="Marker2D" parent="."]
+
+[node name="BulletContainer" type="Node" parent="."]
+
+[connection signal="body_entered" from="matato_hitbox" to="." method="_on_matato_hitbox_body_entered"]
+[connection signal="body_exited" from="matato_hitbox" to="." method="_on_matato_hitbox_body_exited"]
+[connection signal="timeout" from="damage_taken_cooldown" to="." method="_on_damage_taken_cooldown_timeout"]
+[connection signal="timeout" from="attack_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="attack_cd" to="." method="_on_attack_1_cd_timeout"]

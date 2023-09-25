@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8k1gk75ovxbk"]
+
+[ext_resource type="Script" path="res://Scripts/volume_slider.gd" id="1_vg5gc"]
+[ext_resource type="Script" path="res://Scripts/Options.gd" id="1_ykrve"]
+[ext_resource type="PackedScene" uid="uid://cjbucihcgyh78" path="res://Scenes/a_green_start.tscn" id="2_lqtry"]
+[ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_rkcq1"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ykrve")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -67.0
+offset_right = 142.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Labels" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Master"
+
+[node name="Music" type="Label" parent="HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Music
+"
+
+[node name="SFX" type="Label" parent="HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "SFX
+"
+
+[node name="Sliders" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Master" type="HSlider" parent="HBoxContainer/Sliders"]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_vg5gc")
+bus_name = "Master"
+
+[node name="Music" type="HSlider" parent="HBoxContainer/Sliders"]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_vg5gc")
+bus_name = "Music"
+
+[node name="SFX" type="HSlider" parent="HBoxContainer/Sliders"]
+layout_mode = 2
+size_flags_vertical = 6
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_vg5gc")
+bus_name = "SFX"
+
+[node name="AudioStreamPlayer2D" parent="HBoxContainer" instance=ExtResource("2_lqtry")]
+bus = &"Music"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 399.0
+offset_right = 619.0
+offset_bottom = 452.0
+theme_override_fonts/font = ExtResource("4_rkcq1")
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
