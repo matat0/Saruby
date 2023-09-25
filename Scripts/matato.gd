@@ -4,14 +4,14 @@ const speed = 200
 
 var input_direction: get = _get_input_direction
 var sprite_direction = "right": get = _get_sprite_direction	
-
+var score = 0
 var enemy_in_range = false
 var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
 var attack_ip = false
 
-var Bullet = preload("res://Scenes/proj_frost_orb.tscn")
+var Bullet = preload("res://Scenes/entities/player/player_character/player_projectiles/proj_frost_orb.tscn")
 var bulletDamage = 200
 var pathName
 var currTarget
@@ -22,13 +22,13 @@ var curr
 
 
 func _ready(): #uses the current tilemap to calculate camera boundaries, should work on any tilemap
-	var tilemap_rect = get_parent().get_node("TileMap").get_used_rect()
-	var tilemap_cell_size = get_parent().get_node("TileMap").tile_set.tile_size
+	var tilemap_rect = get_parent().get_child(0).get_node("TileMap").get_used_rect()
+	var tilemap_cell_size = get_parent().get_child(0).get_node("TileMap").tile_set.tile_size
 	$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
 	$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
 	$Camera2D.limit_bottom = tilemap_rect.end.y * tilemap_cell_size.y
 	$Camera2D.limit_top = tilemap_rect.position.x * tilemap_cell_size.y
-	
+	#get_parent().get_child(2).connect("award_loot", self, _on_brauk_death)
 	
 
 func _physics_process(_delta):
