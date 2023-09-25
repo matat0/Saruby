@@ -14,8 +14,8 @@ var loot = 500
 
 
 func _on_enemy_defeated(loot: int):
+	pass
 	
-	print("signal emitted, ", loot, Global.score)
 
 func _physics_process(delta):
 	#deal_with_damage() old melee function
@@ -46,8 +46,10 @@ func _physics_process(delta):
 
 func _on_animated_sprite_2d_animation_finished():
 	print("GZ u killed brauk")
-	self.queue_free()
 	emit_signal("enemy_defeated", loot)
+	print("signal emitted, ", loot, Global.score)
+	self.queue_free()
+	
 
 
 func enemy():

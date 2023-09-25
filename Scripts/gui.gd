@@ -8,7 +8,7 @@ func _ready():
 	var enemy = get_node("../brauk")
 	if enemy:
 		print("connected")
-		enemy.connect("enemy_defeated", enemy._on_enemy_defeated)
+		enemy.connect("enemy_defeated", self._on_enemy_defeated)
 
 
 
