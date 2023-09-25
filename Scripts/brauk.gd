@@ -2,11 +2,20 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 
+
 var speed = 200 #this value is inverse to the actual speed (higher # = slower movement)
 var player_chase = false
 var player = null
 var health = 500
 var player_in_range = false
+signal enemy_defeated
+var loot = 500
+
+
+
+func _on_enemy_defeated(loot: int):
+	
+	print("signal emitted, ", loot, Global.score)
 
 func _physics_process(delta):
 	#deal_with_damage() old melee function
@@ -28,6 +37,8 @@ func _physics_process(delta):
 		health = 0
 		Global.boss_slain = true
 		sprite.play("braukdeath")
+		
+		
 	
 	else:
 		sprite.play("idle")
@@ -36,14 +47,14 @@ func _physics_process(delta):
 func _on_animated_sprite_2d_animation_finished():
 	print("GZ u killed brauk")
 	self.queue_free()
-
+	emit_signal("enemy_defeated", loot)
 
 
 func enemy():
 	pass
 
 func _ready():
-	pass
+	Global.enemy = $"."
 	
 
 func _on_aggro_range_body_entered(body):
