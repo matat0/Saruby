@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bk005ulvfojkx"]
+[gd_scene load_steps=37 format=3 uid="uid://c2h71a2hvjvdk"]
 
 [ext_resource type="Script" path="res://Scripts/brauk.gd" id="1_hxv7a"]
 [ext_resource type="Texture2D" uid="uid://bfaev1sy14ylw" path="res://Assets/Bosses/Brauk/SpriteSheet/Bringer-of-Death-SpritSheet_no-Effect.png" id="2_4nr8u"]

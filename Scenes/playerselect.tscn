@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://di07atsto7nig"]
+[gd_scene load_steps=18 format=3 uid="uid://bywmad8xmaywc"]
 
 [ext_resource type="Script" path="res://Scripts/playerselect.gd" id="1_u06kv"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_8g4no"]

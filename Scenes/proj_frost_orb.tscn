@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://xikl4cfg4jo3"]
+[gd_scene load_steps=4 format=3 uid="uid://7ypdjha0cit"]
 
 [ext_resource type="Script" path="res://Scripts/proj_frost_orb.gd" id="1_kqhsa"]
 [ext_resource type="Texture2D" uid="uid://dxuiycgsii1s4" path="res://Assets/Matato/Attacks/frost_orb.png" id="2_kr7ij"]
