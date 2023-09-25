@@ -246,8 +246,11 @@ position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_0iyvq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_drc0f")
-animation = &"healthbar"
+animation = &"braukhurt"
+frame = 2
+frame_progress = 1.0
 
 [node name="brauk_hitbox" type="Area2D" parent="."]
 

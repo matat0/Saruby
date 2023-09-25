@@ -58,7 +58,6 @@ func enemy():
 func _ready():
 	Global.enemy = $"."
 	sprite.play("idle")
-	
 
 func _on_aggro_range_body_entered(body):
 	player = body

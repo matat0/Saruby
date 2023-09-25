@@ -2,12 +2,12 @@ extends CharacterBody2D
 
 var target_position: Vector2
 var target
-var speed = 300
+var speed = 350
 var pathName = ""
 var bulletDamage
 var pathSpawnerNode
 
-
+signal boss_hurt
 	
 func _physics_process(_delta):
 	
@@ -22,4 +22,5 @@ func _physics_process(_delta):
 func _on_area_2d_body_entered(body):
 	if body.has_method("enemy"):
 		body.health -= bulletDamage
+		boss_hurt.emit()
 		queue_free()
