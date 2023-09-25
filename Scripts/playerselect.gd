@@ -27,8 +27,8 @@ func _on_right_pressed():
 
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/world.tscn")
+	get_tree().change_scene_to_file("res://Scenes/game.tscn")
 
 
 func _on_button_2_pressed():
-	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/ui/menu.tscn")

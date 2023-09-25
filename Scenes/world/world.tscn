@@ -1,12 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://273x8isvmh5m"]
+[gd_scene load_steps=10 format=3 uid="uid://273x8isvmh5m"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_1hpc2"]
 [ext_resource type="Texture2D" uid="uid://paig47eyu87e" path="res://Assets/Nature/Tilesets/wall-8 - 2 tiles tall.png" id="1_xoau1"]
 [ext_resource type="Texture2D" uid="uid://gw38hoase41h" path="res://Assets/Nature/Tilesets/Tileset-Animated Terrains-8 frames-.png" id="2_s2vc0"]
 [ext_resource type="Texture2D" uid="uid://cpv58ypyf5f2b" path="res://Assets/Nature/Tilesets/Tileset-Terrain2.png" id="3_8v85w"]
-[ext_resource type="PackedScene" uid="uid://d3165wqb57tpe" path="res://Scenes/matato.tscn" id="4_lkguw"]
 [ext_resource type="PackedScene" uid="uid://u210et4e71ey" path="res://Scenes/brauk_first_encounter_theme.tscn" id="5_8txd3"]
-[ext_resource type="PackedScene" uid="uid://fymr7ov40l8y" path="res://Scenes/brauk.tscn" id="6_7ckdp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aks0s"]
 texture = ExtResource("1_xoau1")
@@ -1849,14 +1847,7 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(1572901, 2359298, 18, 1638437, 2359298, 19, 1703973, 2359298, 20, 1769509, 2359298, 21, 1835045, 2359298, 22, 1900581, 2359298, 23, 1572902, 2424834, 18, 1638438, 2424834, 19, 1703974, 2424834, 20, 1769510, 2424834, 21, 1835046, 2424834, 22, 1900582, 2424834, 23, 1441831, 2490370, 16, 1507367, 2490370, 17, 1572903, 2490370, 18, 1638439, 2490370, 19, 1703975, 2490370, 20, 1769511, 2490370, 21, 1835047, 2490370, 22, 1900583, 2490370, 23, 1966119, 2490370, 24, 2031655, 2490370, 25, 1441832, 2555906, 16, 1507368, 2555906, 17, 1572904, 2555906, 18, 1638440, 2555906, 19, 1703976, 2555906, 20, 1769512, 2555906, 21, 1835048, 2555906, 22, 1900584, 2555906, 23, 1966120, 2555906, 24, 2031656, 2555906, 25, 1441833, 2621442, 16, 1507369, 2621442, 17, 1572905, 2621442, 18, 1638441, 2621442, 19, 1703977, 2621442, 20, 1769513, 2621442, 21, 1835049, 2621442, 22, 1900585, 2621442, 23, 1966121, 2621442, 24, 2031657, 2621442, 25, 1441834, 2686978, 16, 1507370, 2686978, 17, 1572906, 2686978, 18, 1638442, 2686978, 19, 1703978, 2686978, 20, 1769514, 2686978, 21, 1835050, 2686978, 22, 1900586, 2686978, 23, 1966122, 2686978, 24, 2031658, 2686978, 25, 1441835, 2752514, 16, 1507371, 2752514, 17, 1572907, 2752514, 18, 1638443, 2752514, 19, 1703979, 2752514, 20, 1769515, 2752514, 21, 1835051, 2752514, 22, 1900587, 2752514, 23, 1966123, 2752514, 24, 2031659, 2752514, 25, 1507372, 2818050, 17, 1572908, 2818050, 18, 1638444, 2818050, 19, 1703980, 2818050, 20, 1769516, 2818050, 21, 1835052, 2818050, 22, 1900588, 2818050, 23, 1966124, 2818050, 24, 2031660, 2818050, 25, 1572909, 2883586, 18, 1638445, 2883586, 19, 1703981, 2883586, 20, 1769517, 2883586, 21, 1835053, 2883586, 22, 1900589, 2883586, 23, 1572910, 2949122, 18, 1638446, 2949122, 19, 1769518, 2949122, 21, 1835054, 2949122, 22, 1900590, 2949122, 23)
 
-[node name="matato" parent="." instance=ExtResource("4_lkguw")]
-position = Vector2(670, 749)
-
 [node name="braukfight1" parent="." instance=ExtResource("5_8txd3")]
 position = Vector2(674, 409)
 volume_db = -15.0
 bus = &"Music"
-
-[node name="brauk" parent="." instance=ExtResource("6_7ckdp")]
-position = Vector2(672, 368)
-scale = Vector2(1.5, 1.5)

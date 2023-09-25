@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3nvpejtt2nve"]
 
-[ext_resource type="Script" path="res://Scripts/volume_slider.gd" id="1_vg5gc"]
-[ext_resource type="Script" path="res://Scripts/Options.gd" id="1_ykrve"]
-[ext_resource type="PackedScene" uid="uid://cjbucihcgyh78" path="res://Scenes/a_green_start.tscn" id="2_lqtry"]
-[ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_rkcq1"]
+[ext_resource type="Script" path="res://Scripts/Options.gd" id="1_uqi8v"]
+[ext_resource type="Script" path="res://Scripts/volume_slider.gd" id="2_n0okt"]
+[ext_resource type="PackedScene" uid="uid://cjbucihcgyh78" path="res://Scenes/a_green_start.tscn" id="3_evvnj"]
+[ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_u043w"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ykrve")
+script = ExtResource("1_uqi8v")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -57,7 +57,7 @@ layout_mode = 2
 size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
-script = ExtResource("1_vg5gc")
+script = ExtResource("2_n0okt")
 bus_name = "Master"
 
 [node name="Music" type="HSlider" parent="HBoxContainer/Sliders"]
@@ -65,7 +65,7 @@ layout_mode = 2
 size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
-script = ExtResource("1_vg5gc")
+script = ExtResource("2_n0okt")
 bus_name = "Music"
 
 [node name="SFX" type="HSlider" parent="HBoxContainer/Sliders"]
@@ -73,10 +73,10 @@ layout_mode = 2
 size_flags_vertical = 6
 max_value = 1.0
 step = 0.001
-script = ExtResource("1_vg5gc")
+script = ExtResource("2_n0okt")
 bus_name = "SFX"
 
-[node name="AudioStreamPlayer2D" parent="HBoxContainer" instance=ExtResource("2_lqtry")]
+[node name="AudioStreamPlayer2D" parent="HBoxContainer" instance=ExtResource("3_evvnj")]
 bus = &"Music"
 
 [node name="Back" type="Button" parent="."]
@@ -85,7 +85,7 @@ offset_left = 537.0
 offset_top = 399.0
 offset_right = 619.0
 offset_bottom = 452.0
-theme_override_fonts/font = ExtResource("4_rkcq1")
+theme_override_fonts/font = ExtResource("4_u043w")
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
