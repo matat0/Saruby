@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://c844jnm2e51c2"]
+[gd_scene load_steps=19 format=3 uid="uid://c844jnm2e51c2"]
 
 [ext_resource type="Script" path="res://Scripts/playerselect.gd" id="1_u06kv"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_8g4no"]
 [ext_resource type="Texture2D" uid="uid://bvnn126xh7c63" path="res://Assets/hidden_character.png" id="2_j1aq8"]
 [ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_0apf5"]
+[ext_resource type="AudioStream" uid="uid://sy5go7cm2rxs" path="res://Assets/Music/choose_your_character.mp3" id="5_50oox"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3o85"]
 bg_color = Color(0.0196078, 0.160784, 0.0941176, 0.870588)
@@ -162,6 +163,13 @@ offset_bottom = 636.0
 theme_override_fonts/font = ExtResource("4_0apf5")
 theme_override_font_sizes/font_size = 32
 text = "Back"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(567, 388)
+stream = ExtResource("5_50oox")
+volume_db = -5.334
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="Right" to="." method="_on_right_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://fymr7ov40l8y"]
+[gd_scene load_steps=73 format=3 uid="uid://fymr7ov40l8y"]
 
 [ext_resource type="Script" path="res://Scripts/brauk.gd" id="1_j5mms"]
 [ext_resource type="Texture2D" uid="uid://bfaev1sy14ylw" path="res://Assets/Bosses/Brauk/SpriteSheet/Bringer-of-Death-SpritSheet_no-Effect.png" id="2_b727n"]
@@ -11,6 +11,652 @@ size = Vector2(27, 54)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0iyvq"]
 radius = 140.014
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlrem"]
+size = Vector2(42, 55)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8nrqm"]
+animation = &"braukdeath"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pu2y2"]
+animation = &"braukhurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ir0p"]
+animation = &"braukhurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_15n5y"]
+animation = &"braukhurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_objsa"]
+animation = &"braukhurt"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_l1xen"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_pu2y2")
+blend_point_0/pos = Vector2(-10016.8, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2ir0p")
+blend_point_1/pos = Vector2(0, 10000)
+blend_point_2/node = SubResource("AnimationNodeAnimation_15n5y")
+blend_point_2/pos = Vector2(16.8, -9281.4)
+blend_point_3/node = SubResource("AnimationNodeAnimation_objsa")
+blend_point_3/pos = Vector2(9949.7, 299.4)
+min_space = Vector2(-10000, -10000)
+max_space = Vector2(10000, 10000)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tugbc"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fddkx"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e8ilx"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sbt0i"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_bc11t"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_tugbc")
+blend_point_0/pos = Vector2(-10016.7, 119.8)
+blend_point_1/node = SubResource("AnimationNodeAnimation_fddkx")
+blend_point_1/pos = Vector2(-33.6, 9521)
+blend_point_2/node = SubResource("AnimationNodeAnimation_e8ilx")
+blend_point_2/pos = Vector2(0, -8562.9)
+blend_point_3/node = SubResource("AnimationNodeAnimation_sbt0i")
+blend_point_3/pos = Vector2(9966.4, 299.4)
+min_space = Vector2(-10000, -10000)
+max_space = Vector2(10000, 10000)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jonn3"]
+animation = &"braukwalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2voxj"]
+animation = &"braukwalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hgwhv"]
+animation = &"braukwalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_skexu"]
+animation = &"braukwalk"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_pdpdy"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_jonn3")
+blend_point_0/pos = Vector2(-9911.7, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2voxj")
+blend_point_1/pos = Vector2(-33.6, 9521)
+blend_point_2/node = SubResource("AnimationNodeAnimation_hgwhv")
+blend_point_2/pos = Vector2(50.4, -9760.5)
+blend_point_3/node = SubResource("AnimationNodeAnimation_skexu")
+blend_point_3/pos = Vector2(10000, -59.9)
+min_space = Vector2(-10000, -10000)
+max_space = Vector2(10000, 10000)
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xflec"]
+advance_mode = 2
+advance_condition = &"is_hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ahm7n"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8jq8t"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y0u36"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t1jbg"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2l4hx"]
+advance_mode = 2
+advance_condition = &"is_hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_op00w"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6dghs"]
+advance_mode = 2
+advance_condition = &"enemy_defeated"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eec5y"]
+advance_mode = 2
+advance_condition = &"enemy_defeated"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h7g8d"]
+advance_mode = 2
+advance_condition = &"enemy_defeated"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ucdd0"]
+states/braukdeath/node = SubResource("AnimationNodeAnimation_8nrqm")
+states/braukdeath/position = Vector2(521, 255)
+states/hurt/node = SubResource("AnimationNodeBlendSpace2D_l1xen")
+states/hurt/position = Vector2(500, 30)
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_bc11t")
+states/idle/position = Vector2(386, 140)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_pdpdy")
+states/walk/position = Vector2(617, 140)
+transitions = ["idle", "hurt", SubResource("AnimationNodeStateMachineTransition_xflec"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ahm7n"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_8jq8t"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_y0u36"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_t1jbg"), "walk", "hurt", SubResource("AnimationNodeStateMachineTransition_2l4hx"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_op00w"), "hurt", "braukdeath", SubResource("AnimationNodeStateMachineTransition_6dghs"), "idle", "braukdeath", SubResource("AnimationNodeStateMachineTransition_eec5y"), "walk", "braukdeath", SubResource("AnimationNodeStateMachineTransition_h7g8d")]
+graph_offset = Vector2(0, 98.0994)
+
+[sub_resource type="Animation" id="Animation_eqmko"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:vframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7mxod")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_xsq5e"]
+resource_name = "braukcast"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7mxod")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [39, 40, 41, 42, 43, 44, 45, 46, 47]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-53, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_38rys"]
+resource_name = "braukdeath"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7mxod")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [59, 61, 63, 65, 67, 69, 71, 73, 75, 77]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fja4j"]
+resource_name = "braukhurt"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7mxod")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [53, 55, 57]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0bku4"]
+resource_name = "braukmelee"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7mxod")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-53, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oevkx"]
+resource_name = "braukspell"
+length = 1.1
+loop_mode = 1
+step = 0.075
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7mxod")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -12)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525, 0.6, 0.675, 0.75, 0.825, 0.9, 0.975),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61]
+}
+
+[sub_resource type="Animation" id="Animation_b4r06"]
+resource_name = "braukwalk"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [17, 19, 21, 23, 25, 27, 29, 31]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7mxod")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_apj10"]
+resource_name = "idle"
+length = 1.05
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:vframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7mxod")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11, 13, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b0t1a"]
+_data = {
+"RESET": SubResource("Animation_eqmko"),
+"braukcast": SubResource("Animation_xsq5e"),
+"braukdeath": SubResource("Animation_38rys"),
+"braukhurt": SubResource("Animation_fja4j"),
+"braukmelee": SubResource("Animation_0bku4"),
+"braukspell": SubResource("Animation_oevkx"),
+"braukwalk": SubResource("Animation_b4r06"),
+"idle": SubResource("Animation_apj10")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sofm6"]
 atlas = ExtResource("2_b727n")
@@ -229,11 +875,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlrem"]
-size = Vector2(42, 55)
-
 [node name="brauk" type="CharacterBody2D"]
 script = ExtResource("1_j5mms")
+
+[node name="body" type="Sprite2D" parent="."]
+position = Vector2(3, -12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_7mxod")
+hframes = 8
+vframes = 8
+region_rect = Rect2(55, 10, 1097, 524)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 18)
@@ -245,14 +896,16 @@ shape = SubResource("RectangleShape2D_tcoid")
 position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_0iyvq")
 
+<<<<<<< HEAD
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_drc0f")
-animation = &"braukhurt"
-frame = 2
-frame_progress = 1.0
+animation = &"braukdeath"
 
+=======
+>>>>>>> 177efab4eaee193d4d310c4ba3f179c8c828c8e1
 [node name="brauk_hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="brauk_hitbox"]
 position = Vector2(1, 18.5)
@@ -267,8 +920,35 @@ offset_bottom = -18.0
 show_percentage = false
 script = ExtResource("5_4jtik")
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_ucdd0")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/enemy_defeated = false
+parameters/conditions/idle = false
+parameters/conditions/is_hurt = false
+parameters/conditions/is_moving = false
+parameters/hurt/blend_position = Vector2(0, 0)
+parameters/idle/blend_position = Vector2(-0.998322, 0.0179641)
+parameters/walk/blend_position = Vector2(0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../body")
+libraries = {
+"": SubResource("AnimationLibrary_b0t1a")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_drc0f")
+animation = &"healthbar"
+
+[node name="boss death scene timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="aggro_range" to="." method="_on_aggro_range_body_entered"]
 [connection signal="body_exited" from="aggro_range" to="." method="_on_aggro_range_body_exited"]
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="brauk_hitbox" to="." method="_on_brauk_hitbox_body_entered"]
 [connection signal="body_exited" from="brauk_hitbox" to="." method="_on_brauk_hitbox_body_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="boss death scene timer" to="." method="_on_boss_death_scene_timer_timeout"]
+[connection signal="timeout" from="boss death scene timer" to="." method="_on_boss_death_scene_timeout"]

@@ -17,3 +17,7 @@ func _on_enemy_defeated(loot: int):
 	Global.score += loot  # Update the score
 	score_label.text = str(Global.score) 
 	print("attempted to update")
+	
+
+func _on_reload_pressed():
+	get_tree().change_scene_to_file("res://Scenes/ui/menu.tscn")
