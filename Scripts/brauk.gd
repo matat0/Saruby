@@ -19,7 +19,6 @@ func _on_enemy_defeated(loot: int):
 
 func _physics_process(delta):
 	#deal_with_damage() old melee function
-	
 	if player_chase and health > 0:
 		var direction_to_player = (player.position - position).normalized()
 		if direction_to_player.x < 0:
@@ -32,7 +31,7 @@ func _physics_process(delta):
 		
 		if direction_to_player.length() > 0.01:
 			sprite.play("braukwalk")
-			
+
 	elif health <= 0:
 		health = 0
 		Global.boss_slain = true
@@ -51,13 +50,13 @@ func _on_animated_sprite_2d_animation_finished():
 	self.queue_free()
 	
 
-
 func enemy():
 	pass
 
 func _ready():
 	Global.enemy = $"."
 	sprite.play("idle")
+
 
 func _on_aggro_range_body_entered(body):
 	player = body

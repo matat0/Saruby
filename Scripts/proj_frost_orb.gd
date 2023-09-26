@@ -8,6 +8,10 @@ var bulletDamage
 var pathSpawnerNode
 
 signal boss_hurt
+
+func _ready():
+	$FrostOrb.play("frost_orb")
+	
 	
 func _physics_process(_delta):
 	
