@@ -897,11 +897,14 @@ position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_0iyvq")
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_drc0f")
 animation = &"braukdeath"
 
+=======
+>>>>>>> 177efab4eaee193d4d310c4ba3f179c8c828c8e1
 =======
 >>>>>>> 177efab4eaee193d4d310c4ba3f179c8c828c8e1
 [node name="brauk_hitbox" type="Area2D" parent="."]
