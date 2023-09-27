@@ -1,7 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3165wqb57tpe"]
+[gd_scene load_steps=16 format=3 uid="uid://d3165wqb57tpe"]
 
 [ext_resource type="Script" path="res://Scripts/matato.gd" id="1_5411w"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_hlev0"]
+[ext_resource type="Texture2D" uid="uid://dxuiycgsii1s4" path="res://Assets/Matato/Attacks/frost_orb.png" id="3_1woc2"]
+[ext_resource type="Script" path="res://Scenes/entities/player/player_character/attackbutton.gd" id="4_0s8f5"]
+[ext_resource type="Texture2D" uid="uid://du4ieqyvv7m82" path="res://Assets/Matato/Attacks/blank 20x20.png" id="5_4cvin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcusi"]
 size = Vector2(14, 26)
@@ -57,6 +60,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkqb4"]
 size = Vector2(20, 29)
 
+[sub_resource type="InputEventKey" id="InputEventKey_twnrm"]
+
+[sub_resource type="Shortcut" id="Shortcut_24lpq"]
+events = [SubResource("InputEventKey_twnrm")]
+
 [node name="matato" type="CharacterBody2D"]
 script = ExtResource("1_5411w")
 
@@ -84,15 +92,76 @@ shape = SubResource("RectangleShape2D_kkqb4")
 [node name="damage_taken_cooldown" type="Timer" parent="."]
 wait_time = 0.75
 
-[node name="attack_cd" type="Timer" parent="."]
-wait_time = 0.5
-
 [node name="Aim" type="Marker2D" parent="."]
 
 [node name="BulletContainer" type="Node" parent="."]
 
-[connection signal="body_entered" from="matato_hitbox" to="." method="_on_matato_hitbox_body_entered"]
-[connection signal="body_exited" from="matato_hitbox" to="." method="_on_matato_hitbox_body_exited"]
+[node name="combat_ui_real" type="CanvasLayer" parent="."]
+
+[node name="Control2" type="Control" parent="combat_ui_real"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = 2.0
+offset_right = -88.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="combat_ui_real/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="combat_ui_real/Control2/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="combat_ui_real/Control2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="attackbutton" type="TextureButton" parent="."]
+offset_left = 233.0
+offset_top = 110.0
+offset_right = 265.0
+offset_bottom = 142.0
+shortcut = SubResource("Shortcut_24lpq")
+texture_normal = ExtResource("3_1woc2")
+stretch_mode = 0
+script = ExtResource("4_0s8f5")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="attackbutton"]
+layout_mode = 0
+offset_left = -251.0
+offset_top = -127.0
+offset_right = -211.0
+offset_bottom = -87.0
+step = 0.05
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("5_4cvin")
+tint_progress = Color(0.192157, 0.00784314, 0.0392157, 0.176471)
+
+[node name="attack_cd" type="Timer" parent="attackbutton"]
+wait_time = 0.5
+
+[node name="key" type="Label" parent="attackbutton"]
+layout_mode = 0
+offset_left = -251.0
+offset_top = -127.0
+offset_right = -211.0
+offset_bottom = -104.0
+
 [connection signal="timeout" from="damage_taken_cooldown" to="." method="_on_damage_taken_cooldown_timeout"]
-[connection signal="timeout" from="attack_cd" to="." method="_on_attack_1_cd_timeout"]
-[connection signal="timeout" from="attack_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="pressed" from="attackbutton" to="attackbutton" method="_on_pressed"]
+[connection signal="timeout" from="attackbutton/attack_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="attackbutton/attack_cd" to="attackbutton" method="_on_attack_cd_timeout"]
