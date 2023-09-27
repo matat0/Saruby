@@ -9,19 +9,20 @@ var enemy_in_range = false
 var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
-var attack_ip = false
+
 
 var Bullet = preload("res://Scenes/entities/player/player_character/player_projectiles/proj_frost_orb.tscn")
 var bulletDamage = 200
 var pathName
 var currTarget
 var curr
-
-
+var attack_cd = false
+@onready var attack_cd_timer = $attackbutton/attack_cd
 @onready var sprite = $AnimatedSprite2D
 
 
 func _ready(): #uses the current tilemap to calculate camera boundaries, should work on any tilemap
+	$attackbutton/attack_cd.connect
 	var tilemap_rect = get_parent().get_child(0).get_node("TileMap").get_used_rect()
 	var tilemap_cell_size = get_parent().get_child(0).get_node("TileMap").tile_set.tile_size
 	$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
@@ -100,15 +101,18 @@ func _on_damage_taken_cooldown_timeout():
 func attack():
 	var enemy = get_parent().get_node("brauk")
 	if Input.is_action_just_pressed("attack") and enemy:
-		Global.player_current_attack = true
-		attack_ip = true
-		print("attack button pressed")
-		var tempBullet = Bullet.instantiate()
-		tempBullet.target_position = enemy.global_position
-		tempBullet.bulletDamage = bulletDamage
-		get_node("BulletContainer").add_child(tempBullet)
-		tempBullet.global_position = $Aim.global_position
-		
+		#Global.player_current_attack = true
+		if attack_cd == false:
+			attack_cd = true
+			attack_cd_timer.start()
+			print("attack button pressed")
+			var tempBullet = Bullet.instantiate()
+			tempBullet.target_position = enemy.global_position
+			tempBullet.bulletDamage = bulletDamage
+			get_node("BulletContainer").add_child(tempBullet)
+			tempBullet.global_position = $Aim.global_position
+		elif attack_cd:
+			print("You can't attack yet, wait a sec")
 
 
 	
@@ -120,7 +124,8 @@ func attack():
 
 
 func _on_attack_cd_timeout():
-	$deal_attack_timer.stop()
-	Global.player_current_attack = false
-	attack_ip = false
+	attack_cd = false
+	print("attack off cd")
+	
+	
 
