@@ -91,7 +91,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [node name="proj_frost_orb" type="CharacterBody2D"]
@@ -100,8 +100,7 @@ script = ExtResource("1_wcw8q")
 [node name="FrostOrb" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tus5v")
 animation = &"frost_orb"
-frame = 1
-frame_progress = 0.592404
+frame_progress = 0.403314
 
 [node name="Area2D" type="Area2D" parent="FrostOrb"]
 
@@ -110,7 +109,7 @@ shape = SubResource("CircleShape2D_t1g1n")
 
 [node name="frost_orb_ring" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uo04m")
-frame_progress = 0.643553
+frame_progress = 0.561884
 script = ExtResource("4_iytvs")
 
 [connection signal="body_entered" from="FrostOrb/Area2D" to="." method="_on_area_2d_body_entered"]
