@@ -25,4 +25,8 @@ func _on_area_2d_body_entered(body):
 	if body.has_method("enemy"):
 		body.health -= bulletDamage
 		#emit_signal("boss_hurt")
-		queue_free()
+		$FrostOrb.play("orb_impact")
+
+func _on_frost_orb_animation_finished():
+	self.queue_free()
+	

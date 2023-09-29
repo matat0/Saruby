@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyll8yg6pq1mr"]
+[gd_scene load_steps=4 format=3 uid="uid://cg823xdb17y78"]
 
 [ext_resource type="Texture2D" uid="uid://dxuiycgsii1s4" path="res://Assets/Matato/Attacks/frost_orb.png" id="1_r6woo"]
 [ext_resource type="Script" path="res://Scenes/entities/player/player_character/attackbutton.gd" id="2_sarfg"]
