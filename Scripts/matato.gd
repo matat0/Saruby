@@ -10,13 +10,14 @@ var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
 var health_bar = preload("res://Scenes/entities/boss_health.tscn")
-
+var latent_arcana_charges = 0
 var Bullet = preload("res://Scenes/entities/player/player_character/player_projectiles/proj_frost_orb.tscn")
 var bulletDamage = 200
 var pathName
 var currTarget
 var curr
 var attack_cd = false
+var damage_modifier = 1
 @onready var attack_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd
 @onready var sprite = $AnimatedSprite2D
 
@@ -110,7 +111,7 @@ func attack():
 			print("attack button pressed")
 			var tempBullet = Bullet.instantiate()
 			tempBullet.target_position = enemy.global_position
-			tempBullet.bulletDamage = bulletDamage
+			tempBullet.bulletDamage = bulletDamage * damage_modifier
 			get_node("BulletContainer").add_child(tempBullet)
 			tempBullet.global_position = $Aim.global_position
 		elif attack_cd:
