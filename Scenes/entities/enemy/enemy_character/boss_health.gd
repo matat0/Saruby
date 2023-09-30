@@ -3,7 +3,6 @@ extends ProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_parent().health = 5000
 	self.max_value = get_parent().health
 
 
