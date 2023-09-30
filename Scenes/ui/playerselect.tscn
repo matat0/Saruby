@@ -37,21 +37,21 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("2_8g4no")
 region = Rect2(0, 0, 33, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nts6d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmsqw"]
 atlas = ExtResource("2_8g4no")
-region = Rect2(0, 0, 33, 33)
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5svtn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_05pfp"]
 atlas = ExtResource("2_8g4no")
-region = Rect2(33, 0, 33, 33)
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5y5n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhuma"]
 atlas = ExtResource("2_8g4no")
-region = Rect2(0, 33, 33, 33)
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_teput"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0pu3"]
 atlas = ExtResource("2_8g4no")
-region = Rect2(33, 33, 33, 33)
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yte00"]
 animations = [{
@@ -88,16 +88,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nts6d")
+"texture": SubResource("AtlasTexture_jmsqw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5svtn")
+"texture": SubResource("AtlasTexture_05pfp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y5y5n")
+"texture": SubResource("AtlasTexture_lhuma")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_teput")
+"texture": SubResource("AtlasTexture_t0pu3")
 }],
 "loop": true,
 "name": &"walkside",
@@ -125,8 +125,7 @@ horizontal_alignment = 1
 position = Vector2(564, 304)
 scale = Vector2(2.90151, 2.90151)
 sprite_frames = SubResource("SpriteFrames_yte00")
-animation = &"hidden"
-frame_progress = 0.66423
+animation = &"idle"
 
 [node name="Left" type="Button" parent="."]
 offset_left = 344.0
