@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://c844jnm2e51c2"]
+[gd_scene load_steps=25 format=3 uid="uid://c844jnm2e51c2"]
 
 [ext_resource type="Script" path="res://Scripts/playerselect.gd" id="1_u06kv"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_8g4no"]
 [ext_resource type="Texture2D" uid="uid://bvnn126xh7c63" path="res://Assets/hidden_character.png" id="2_j1aq8"]
+[ext_resource type="FontFile" uid="uid://df854v153rmbx" path="res://Assets/Fonts/my_phone_n1280.ttf" id="2_y8hij"]
 [ext_resource type="Texture2D" uid="uid://b1v4quilqaeti" path="res://Assets/Carty/Carty.png" id="3_0uydp"]
 [ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_0apf5"]
 [ext_resource type="AudioStream" uid="uid://sy5go7cm2rxs" path="res://Assets/Music/choose_your_character.mp3" id="5_50oox"]
@@ -151,7 +152,7 @@ offset_left = 520.0
 offset_top = 213.0
 offset_right = 608.0
 offset_bottom = 248.0
-theme_override_fonts/font = ExtResource("4_0apf5")
+theme_override_fonts/font = ExtResource("2_y8hij")
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 
@@ -160,8 +161,7 @@ position = Vector2(564, 304)
 scale = Vector2(2.90151, 2.90151)
 sprite_frames = SubResource("SpriteFrames_yte00")
 animation = &"Carty"
-frame = 3
-frame_progress = 0.94189
+frame_progress = 0.424688
 
 [node name="Left" type="Button" parent="."]
 offset_left = 344.0
