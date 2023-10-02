@@ -7,8 +7,8 @@ func _process(_delta):
 			get_node("PlayerSelect").play("walkside")
 			get_node("Des").text = "Matato"
 		1:
-			get_node("PlayerSelect").play("hidden")
-			get_node("Des").text = "hidden 1"
+			get_node("PlayerSelect").play("Carty")
+			get_node("Des").text = "Carty"
 		2:
 			get_node("PlayerSelect").play("hidden")
 			get_node("Des").text = "hidden 2"
