@@ -9,20 +9,23 @@ var enemy_in_range = false
 var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
-
-
+var health_bar = preload("res://Scenes/entities/boss_health.tscn")
+var latent_arcana_charges = 0
 var Bullet = preload("res://Scenes/entities/player/player_character/player_projectiles/proj_frost_orb.tscn")
 var bulletDamage = 200
 var pathName
 var currTarget
 var curr
 var attack_cd = false
-@onready var attack_cd_timer = $attackbutton/attack_cd
+var damage_modifier = 1
+@onready var attack_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd
 @onready var sprite = $AnimatedSprite2D
 
 
 func _ready(): #uses the current tilemap to calculate camera boundaries, should work on any tilemap
-	$attackbutton/attack_cd.connect
+	var instanced_health_bar = health_bar.instantiate()
+	add_child(instanced_health_bar)
+	$Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd.connect
 	var tilemap_rect = get_parent().get_child(0).get_node("TileMap").get_used_rect()
 	var tilemap_cell_size = get_parent().get_child(0).get_node("TileMap").tile_set.tile_size
 	$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
@@ -37,7 +40,7 @@ func _physics_process(_delta):
 	if Global.boss_slain == false:
 		attack()
 	move_and_slide()
-	enemy_attack()
+	
 	if health <= 0:
 		player_alive = false
 		health = 0
@@ -46,7 +49,7 @@ func _physics_process(_delta):
 	set_animation("walk")
 	if velocity == Vector2.ZERO:
 		sprite.stop()
-		
+	enemy_attack()
 func set_animation(animation):
 	var direction = "side" 
 	if sprite_direction in ["left", "right", "up" , "down"]:
@@ -108,7 +111,7 @@ func attack():
 			print("attack button pressed")
 			var tempBullet = Bullet.instantiate()
 			tempBullet.target_position = enemy.global_position
-			tempBullet.bulletDamage = bulletDamage
+			tempBullet.bulletDamage = bulletDamage * damage_modifier
 			get_node("BulletContainer").add_child(tempBullet)
 			tempBullet.global_position = $Aim.global_position
 		elif attack_cd:

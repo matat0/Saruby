@@ -1,19 +1,18 @@
-[gd_scene load_steps=73 format=3 uid="uid://fymr7ov40l8y"]
+[gd_scene load_steps=72 format=3 uid="uid://fymr7ov40l8y"]
 
 [ext_resource type="Script" path="res://Scripts/brauk.gd" id="1_j5mms"]
 [ext_resource type="Texture2D" uid="uid://bfaev1sy14ylw" path="res://Assets/Bosses/Brauk/SpriteSheet/Bringer-of-Death-SpritSheet_no-Effect.png" id="2_b727n"]
 [ext_resource type="Texture2D" uid="uid://bjixr67yfw1ro" path="res://Assets/Bosses/Brauk/SpriteSheet/Bringer-of-Death-SpritSheet.png" id="3_7mxod"]
 [ext_resource type="Texture2D" uid="uid://dbhp3305sdqo5" path="res://Assets/Bosses/Brauk/brauk.png" id="4_8lqrg"]
-[ext_resource type="Script" path="res://Scenes/entities/enemy/enemy_character/boss_health.gd" id="5_4jtik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcoid"]
-size = Vector2(27, 54)
+size = Vector2(47, 71)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0iyvq"]
 radius = 140.014
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlrem"]
-size = Vector2(42, 55)
+size = Vector2(57, 80)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8nrqm"]
 animation = &"braukdeath"
@@ -56,11 +55,11 @@ animation = &"idle"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_bc11t"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_tugbc")
-blend_point_0/pos = Vector2(-10016.7, 119.8)
+blend_point_0/pos = Vector2(-10016.7, 239.6)
 blend_point_1/node = SubResource("AnimationNodeAnimation_fddkx")
 blend_point_1/pos = Vector2(-33.6, 9521)
 blend_point_2/node = SubResource("AnimationNodeAnimation_e8ilx")
-blend_point_2/pos = Vector2(0, -8562.9)
+blend_point_2/pos = Vector2(17.1, -10359.3)
 blend_point_3/node = SubResource("AnimationNodeAnimation_sbt0i")
 blend_point_3/pos = Vector2(9966.4, 299.4)
 min_space = Vector2(-10000, -10000)
@@ -168,7 +167,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [16]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -180,7 +179,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -883,12 +882,13 @@ script = ExtResource("1_j5mms")
 position = Vector2(3, -12)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_7mxod")
-hframes = 8
+hframes = 16
 vframes = 8
+frame = 1
 region_rect = Rect2(55, 10, 1097, 524)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 18)
+position = Vector2(3.5, 14.5)
 shape = SubResource("RectangleShape2D_tcoid")
 
 [node name="aggro_range" type="Area2D" parent="."]
@@ -898,20 +898,10 @@ position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_0iyvq")
 
 [node name="brauk_hitbox" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="brauk_hitbox"]
-position = Vector2(1, 18.5)
+position = Vector2(4, 15)
 shape = SubResource("RectangleShape2D_tlrem")
-
-[node name="boss_health" type="ProgressBar" parent="."]
-modulate = Color(1, 0, 0.254902, 1)
-offset_left = -37.0
-offset_top = -24.0
-offset_right = 39.0
-offset_bottom = -18.0
-show_percentage = false
-script = ExtResource("5_4jtik")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_ucdd0")
@@ -921,7 +911,7 @@ parameters/conditions/idle = false
 parameters/conditions/is_hurt = false
 parameters/conditions/is_moving = false
 parameters/hurt/blend_position = Vector2(0, 0)
-parameters/idle/blend_position = Vector2(-0.998322, 0.0179641)
+parameters/idle/blend_position = Vector2(-2273.5, 3892.22)
 parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -943,5 +933,5 @@ animation = &"healthbar"
 [connection signal="body_entered" from="brauk_hitbox" to="." method="_on_brauk_hitbox_body_entered"]
 [connection signal="body_exited" from="brauk_hitbox" to="." method="_on_brauk_hitbox_body_exited"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="timeout" from="boss death scene timer" to="." method="_on_boss_death_scene_timer_timeout"]
 [connection signal="timeout" from="boss death scene timer" to="." method="_on_boss_death_scene_timeout"]
+[connection signal="timeout" from="boss death scene timer" to="." method="_on_boss_death_scene_timer_timeout"]

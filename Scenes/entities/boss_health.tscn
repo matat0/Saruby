@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2isg6bd80327"]
+
+[ext_resource type="Script" path="res://Scenes/entities/enemy/enemy_character/boss_health.gd" id="1_qq4ye"]
+
+[node name="boss_health" type="ProgressBar"]
+modulate = Color(1, 0, 0.254902, 1)
+offset_left = -37.5
+offset_top = -42.0
+offset_right = 38.5
+offset_bottom = -36.0
+show_percentage = false
+script = ExtResource("1_qq4ye")

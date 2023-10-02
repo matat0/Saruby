@@ -1,11 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7tjc7d2rqfvo"]
+[gd_scene load_steps=25 format=3 uid="uid://c7tjc7d2rqfvo"]
 
 [ext_resource type="Script" path="res://Scripts/proj_frost_orb.gd" id="1_wcw8q"]
 [ext_resource type="Texture2D" uid="uid://b8eqj3nho5eod" path="res://Assets/Matato/Attacks/frost_orb_spritesheet.png" id="2_s8sga"]
 [ext_resource type="Texture2D" uid="uid://cnfhrlcb0xiei" path="res://Assets/Matato/Attacks/frost_orb_ring_spritesheet.png" id="3_fy607"]
-[ext_resource type="Texture2D" uid="uid://ba2jppxhe64nb" path="res://Assets/Matato/Attacks/frost_orb_impact.png" id="3_ny0mp"]
+[ext_resource type="Texture2D" uid="uid://ba2jppxhe64nb" path="res://Assets/Matato/Attacks/frost_orb_impact.png" id="3_gfy3r"]
 [ext_resource type="Script" path="res://Scenes/entities/player/player_character/player_projectiles/frost_orb_ring.gd" id="4_iytvs"]
-[ext_resource type="Script" path="res://Scenes/entities/player/player_character/player_projectiles/FrostOrb.gd" id="4_kuwmn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6t4o"]
 atlas = ExtResource("2_s8sga")
@@ -27,28 +26,28 @@ region = Rect2(96, 0, 32, 32)
 atlas = ExtResource("2_s8sga")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g42mr"]
-atlas = ExtResource("3_ny0mp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_825j8"]
+atlas = ExtResource("3_gfy3r")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xqxu"]
-atlas = ExtResource("3_ny0mp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddgts"]
+atlas = ExtResource("3_gfy3r")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5lt5"]
-atlas = ExtResource("3_ny0mp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_msngv"]
+atlas = ExtResource("3_gfy3r")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xcjoi"]
-atlas = ExtResource("3_ny0mp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nquxa"]
+atlas = ExtResource("3_gfy3r")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kfngs"]
-atlas = ExtResource("3_ny0mp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5dnf"]
+atlas = ExtResource("3_gfy3r")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gw6mj"]
-atlas = ExtResource("3_ny0mp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6cuc"]
+atlas = ExtResource("3_gfy3r")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tus5v"]
@@ -75,22 +74,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g42mr")
+"texture": SubResource("AtlasTexture_825j8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4xqxu")
+"texture": SubResource("AtlasTexture_ddgts")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y5lt5")
+"texture": SubResource("AtlasTexture_msngv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xcjoi")
+"texture": SubResource("AtlasTexture_nquxa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kfngs")
+"texture": SubResource("AtlasTexture_m5dnf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gw6mj")
+"texture": SubResource("AtlasTexture_p6cuc")
 }],
 "loop": false,
 "name": &"orb_impact",
@@ -140,30 +139,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 30.0
+"speed": 20.0
 }]
 
 [node name="proj_frost_orb" type="CharacterBody2D"]
 script = ExtResource("1_wcw8q")
 
 [node name="FrostOrb" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_tus5v")
 animation = &"orb_impact"
-frame = 5
-frame_progress = 1.0
-script = ExtResource("4_kuwmn")
+frame = 4
+frame_progress = 0.420766
 
 [node name="Area2D" type="Area2D" parent="FrostOrb"]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="FrostOrb/Area2D"]
 shape = SubResource("CircleShape2D_t1g1n")
 
-[node name="frost_orb_ring" type="AnimatedSprite2D" parent="FrostOrb"]
-scale = Vector2(1.33333, 1.33333)
+[node name="frost_orb_ring" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uo04m")
-frame = 3
-frame_progress = 0.803856
+frame_progress = 0.561884
 script = ExtResource("4_iytvs")
 
 [connection signal="animation_finished" from="FrostOrb" to="." method="_on_frost_orb_animation_finished"]

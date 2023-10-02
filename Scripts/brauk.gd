@@ -1,5 +1,6 @@
 extends CharacterBody2D
 var frame_velocity
+var health_bar = preload("res://Scenes/entities/boss_health.tscn")
 @onready var death_timer = $"boss death scene timer"
 @onready var prev_position : Vector2 = Vector2.ZERO
 @onready var direction : Vector2 = Vector2.ZERO
@@ -113,7 +114,9 @@ func _ready():
 	Global.enemy = $"."
 	#sprite.play("idle")
 	animation_tree.active = true
-	
+	health = 1000
+	var instanced_health_bar = health_bar.instantiate()
+	add_child(instanced_health_bar)
 
 func _on_aggro_range_body_entered(body):
 	player = body
@@ -121,19 +124,19 @@ func _on_aggro_range_body_entered(body):
 	
 
 
-#func _on_aggro_range_body_exited(body):
-#	player = null
-#	player_chase = false
+func _on_aggro_range_body_exited(body):
+	player = null
+	player_chase = false
 
 
-#func _on_brauk_hitbox_body_entered(body):
+func _on_brauk_hitbox_body_entered(body):
 	if body.has_method("player"):
 		player_in_range = true
 
 
-#func _on_brauk_hitbox_body_exited(body):
-#	if body.has_method("player"):
-#		player_in_range = false
+func _on_brauk_hitbox_body_exited(body):
+	if body.has_method("player"):
+		player_in_range = false
 
 #func deal_with_damage():    old meleee function, only keeping it for future melee attack reference
 #	if player_in_range and Global.player_current_attack:

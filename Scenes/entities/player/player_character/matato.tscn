@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3165wqb57tpe"]
+[gd_scene load_steps=22 format=3 uid="uid://d3165wqb57tpe"]
 
 [ext_resource type="Script" path="res://Scripts/matato.gd" id="1_5411w"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_hlev0"]
@@ -57,13 +57,40 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkqb4"]
-size = Vector2(20, 29)
-
 [sub_resource type="InputEventKey" id="InputEventKey_twnrm"]
+device = -1
+keycode = 81
+unicode = 113
 
 [sub_resource type="Shortcut" id="Shortcut_24lpq"]
 events = [SubResource("InputEventKey_twnrm")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_30i01"]
+device = -1
+keycode = 87
+unicode = 119
+
+[sub_resource type="Shortcut" id="Shortcut_mo27d"]
+events = [SubResource("InputEventKey_30i01")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_eq2vk"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_8b8bp"]
+events = [SubResource("InputEventKey_eq2vk")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5gtcb"]
+device = -1
+keycode = 82
+unicode = 114
+
+[sub_resource type="Shortcut" id="Shortcut_vrjqt"]
+events = [SubResource("InputEventKey_5gtcb")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkqb4"]
+size = Vector2(25, 37)
 
 [node name="matato" type="CharacterBody2D"]
 script = ExtResource("1_5411w")
@@ -83,22 +110,9 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
-[node name="matato_hitbox" type="Area2D" parent="."]
+[node name="combat_ui_real" type="CanvasLayer" parent="Camera2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="matato_hitbox"]
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_kkqb4")
-
-[node name="damage_taken_cooldown" type="Timer" parent="."]
-wait_time = 0.75
-
-[node name="Aim" type="Marker2D" parent="."]
-
-[node name="BulletContainer" type="Node" parent="."]
-
-[node name="combat_ui_real" type="CanvasLayer" parent="."]
-
-[node name="Control2" type="Control" parent="combat_ui_real"]
+[node name="Control2" type="Control" parent="Camera2D/combat_ui_real"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,11 +124,13 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="combat_ui_real/Control2"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/combat_ui_real/Control2"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -0.400174
+anchor_top = -0.501543
+anchor_right = 0.599826
+anchor_bottom = 0.498457
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
@@ -123,45 +139,177 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="combat_ui_real/Control2/MarginContainer"]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/combat_ui_real/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 8.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="combat_ui_real/Control2/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/combat_ui_real"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -77.0
+offset_right = 66.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 4
 
-[node name="attackbutton" type="TextureButton" parent="."]
-offset_left = 233.0
-offset_top = 110.0
-offset_right = 265.0
-offset_bottom = 142.0
+[node name="attackbutton" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
+layout_mode = 2
 shortcut = SubResource("Shortcut_24lpq")
 texture_normal = ExtResource("3_1woc2")
 stretch_mode = 0
 script = ExtResource("4_0s8f5")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="attackbutton"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Camera2D/combat_ui_real/HBoxContainer/attackbutton"]
 layout_mode = 0
-offset_left = -251.0
-offset_top = -127.0
-offset_right = -211.0
-offset_bottom = -87.0
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 36.0
+offset_bottom = 34.0
 step = 0.05
 fill_mode = 5
 nine_patch_stretch = true
 texture_progress = ExtResource("5_4cvin")
-tint_progress = Color(0.192157, 0.00784314, 0.0392157, 0.176471)
+tint_progress = Color(0, 0, 0.266667, 0.329412)
 
-[node name="attack_cd" type="Timer" parent="attackbutton"]
+[node name="attack_cd" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/attackbutton"]
 wait_time = 0.5
+one_shot = true
 
-[node name="key" type="Label" parent="attackbutton"]
+[node name="key" type="Label" parent="Camera2D/combat_ui_real/HBoxContainer/attackbutton"]
 layout_mode = 0
 offset_left = -251.0
 offset_top = -127.0
 offset_right = -211.0
 offset_bottom = -104.0
 
+[node name="spell1" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_mo27d")
+texture_normal = ExtResource("3_1woc2")
+stretch_mode = 0
+script = ExtResource("4_0s8f5")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Camera2D/combat_ui_real/HBoxContainer/spell1"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 36.0
+offset_bottom = 34.0
+step = 0.05
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("5_4cvin")
+tint_progress = Color(0, 0, 0.266667, 0.329412)
+
+[node name="attack_cd" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell1"]
+wait_time = 0.5
+one_shot = true
+
+[node name="key" type="Label" parent="Camera2D/combat_ui_real/HBoxContainer/spell1"]
+layout_mode = 0
+offset_left = -251.0
+offset_top = -127.0
+offset_right = -211.0
+offset_bottom = -104.0
+
+[node name="spell2" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_8b8bp")
+texture_normal = ExtResource("3_1woc2")
+stretch_mode = 0
+script = ExtResource("4_0s8f5")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Camera2D/combat_ui_real/HBoxContainer/spell2"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 36.0
+offset_bottom = 34.0
+step = 0.05
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("5_4cvin")
+tint_progress = Color(0, 0, 0.266667, 0.329412)
+
+[node name="attack_cd" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell2"]
+wait_time = 0.5
+one_shot = true
+
+[node name="key" type="Label" parent="Camera2D/combat_ui_real/HBoxContainer/spell2"]
+layout_mode = 0
+offset_left = -251.0
+offset_top = -127.0
+offset_right = -211.0
+offset_bottom = -104.0
+
+[node name="spell3" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_vrjqt")
+texture_normal = ExtResource("3_1woc2")
+stretch_mode = 0
+script = ExtResource("4_0s8f5")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Camera2D/combat_ui_real/HBoxContainer/spell3"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 36.0
+offset_bottom = 34.0
+step = 0.05
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("5_4cvin")
+tint_progress = Color(0, 0, 0.266667, 0.329412)
+
+[node name="attack_cd" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell3"]
+wait_time = 0.5
+one_shot = true
+
+[node name="key" type="Label" parent="Camera2D/combat_ui_real/HBoxContainer/spell3"]
+layout_mode = 0
+offset_left = -251.0
+offset_top = -127.0
+offset_right = -211.0
+offset_bottom = -104.0
+
+[node name="matato_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="matato_hitbox"]
+shape = SubResource("RectangleShape2D_kkqb4")
+
+[node name="damage_taken_cooldown" type="Timer" parent="."]
+wait_time = 0.75
+
+[node name="Aim" type="Marker2D" parent="."]
+
+[node name="BulletContainer" type="Node" parent="."]
+
+[connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton" to="Camera2D/combat_ui_real/HBoxContainer/attackbutton" method="_on_pressed"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd" to="Camera2D/combat_ui_real/HBoxContainer/attackbutton" method="_on_attack_cd_timeout"]
+[connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell1" to="Camera2D/combat_ui_real/HBoxContainer/spell1" method="_on_pressed"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell1/attack_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell1/attack_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell1" method="_on_attack_cd_timeout"]
+[connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell2" to="Camera2D/combat_ui_real/HBoxContainer/spell2" method="_on_pressed"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/attack_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/attack_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell2" method="_on_attack_cd_timeout"]
+[connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell3" to="Camera2D/combat_ui_real/HBoxContainer/spell3" method="_on_pressed"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/attack_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/attack_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell3" method="_on_attack_cd_timeout"]
+[connection signal="body_entered" from="matato_hitbox" to="." method="_on_matato_hitbox_body_entered"]
+[connection signal="body_exited" from="matato_hitbox" to="." method="_on_matato_hitbox_body_exited"]
 [connection signal="timeout" from="damage_taken_cooldown" to="." method="_on_damage_taken_cooldown_timeout"]
-[connection signal="pressed" from="attackbutton" to="attackbutton" method="_on_pressed"]
-[connection signal="timeout" from="attackbutton/attack_cd" to="." method="_on_attack_cd_timeout"]
-[connection signal="timeout" from="attackbutton/attack_cd" to="attackbutton" method="_on_attack_cd_timeout"]
