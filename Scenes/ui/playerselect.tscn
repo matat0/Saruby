@@ -253,7 +253,7 @@ offset_left = 472.0
 offset_top = 473.0
 offset_right = 655.0
 offset_bottom = 550.0
-theme_override_fonts/font = ExtResource("4_0apf5")
+theme_override_fonts/font = ExtResource("2_y8hij")
 theme_override_font_sizes/font_size = 32
 text = "Enter"
 
@@ -262,7 +262,7 @@ offset_left = 7.0
 offset_top = 562.0
 offset_right = 190.0
 offset_bottom = 636.0
-theme_override_fonts/font = ExtResource("4_0apf5")
+theme_override_fonts/font = ExtResource("2_y8hij")
 theme_override_font_sizes/font_size = 32
 text = "Back"
 

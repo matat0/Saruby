@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d3165wqb57tpe"]
+[gd_scene load_steps=25 format=3 uid="uid://d3165wqb57tpe"]
 
 [ext_resource type="Script" path="res://Scripts/matato.gd" id="1_5411w"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_hlev0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://du4ieqyvv7m82" path="res://Assets/Matato/Attacks/blank 20x20.png" id="5_4cvin"]
 [ext_resource type="Texture2D" uid="uid://gvxdsh7qukpb" path="res://Assets/Matato/Attacks/phoenix_sprite.png" id="6_40vae"]
 [ext_resource type="Texture2D" uid="uid://bkokcao6b0dv8" path="res://Assets/Matato/Attacks/arcane_wave_sprite.png" id="7_v4aeh"]
+[ext_resource type="Texture2D" uid="uid://b2vmcdylpy41u" path="res://Assets/Matato/Attacks/time_warp_sprite.png" id="8_cg3en"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcusi"]
 size = Vector2(14, 26)
@@ -249,7 +250,7 @@ offset_bottom = -104.0
 [node name="spell3" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_vrjqt")
-texture_normal = ExtResource("3_1woc2")
+texture_normal = ExtResource("8_cg3en")
 stretch_mode = 0
 script = ExtResource("4_0s8f5")
 

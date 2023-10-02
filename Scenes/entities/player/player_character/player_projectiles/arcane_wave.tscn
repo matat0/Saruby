@@ -41,7 +41,7 @@ script = ExtResource("1_cvr34")
 [node name="arcane_wave" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3ey2q")
 animation = &"arcane_wave"
-frame_progress = 0.219703
+frame_progress = 0.53433
 
 [node name="Area2D" type="Area2D" parent="arcane_wave"]
 
