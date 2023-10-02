@@ -33,4 +33,3 @@ func _on_area_2d_body_entered(body):
 
 func _on_frost_orb_animation_finished():
 	self.queue_free()
-	

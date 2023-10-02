@@ -1,15 +1,33 @@
-[gd_scene load_steps=25 format=3 uid="uid://c844jnm2e51c2"]
+[gd_scene load_steps=35 format=3 uid="uid://c844jnm2e51c2"]
 
 [ext_resource type="Script" path="res://Scripts/playerselect.gd" id="1_u06kv"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_8g4no"]
 [ext_resource type="Texture2D" uid="uid://bvnn126xh7c63" path="res://Assets/hidden_character.png" id="2_j1aq8"]
 [ext_resource type="FontFile" uid="uid://df854v153rmbx" path="res://Assets/Fonts/my_phone_n1280.ttf" id="2_y8hij"]
 [ext_resource type="Texture2D" uid="uid://b1v4quilqaeti" path="res://Assets/Carty/Carty.png" id="3_0uydp"]
+[ext_resource type="Texture2D" uid="uid://dx3ploj2k1m7i" path="res://Assets/Butch/Butch_the_orc.png" id="3_5yo4d"]
 [ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_0apf5"]
+[ext_resource type="Texture2D" uid="uid://vielwmqeo786" path="res://Assets/Carty/carti_with_ushanka.png" id="5_6b2to"]
 [ext_resource type="AudioStream" uid="uid://sy5go7cm2rxs" path="res://Assets/Music/choose_your_character.mp3" id="5_50oox"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3o85"]
 bg_color = Color(0.0196078, 0.160784, 0.0941176, 0.870588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg7bs"]
+atlas = ExtResource("3_5yo4d")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1hve"]
+atlas = ExtResource("3_5yo4d")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmchd"]
+atlas = ExtResource("3_5yo4d")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a14bl"]
+atlas = ExtResource("3_5yo4d")
+region = Rect2(96, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vmaja"]
 atlas = ExtResource("3_0uydp")
@@ -26,6 +44,22 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvbu0"]
 atlas = ExtResource("3_0uydp")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkxyw"]
+atlas = ExtResource("5_6b2to")
+region = Rect2(0, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0ldi"]
+atlas = ExtResource("5_6b2to")
+region = Rect2(32, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86wjh"]
+atlas = ExtResource("5_6b2to")
+region = Rect2(64, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvsg1"]
+atlas = ExtResource("5_6b2to")
+region = Rect2(96, 0, 32, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eupkc"]
 atlas = ExtResource("2_j1aq8")
@@ -75,6 +109,23 @@ region = Rect2(96, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_wg7bs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1hve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmchd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a14bl")
+}],
+"loop": true,
+"name": &"Butch",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vmaja")
 }, {
 "duration": 1.0,
@@ -88,6 +139,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"Carty",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkxyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0ldi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86wjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvsg1")
+}],
+"loop": true,
+"name": &"Carty Hat",
 "speed": 10.0
 }, {
 "frames": [{
@@ -160,8 +228,7 @@ horizontal_alignment = 1
 position = Vector2(564, 304)
 scale = Vector2(2.90151, 2.90151)
 sprite_frames = SubResource("SpriteFrames_yte00")
-animation = &"Carty"
-frame_progress = 0.424688
+animation = &"Carty Hat"
 
 [node name="Left" type="Button" parent="."]
 offset_left = 344.0
