@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://dmvanrskdm1ft"]
+
+[ext_resource type="Script" path="res://butch.gd" id="1_4kwso"]
+[ext_resource type="Texture2D" uid="uid://dx3ploj2k1m7i" path="res://Assets/Butch/Butch_the_orc.png" id="2_dp67t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ii1t"]
+size = Vector2(20, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc8so"]
+atlas = ExtResource("2_dp67t")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61qv6"]
+atlas = ExtResource("2_dp67t")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0rxu"]
+atlas = ExtResource("2_dp67t")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kluq"]
+atlas = ExtResource("2_dp67t")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbvu3"]
+atlas = ExtResource("2_dp67t")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjxkq"]
+atlas = ExtResource("2_dp67t")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paqew"]
+atlas = ExtResource("2_dp67t")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmsxs"]
+atlas = ExtResource("2_dp67t")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8h0g3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc8so")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61qv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0rxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kluq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbvu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjxkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paqew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmsxs")
+}],
+"loop": true,
+"name": &"walkside",
+"speed": 10.0
+}]
+
+[node name="butch" type="CharacterBody2D"]
+script = ExtResource("1_4kwso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_7ii1t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8h0g3")
+animation = &"idle"
+frame_progress = 0.261244
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
