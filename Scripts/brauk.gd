@@ -114,7 +114,7 @@ func _ready():
 	Global.enemy = $"."
 	#sprite.play("idle")
 	animation_tree.active = true
-	health = 1000
+	health = 5000
 	var instanced_health_bar = health_bar.instantiate()
 	add_child(instanced_health_bar)
 

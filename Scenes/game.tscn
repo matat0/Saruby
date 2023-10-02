@@ -1,16 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwlyintas7yxv"]
 
+[ext_resource type="Script" path="res://Scenes/game.gd" id="1_4ky2p"]
 [ext_resource type="PackedScene" uid="uid://273x8isvmh5m" path="res://Scenes/world/world.tscn" id="1_7eb40"]
-[ext_resource type="PackedScene" uid="uid://d3165wqb57tpe" path="res://Scenes/entities/player/player_character/matato.tscn" id="2_8rth6"]
 [ext_resource type="PackedScene" uid="uid://fymr7ov40l8y" path="res://Scenes/entities/enemy/enemy_character/brauk.tscn" id="3_7ersi"]
 [ext_resource type="PackedScene" uid="uid://dsvlx1jill5hl" path="res://Scenes/ui/gui.tscn" id="4_nnkfe"]
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_4ky2p")
 
 [node name="World" parent="." instance=ExtResource("1_7eb40")]
-
-[node name="matato" parent="." instance=ExtResource("2_8rth6")]
-position = Vector2(675, 760)
 
 [node name="brauk" parent="." instance=ExtResource("3_7ersi")]
 position = Vector2(672, 415)

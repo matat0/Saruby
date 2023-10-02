@@ -13,5 +13,7 @@ func _on_enemy_defeated(loot):
 	print(score)
 	
 
+		
+var characters : Array = [preload("res://Scenes/entities/player/player_character/matato.tscn"), preload("res://Scenes/entities/player/player_character/matato.tscn"),]
 #Character Variables - mato
 var PlayerSelect = 0

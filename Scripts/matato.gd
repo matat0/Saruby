@@ -10,7 +10,7 @@ var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
 var health_bar = preload("res://Scenes/entities/boss_health.tscn")
-var latent_arcana_charges = 0
+
 var Bullet = preload("res://Scenes/entities/player/player_character/player_projectiles/proj_frost_orb.tscn")
 var bulletDamage = 200
 var pathName
@@ -20,11 +20,21 @@ var attack_cd = false
 var damage_modifier = 1
 @onready var attack_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd
 @onready var sprite = $AnimatedSprite2D
-
+var latent_arcana_charges:
+	set(new_latent_arcana_charges):
+		if new_latent_arcana_charges >= 0 and new_latent_arcana_charges < 5:
+			latent_arcana_charges = new_latent_arcana_charges
+			print("set new latent_arcana_charges")
+			$Camera2D/combat_ui_real/VBoxContainer/latent_arcana_charges_label.text = "latent_arcana_charges: " + str(latent_arcana_charges)
+			
+	get:
+		return latent_arcana_charges
+		
 
 func _ready(): #uses the current tilemap to calculate camera boundaries, should work on any tilemap
 	var instanced_health_bar = health_bar.instantiate()
 	add_child(instanced_health_bar)
+	latent_arcana_charges = 0
 	$Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd.connect
 	var tilemap_rect = get_parent().get_child(0).get_node("TileMap").get_used_rect()
 	var tilemap_cell_size = get_parent().get_child(0).get_node("TileMap").tile_set.tile_size
@@ -102,8 +112,8 @@ func _on_damage_taken_cooldown_timeout():
 	enemy_attack_cooldown = true
 
 func attack():
-	var enemy = get_parent().get_node("brauk")
-	if Input.is_action_just_pressed("attack") and enemy:
+	var enemy = Global.enemy
+	if Input.is_action_just_pressed("attack") and Global.enemy:
 		#Global.player_current_attack = true
 		if attack_cd == false:
 			attack_cd = true
@@ -116,6 +126,7 @@ func attack():
 			tempBullet.global_position = $Aim.global_position
 		elif attack_cd:
 			print("You can't attack yet, wait a sec")
+		
 
 
 	
