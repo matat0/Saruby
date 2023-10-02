@@ -12,6 +12,8 @@ var player_alive = true
 var health_bar = preload("res://Scenes/entities/boss_health.tscn")
 
 var Bullet = preload("res://Scenes/entities/player/player_character/player_projectiles/proj_frost_orb.tscn")
+var Phoenix = preload("res://Scenes/entities/player/player_character/player_projectiles/phoenix.tscn")
+var Arcane = preload("res://Scenes/entities/player/player_character/player_projectiles/arcane_wave.tscn")
 var bulletDamage = 200
 var pathName
 var currTarget
@@ -118,7 +120,7 @@ func attack():
 		if attack_cd == false:
 			attack_cd = true
 			attack_cd_timer.start()
-			print("attack button pressed")
+			print("frost orb pressed")
 			var tempBullet = Bullet.instantiate()
 			tempBullet.target_position = enemy.global_position
 			tempBullet.bulletDamage = bulletDamage * damage_modifier
@@ -126,20 +128,35 @@ func attack():
 			tempBullet.global_position = $Aim.global_position
 		elif attack_cd:
 			print("You can't attack yet, wait a sec")
-		
-
-
-	
-	
-	
-
-
-
-
 
 func _on_attack_cd_timeout():
 	attack_cd = false
 	print("attack off cd")
-	
-	
 
+func _on_spell_1_pressed():
+		var enemy = Global.enemy
+		if attack_cd == false:
+			attack_cd = true
+			attack_cd_timer.start()
+			print("phoenix pressed")
+			var tempBullet = Phoenix.instantiate()
+			tempBullet.target_position = enemy.global_position
+			tempBullet.bulletDamage = bulletDamage * damage_modifier
+			get_node("BulletContainer").add_child(tempBullet)
+			tempBullet.global_position = $Aim.global_position
+		elif attack_cd:
+			print("You can't attack yet, wait a sec")
+
+func _on_spell_2_pressed():
+		var enemy = Global.enemy
+		if attack_cd == false:
+			attack_cd = true
+			attack_cd_timer.start()
+			print("arcane_wave pressed")
+			var tempBullet = Arcane.instantiate()
+			tempBullet.target_position = enemy.global_position
+			tempBullet.bulletDamage = bulletDamage * damage_modifier
+			get_node("BulletContainer").add_child(tempBullet)
+			tempBullet.global_position = $Aim.global_position
+		elif attack_cd:
+			print("You can't attack yet, wait a sec")

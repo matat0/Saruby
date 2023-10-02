@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://f3o3h55o3bdf"]
+
+[ext_resource type="Script" path="res://phoenix.gd" id="1_h6llf"]
+[ext_resource type="Texture2D" uid="uid://y8rxlsrg2ait" path="res://Assets/Matato/Attacks/phoenix.png" id="2_f18ts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33dy7"]
+atlas = ExtResource("2_f18ts")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydtb4"]
+atlas = ExtResource("2_f18ts")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2lag"]
+atlas = ExtResource("2_f18ts")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_youvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33dy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydtb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2lag")
+}],
+"loop": true,
+"name": &"phoenix",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eabab"]
+
+[node name="phoenix" type="CharacterBody2D"]
+script = ExtResource("1_h6llf")
+
+[node name="phoenix" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_youvq")
+animation = &"phoenix"
+frame_progress = 0.464538
+
+[node name="Area2D" type="Area2D" parent="phoenix"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="phoenix/Area2D"]
+shape = SubResource("CircleShape2D_eabab")
+
+[connection signal="body_entered" from="phoenix/Area2D" to="." method="_on_area_2d_body_entered"]
