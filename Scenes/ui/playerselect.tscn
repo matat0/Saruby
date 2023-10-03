@@ -218,9 +218,9 @@ offset_bottom = 2901.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_t3o85")
 
 [node name="Des" type="Label" parent="."]
-offset_left = 520.0
+offset_left = 469.0
 offset_top = 213.0
-offset_right = 608.0
+offset_right = 655.0
 offset_bottom = 248.0
 theme_override_fonts/font = ExtResource("2_y8hij")
 theme_override_font_sizes/font_size = 24

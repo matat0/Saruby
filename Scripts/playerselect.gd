@@ -14,7 +14,7 @@ func _process(_delta):
 			get_node("Des").text = "Butch"
 		3:
 			get_node("PlayerSelect").play("hidden")
-			get_node("Des").text = "hidden 3"
+			get_node("Des").text = "Not Unlocked"
 
 func _on_left_pressed():
 	if Global.PlayerSelect > 0:
