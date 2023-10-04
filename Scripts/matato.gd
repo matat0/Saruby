@@ -117,7 +117,7 @@ func attack():
 	var enemy = Global.enemy
 	if Input.is_action_just_pressed("attack") and Global.enemy:
 		#Global.player_current_attack = true
-		if attack_cd == false:
+		if attack_cd == false and enemy:
 			attack_cd = true
 			attack_cd_timer.start()
 			print("frost orb pressed")
@@ -135,7 +135,7 @@ func _on_attack_cd_timeout():
 
 func _on_spell_1_pressed():
 		var enemy = Global.enemy
-		if attack_cd == false:
+		if attack_cd == false and enemy:
 			attack_cd = true
 			attack_cd_timer.start()
 			print("phoenix pressed")
@@ -149,7 +149,7 @@ func _on_spell_1_pressed():
 
 func _on_spell_2_pressed():
 		var enemy = Global.enemy
-		if attack_cd == false:
+		if attack_cd == false and enemy:
 			attack_cd = true
 			attack_cd_timer.start()
 			print("arcane_wave pressed")

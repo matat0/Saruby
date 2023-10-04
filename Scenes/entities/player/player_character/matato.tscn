@@ -1,11 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://d3165wqb57tpe"]
+[gd_scene load_steps=30 format=3 uid="uid://d3165wqb57tpe"]
 
 [ext_resource type="Script" path="res://Scripts/matato.gd" id="1_5411w"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_hlev0"]
-[ext_resource type="Texture2D" uid="uid://dxuiycgsii1s4" path="res://Assets/Matato/Attacks/frost_orb.png" id="3_1woc2"]
+[ext_resource type="Texture2D" uid="uid://t8uhq1ney6qq" path="res://Assets/Matato/Attacks/frost_orb_bar/frost_orb1.png" id="3_6lvp6"]
 [ext_resource type="Script" path="res://Scenes/entities/player/player_character/attackbutton.gd" id="4_0s8f5"]
+[ext_resource type="Texture2D" uid="uid://bujhekd14djty" path="res://Assets/Matato/Attacks/frost_orb_bar/frost_orb2.png" id="4_dd11m"]
 [ext_resource type="Texture2D" uid="uid://du4ieqyvv7m82" path="res://Assets/Matato/Attacks/blank 20x20.png" id="5_4cvin"]
+[ext_resource type="Texture2D" uid="uid://d0a6012ry2fve" path="res://Assets/Matato/Attacks/frost_orb_bar/frost_orb3.png" id="5_x2ddb"]
 [ext_resource type="Texture2D" uid="uid://gvxdsh7qukpb" path="res://Assets/Matato/Attacks/phoenix_sprite.png" id="6_40vae"]
+[ext_resource type="Texture2D" uid="uid://b450q8vn6370l" path="res://Assets/Matato/Attacks/frost_orb_bar/frost_orb4.png" id="6_jd46n"]
+[ext_resource type="Texture2D" uid="uid://dri04ctxsfyqr" path="res://Assets/Matato/Attacks/frost_orb_bar/frost_orb5.png" id="7_qsfft"]
 [ext_resource type="Texture2D" uid="uid://bkokcao6b0dv8" path="res://Assets/Matato/Attacks/arcane_wave_sprite.png" id="7_v4aeh"]
 [ext_resource type="Texture2D" uid="uid://b2vmcdylpy41u" path="res://Assets/Matato/Attacks/time_warp_sprite.png" id="8_cg3en"]
 
@@ -67,6 +71,19 @@ unicode = 113
 
 [sub_resource type="Shortcut" id="Shortcut_24lpq"]
 events = [SubResource("InputEventKey_twnrm")]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_4v8nq"]
+frames = 5
+speed_scale = 5.0
+frame_0/texture = ExtResource("3_6lvp6")
+frame_1/texture = ExtResource("4_dd11m")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_x2ddb")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("6_jd46n")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("7_qsfft")
+frame_4/duration = 1.0
 
 [sub_resource type="InputEventKey" id="InputEventKey_30i01"]
 device = -1
@@ -160,7 +177,7 @@ size_flags_vertical = 4
 [node name="attackbutton" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_24lpq")
-texture_normal = ExtResource("3_1woc2")
+texture_normal = SubResource("AnimatedTexture_4v8nq")
 stretch_mode = 0
 script = ExtResource("4_0s8f5")
 
