@@ -57,7 +57,8 @@ func _physics_process(_delta):
 		player_alive = false
 		health = 0
 		print("rip bozo")
-		self.queue_free() #replace with death screen or downed or something
+		get_tree().change_scene_to_file("res://Scenes/ui/playerselect.tscn")
+		
 	set_animation("walk")
 	if velocity == Vector2.ZERO:
 		sprite.stop()
@@ -135,7 +136,7 @@ func _on_attack_cd_timeout():
 
 func _on_spell_1_pressed():
 		var enemy = Global.enemy
-		if attack_cd == false and enemy:
+		if attack_cd == false and Global.enemy:
 			attack_cd = true
 			attack_cd_timer.start()
 			print("phoenix pressed")
@@ -149,7 +150,7 @@ func _on_spell_1_pressed():
 
 func _on_spell_2_pressed():
 		var enemy = Global.enemy
-		if attack_cd == false and enemy:
+		if attack_cd == false and Global.enemy:
 			attack_cd = true
 			attack_cd_timer.start()
 			print("arcane_wave pressed")
