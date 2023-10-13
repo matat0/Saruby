@@ -230,7 +230,7 @@ position = Vector2(564, 304)
 scale = Vector2(2.90151, 2.90151)
 sprite_frames = SubResource("SpriteFrames_yte00")
 animation = &"Carty"
-frame_progress = 0.672176
+frame_progress = 0.139119
 
 [node name="Left" type="Button" parent="."]
 offset_left = 344.0
