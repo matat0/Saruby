@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/playerselect.gd" id="1_u06kv"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_8g4no"]
-[ext_resource type="Texture2D" uid="uid://dqamq2pv68ael" path="res://Assets/character_select.png" id="2_i74ij"]
+[ext_resource type="Texture2D" path="res://Assets/character_select.png" id="2_i74ij"]
 [ext_resource type="Texture2D" uid="uid://bvnn126xh7c63" path="res://Assets/hidden_character.png" id="2_j1aq8"]
 [ext_resource type="FontFile" uid="uid://df854v153rmbx" path="res://Assets/Fonts/my_phone_n1280.ttf" id="2_y8hij"]
 [ext_resource type="Texture2D" uid="uid://b1v4quilqaeti" path="res://Assets/Carty/Carty.png" id="3_0uydp"]
