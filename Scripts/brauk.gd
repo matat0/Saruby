@@ -149,3 +149,4 @@ func _on_brauk_hitbox_body_exited(body):
 func _on_boss_death_scene_timer_timeout():
 	print("death scene timer done")
 	queue_free()
+	Global.enemy = null

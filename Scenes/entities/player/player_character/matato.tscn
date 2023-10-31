@@ -1,17 +1,16 @@
-[gd_scene load_steps=30 format=3 uid="uid://d3165wqb57tpe"]
+[gd_scene load_steps=28 format=3 uid="uid://d3165wqb57tpe"]
 
 [ext_resource type="Script" path="res://Scripts/matato.gd" id="1_5411w"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_hlev0"]
-[ext_resource type="Texture2D" uid="uid://t8uhq1ney6qq" path="res://Assets/Matato/Attacks/frost_orb_bar/frost_orb1.png" id="3_6lvp6"]
+[ext_resource type="Texture2D" uid="uid://dxuiycgsii1s4" path="res://Assets/Matato/Attacks/frost_orb.png" id="3_1woc2"]
 [ext_resource type="Script" path="res://Scenes/entities/player/player_character/attackbutton.gd" id="4_0s8f5"]
-[ext_resource type="Texture2D" uid="uid://bujhekd14djty" path="res://Assets/Matato/Attacks/frost_orb_bar/frost_orb2.png" id="4_dd11m"]
 [ext_resource type="Texture2D" uid="uid://du4ieqyvv7m82" path="res://Assets/Matato/Attacks/blank 20x20.png" id="5_4cvin"]
-[ext_resource type="Texture2D" uid="uid://d0a6012ry2fve" path="res://Assets/Matato/Attacks/frost_orb_bar/frost_orb3.png" id="5_x2ddb"]
 [ext_resource type="Texture2D" uid="uid://gvxdsh7qukpb" path="res://Assets/Matato/Attacks/phoenix_sprite.png" id="6_40vae"]
-[ext_resource type="Texture2D" uid="uid://b450q8vn6370l" path="res://Assets/Matato/Attacks/frost_orb_bar/frost_orb4.png" id="6_jd46n"]
-[ext_resource type="Texture2D" uid="uid://dri04ctxsfyqr" path="res://Assets/Matato/Attacks/frost_orb_bar/frost_orb5.png" id="7_qsfft"]
+[ext_resource type="Script" path="res://Scenes/entities/player/player_character/spell1.gd" id="7_o4g48"]
 [ext_resource type="Texture2D" uid="uid://bkokcao6b0dv8" path="res://Assets/Matato/Attacks/arcane_wave_sprite.png" id="7_v4aeh"]
 [ext_resource type="Texture2D" uid="uid://b2vmcdylpy41u" path="res://Assets/Matato/Attacks/time_warp_sprite.png" id="8_cg3en"]
+[ext_resource type="Script" path="res://Scenes/entities/player/player_character/spell2.gd" id="9_xrtq8"]
+[ext_resource type="Script" path="res://Scenes/entities/player/player_character/spell3.gd" id="11_ah16w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcusi"]
 size = Vector2(14, 26)
@@ -71,19 +70,6 @@ unicode = 113
 
 [sub_resource type="Shortcut" id="Shortcut_24lpq"]
 events = [SubResource("InputEventKey_twnrm")]
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_4v8nq"]
-frames = 5
-speed_scale = 5.0
-frame_0/texture = ExtResource("3_6lvp6")
-frame_1/texture = ExtResource("4_dd11m")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("5_x2ddb")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("6_jd46n")
-frame_3/duration = 1.0
-frame_4/texture = ExtResource("7_qsfft")
-frame_4/duration = 1.0
 
 [sub_resource type="InputEventKey" id="InputEventKey_30i01"]
 device = -1
@@ -177,7 +163,7 @@ size_flags_vertical = 4
 [node name="attackbutton" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_24lpq")
-texture_normal = SubResource("AnimatedTexture_4v8nq")
+texture_normal = ExtResource("3_1woc2")
 stretch_mode = 0
 script = ExtResource("4_0s8f5")
 
@@ -209,7 +195,7 @@ layout_mode = 2
 shortcut = SubResource("Shortcut_mo27d")
 texture_normal = ExtResource("6_40vae")
 stretch_mode = 0
-script = ExtResource("4_0s8f5")
+script = ExtResource("7_o4g48")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Camera2D/combat_ui_real/HBoxContainer/spell1"]
 layout_mode = 0
@@ -223,7 +209,7 @@ nine_patch_stretch = true
 texture_progress = ExtResource("5_4cvin")
 tint_progress = Color(0, 0, 0.266667, 0.329412)
 
-[node name="attack_cd" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell1"]
+[node name="spell1_cd" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell1"]
 wait_time = 0.5
 one_shot = true
 
@@ -239,7 +225,7 @@ layout_mode = 2
 shortcut = SubResource("Shortcut_8b8bp")
 texture_normal = ExtResource("7_v4aeh")
 stretch_mode = 0
-script = ExtResource("4_0s8f5")
+script = ExtResource("9_xrtq8")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Camera2D/combat_ui_real/HBoxContainer/spell2"]
 layout_mode = 0
@@ -253,7 +239,7 @@ nine_patch_stretch = true
 texture_progress = ExtResource("5_4cvin")
 tint_progress = Color(0, 0, 0.266667, 0.329412)
 
-[node name="attack_cd" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell2"]
+[node name="spell2_cd" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell2"]
 wait_time = 0.5
 one_shot = true
 
@@ -269,7 +255,7 @@ layout_mode = 2
 shortcut = SubResource("Shortcut_vrjqt")
 texture_normal = ExtResource("8_cg3en")
 stretch_mode = 0
-script = ExtResource("4_0s8f5")
+script = ExtResource("11_ah16w")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Camera2D/combat_ui_real/HBoxContainer/spell3"]
 layout_mode = 0
@@ -283,7 +269,7 @@ nine_patch_stretch = true
 texture_progress = ExtResource("5_4cvin")
 tint_progress = Color(0, 0, 0.266667, 0.329412)
 
-[node name="attack_cd" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell3"]
+[node name="spell3_cd" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell3"]
 wait_time = 0.5
 one_shot = true
 
@@ -327,15 +313,18 @@ wait_time = 0.75
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd" to="Camera2D/combat_ui_real/HBoxContainer/attackbutton" method="_on_attack_cd_timeout"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell1" to="." method="_on_spell_1_pressed"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell1" to="Camera2D/combat_ui_real/HBoxContainer/spell1" method="_on_pressed"]
-[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell1/attack_cd" to="." method="_on_attack_cd_timeout"]
-[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell1/attack_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell1" method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell1/spell1_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell1/spell1_cd" to="." method="_on_spell_1_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell1/spell1_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell1" method="_on_attack_cd_timeout"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell2" to="." method="_on_spell_2_pressed"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell2" to="Camera2D/combat_ui_real/HBoxContainer/spell2" method="_on_pressed"]
-[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/attack_cd" to="." method="_on_attack_cd_timeout"]
-[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/attack_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell2" method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="." method="_on_spell_2_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell2" method="_on_attack_cd_timeout"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell3" to="Camera2D/combat_ui_real/HBoxContainer/spell3" method="_on_pressed"]
-[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/attack_cd" to="." method="_on_attack_cd_timeout"]
-[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/attack_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell3" method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="." method="_on_spell_3_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell3" method="_on_attack_cd_timeout"]
 [connection signal="body_entered" from="matato_hitbox" to="." method="_on_matato_hitbox_body_entered"]
 [connection signal="body_exited" from="matato_hitbox" to="." method="_on_matato_hitbox_body_exited"]
 [connection signal="timeout" from="damage_taken_cooldown" to="." method="_on_damage_taken_cooldown_timeout"]

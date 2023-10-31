@@ -19,8 +19,14 @@ var pathName
 var currTarget
 var curr
 var attack_cd = false
+var spell1_cd = false
+var spell2_cd = false
+var spell3_cd = false
 var damage_modifier = 1
 @onready var attack_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd
+@onready var spell1_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/spell1/spell1_cd
+@onready var spell2_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd
+@onready var spell3_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd
 @onready var sprite = $AnimatedSprite2D
 var latent_arcana_charges:
 	set(new_latent_arcana_charges):
@@ -135,9 +141,9 @@ func _on_attack_cd_timeout():
 
 func _on_spell_1_pressed():
 		var enemy = Global.enemy
-		if attack_cd == false and enemy:
-			attack_cd = true
-			attack_cd_timer.start()
+		if spell1_cd == false and enemy:
+			spell1_cd = true
+			spell1_cd_timer.start()
 			print("phoenix pressed")
 			var tempBullet = Phoenix.instantiate()
 			tempBullet.target_position = enemy.global_position
@@ -149,9 +155,9 @@ func _on_spell_1_pressed():
 
 func _on_spell_2_pressed():
 		var enemy = Global.enemy
-		if attack_cd == false and enemy:
-			attack_cd = true
-			attack_cd_timer.start()
+		if spell2_cd == false and enemy:
+			spell2_cd = true
+			spell2_cd_timer.start()
 			print("arcane_wave pressed")
 			var tempBullet = Arcane.instantiate()
 			tempBullet.target_position = enemy.global_position
@@ -160,3 +166,15 @@ func _on_spell_2_pressed():
 			tempBullet.global_position = $Aim.global_position
 		elif attack_cd:
 			print("You can't attack yet, wait a sec")
+
+
+func _on_spell_1_cd_timeout():
+	spell1_cd = false
+
+
+func _on_spell_2_cd_timeout():
+	spell2_cd = false
+
+
+func _on_spell_3_cd_timeout():
+	spell3_cd = false
