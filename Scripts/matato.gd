@@ -63,8 +63,7 @@ func _physics_process(_delta):
 		player_alive = false
 		health = 0
 		print("rip bozo")
-		get_tree().change_scene_to_file("res://Scenes/ui/playerselect.tscn")
-		
+		self.queue_free() #replace with death screen or downed or something
 	set_animation("walk")
 	if velocity == Vector2.ZERO:
 		sprite.stop()
