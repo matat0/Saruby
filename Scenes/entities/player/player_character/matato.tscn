@@ -1,16 +1,43 @@
-[gd_scene load_steps=28 format=3 uid="uid://d3165wqb57tpe"]
+[gd_scene load_steps=59 format=3 uid="uid://d3165wqb57tpe"]
 
 [ext_resource type="Script" path="res://Scripts/matato.gd" id="1_5411w"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_hlev0"]
-[ext_resource type="Texture2D" uid="uid://dxuiycgsii1s4" path="res://Assets/Matato/Attacks/frost_orb.png" id="3_1woc2"]
+[ext_resource type="Texture2D" uid="uid://ced22a1o0vh38" path="res://Assets/Matato/Attacks/frost_orb1.png" id="3_n1ep8"]
 [ext_resource type="Script" path="res://Scenes/entities/player/player_character/attackbutton.gd" id="4_0s8f5"]
+[ext_resource type="Texture2D" uid="uid://4wctikutey64" path="res://Assets/Matato/Attacks/frost_orb2.png" id="4_207de"]
 [ext_resource type="Texture2D" uid="uid://du4ieqyvv7m82" path="res://Assets/Matato/Attacks/blank 20x20.png" id="5_4cvin"]
-[ext_resource type="Texture2D" uid="uid://gvxdsh7qukpb" path="res://Assets/Matato/Attacks/phoenix_sprite.png" id="6_40vae"]
+[ext_resource type="Texture2D" uid="uid://d0dapnoonqrdy" path="res://Assets/Matato/Attacks/frost_orb3.png" id="5_l7iap"]
+[ext_resource type="Texture2D" uid="uid://djvdtxuprlwci" path="res://Assets/Matato/Attacks/frost_orb4.png" id="6_du2xp"]
+[ext_resource type="Texture2D" uid="uid://usfea3w40m0k" path="res://Assets/Matato/Attacks/frost_orb5.png" id="7_my88t"]
 [ext_resource type="Script" path="res://Scenes/entities/player/player_character/spell1.gd" id="7_o4g48"]
-[ext_resource type="Texture2D" uid="uid://bkokcao6b0dv8" path="res://Assets/Matato/Attacks/arcane_wave_sprite.png" id="7_v4aeh"]
-[ext_resource type="Texture2D" uid="uid://b2vmcdylpy41u" path="res://Assets/Matato/Attacks/time_warp_sprite.png" id="8_cg3en"]
 [ext_resource type="Script" path="res://Scenes/entities/player/player_character/spell2.gd" id="9_xrtq8"]
+[ext_resource type="Texture2D" uid="uid://bdhmfyax3fcue" path="res://Assets/Matato/Attacks/phoenix_sprite1.png" id="10_aeaa0"]
 [ext_resource type="Script" path="res://Scenes/entities/player/player_character/spell3.gd" id="11_ah16w"]
+[ext_resource type="Texture2D" uid="uid://43adu6a8ypi" path="res://Assets/Matato/Attacks/phoenix_sprite2.png" id="11_tf5m4"]
+[ext_resource type="Texture2D" uid="uid://c7mnjgjmfio3l" path="res://Assets/Matato/Attacks/phoenix_sprite3.png" id="12_ouxhp"]
+[ext_resource type="Texture2D" uid="uid://dd41v33im457l" path="res://Assets/Matato/Attacks/phoenix_sprite4.png" id="13_6twac"]
+[ext_resource type="Texture2D" uid="uid://buyneyqeumjj3" path="res://Assets/Matato/Attacks/phoenix_sprite5.png" id="14_4ku1t"]
+[ext_resource type="Texture2D" uid="uid://dkib6r7no21hi" path="res://Assets/Matato/Attacks/arcane_wave_sprite1.png" id="16_y5qjl"]
+[ext_resource type="Texture2D" uid="uid://d1713i453y15t" path="res://Assets/Matato/Attacks/arcane_wave_sprite2.png" id="17_hofrq"]
+[ext_resource type="Texture2D" uid="uid://c4ducb23cls5u" path="res://Assets/Matato/Attacks/arcane_wave_sprite3.png" id="18_otqr8"]
+[ext_resource type="Texture2D" uid="uid://tmgukrs44og8" path="res://Assets/Matato/Attacks/arcane_wave_sprite4.png" id="19_vu6bo"]
+[ext_resource type="Texture2D" uid="uid://bgg5k5ndm5tj7" path="res://Assets/Matato/Attacks/arcane_wave_sprite5.png" id="20_w3gqm"]
+[ext_resource type="Texture2D" uid="uid://ddmwqw8yud012" path="res://Assets/Matato/Attacks/arcane_wave_sprite6.png" id="21_0euq2"]
+[ext_resource type="Texture2D" uid="uid://vfpw1g4mg86t" path="res://Assets/Matato/Attacks/arcane_wave_sprite7.png" id="22_30ysb"]
+[ext_resource type="Texture2D" uid="uid://bgk774kcrxfjc" path="res://Assets/Matato/Attacks/arcane_wave_sprite8.png" id="23_fsp70"]
+[ext_resource type="Texture2D" uid="uid://db8fifiroiwb6" path="res://Assets/Matato/Attacks/time_warp_sprite1.png" id="25_h81hs"]
+[ext_resource type="Texture2D" uid="uid://by0pit5upfn8s" path="res://Assets/Matato/Attacks/time_warp_sprite2.png" id="26_gposp"]
+[ext_resource type="Texture2D" uid="uid://c6q22gll7o3ps" path="res://Assets/Matato/Attacks/time_warp_sprite11.png" id="27_x74u0"]
+[ext_resource type="Texture2D" uid="uid://cb8egu3hmn0d" path="res://Assets/Matato/Attacks/time_warp_sprite12.png" id="28_nbnj8"]
+[ext_resource type="Texture2D" uid="uid://dh7hcnw7lglkg" path="res://Assets/Matato/Attacks/time_warp_sprite13.png" id="29_ljrsf"]
+[ext_resource type="Texture2D" uid="uid://ei1xbfdy3rrb" path="res://Assets/Matato/Attacks/time_warp_sprite3.png" id="30_fhc2w"]
+[ext_resource type="Texture2D" uid="uid://ca534qmuna18c" path="res://Assets/Matato/Attacks/time_warp_sprite4.png" id="31_wtcd4"]
+[ext_resource type="Texture2D" uid="uid://c7qvqqi5cpjl" path="res://Assets/Matato/Attacks/time_warp_sprite5.png" id="32_8vipa"]
+[ext_resource type="Texture2D" uid="uid://ctsfpy8hra3vp" path="res://Assets/Matato/Attacks/time_warp_sprite6.png" id="33_db437"]
+[ext_resource type="Texture2D" uid="uid://m3w6m0n32wnc" path="res://Assets/Matato/Attacks/time_warp_sprite7.png" id="34_a7yfq"]
+[ext_resource type="Texture2D" uid="uid://bb0wl66o461ce" path="res://Assets/Matato/Attacks/time_warp_sprite8.png" id="35_d10t2"]
+[ext_resource type="Texture2D" uid="uid://dkd4j4dihaaj" path="res://Assets/Matato/Attacks/time_warp_sprite9.png" id="36_ylx2j"]
+[ext_resource type="Texture2D" uid="uid://d3kt5dt1otdi7" path="res://Assets/Matato/Attacks/time_warp_sprite10.png" id="37_ivhpk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcusi"]
 size = Vector2(14, 26)
@@ -71,6 +98,19 @@ unicode = 113
 [sub_resource type="Shortcut" id="Shortcut_24lpq"]
 events = [SubResource("InputEventKey_twnrm")]
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_tyab7"]
+frames = 5
+speed_scale = 5.6
+frame_0/texture = ExtResource("3_n1ep8")
+frame_1/texture = ExtResource("4_207de")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_l7iap")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("6_du2xp")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("7_my88t")
+frame_4/duration = 1.0
+
 [sub_resource type="InputEventKey" id="InputEventKey_30i01"]
 device = -1
 keycode = 87
@@ -78,6 +118,19 @@ unicode = 119
 
 [sub_resource type="Shortcut" id="Shortcut_mo27d"]
 events = [SubResource("InputEventKey_30i01")]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ms4g6"]
+frames = 5
+speed_scale = 5.6
+frame_0/texture = ExtResource("10_aeaa0")
+frame_1/texture = ExtResource("11_tf5m4")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("12_ouxhp")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("13_6twac")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("14_4ku1t")
+frame_4/duration = 1.0
 
 [sub_resource type="InputEventKey" id="InputEventKey_eq2vk"]
 device = -1
@@ -87,6 +140,25 @@ unicode = 101
 [sub_resource type="Shortcut" id="Shortcut_8b8bp"]
 events = [SubResource("InputEventKey_eq2vk")]
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_q3f57"]
+frames = 8
+speed_scale = 6.5
+frame_0/texture = ExtResource("16_y5qjl")
+frame_1/texture = ExtResource("17_hofrq")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("18_otqr8")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("19_vu6bo")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("20_w3gqm")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("21_0euq2")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("22_30ysb")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("23_fsp70")
+frame_7/duration = 1.0
+
 [sub_resource type="InputEventKey" id="InputEventKey_5gtcb"]
 device = -1
 keycode = 82
@@ -94,6 +166,35 @@ unicode = 114
 
 [sub_resource type="Shortcut" id="Shortcut_vrjqt"]
 events = [SubResource("InputEventKey_5gtcb")]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_e1nlm"]
+frames = 13
+speed_scale = 5.6
+frame_0/texture = ExtResource("25_h81hs")
+frame_1/texture = ExtResource("26_gposp")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("30_fhc2w")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("31_wtcd4")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("32_8vipa")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("33_db437")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("34_a7yfq")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("35_d10t2")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("36_ylx2j")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("37_ivhpk")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("27_x74u0")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("28_nbnj8")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("29_ljrsf")
+frame_12/duration = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkqb4"]
 size = Vector2(25, 37)
@@ -133,10 +234,10 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/combat_ui_real/Control2"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.400174
-anchor_top = -0.501543
-anchor_right = 0.599826
-anchor_bottom = 0.498457
+anchor_left = -0.377604
+anchor_top = -0.549383
+anchor_right = 0.622396
+anchor_bottom = 0.450617
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
@@ -157,13 +258,14 @@ offset_right = 66.0
 offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1.25, 1.25)
 size_flags_horizontal = 8
 size_flags_vertical = 4
 
 [node name="attackbutton" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_24lpq")
-texture_normal = ExtResource("3_1woc2")
+texture_normal = SubResource("AnimatedTexture_tyab7")
 stretch_mode = 0
 script = ExtResource("4_0s8f5")
 
@@ -193,7 +295,7 @@ offset_bottom = -104.0
 [node name="spell1" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_mo27d")
-texture_normal = ExtResource("6_40vae")
+texture_normal = SubResource("AnimatedTexture_ms4g6")
 stretch_mode = 0
 script = ExtResource("7_o4g48")
 
@@ -223,7 +325,7 @@ offset_bottom = -104.0
 [node name="spell2" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_8b8bp")
-texture_normal = ExtResource("7_v4aeh")
+texture_normal = SubResource("AnimatedTexture_q3f57")
 stretch_mode = 0
 script = ExtResource("9_xrtq8")
 
@@ -253,7 +355,7 @@ offset_bottom = -104.0
 [node name="spell3" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_vrjqt")
-texture_normal = ExtResource("8_cg3en")
+texture_normal = SubResource("AnimatedTexture_e1nlm")
 stretch_mode = 0
 script = ExtResource("11_ah16w")
 
