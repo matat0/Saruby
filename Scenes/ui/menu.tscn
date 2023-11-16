@@ -11,17 +11,26 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_rcvxn")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_direction = 1
 layout_mode = 0
-offset_right = 1158.0
-offset_bottom = 675.0
-scale = Vector2(0.994882, 0.998016)
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+layout_mode = 2
 texture = ExtResource("2_sac8t")
 expand_mode = 1
+stretch_mode = 6
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 2
@@ -78,6 +87,13 @@ text = "pre-alpha v0.2.2"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 323)
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="ready" from="MarginContainer2/TextureRect" to="." method="_on_texture_rect_ready"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
