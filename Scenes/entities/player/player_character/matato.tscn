@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://d3165wqb57tpe"]
+[gd_scene load_steps=69 format=3 uid="uid://d3165wqb57tpe"]
 
 [ext_resource type="Script" path="res://Scripts/matato.gd" id="1_5411w"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_hlev0"]
@@ -11,33 +11,34 @@
 [ext_resource type="Texture2D" uid="uid://usfea3w40m0k" path="res://Assets/Matato/Attacks/frost_orb5.png" id="7_my88t"]
 [ext_resource type="Script" path="res://Scenes/entities/player/player_character/spell1.gd" id="7_o4g48"]
 [ext_resource type="Script" path="res://Scenes/entities/player/player_character/spell2.gd" id="9_xrtq8"]
-[ext_resource type="Texture2D" uid="uid://bdhmfyax3fcue" path="res://Assets/Matato/Attacks/phoenix_sprite1.png" id="10_aeaa0"]
+[ext_resource type="Texture2D" uid="uid://bdhmfyax3fcue" path="res://Assets/Matato/Attacks/phoenix_bar/phoenix_sprite1.png" id="10_j7pfg"]
 [ext_resource type="Script" path="res://Scenes/entities/player/player_character/spell3.gd" id="11_ah16w"]
-[ext_resource type="Texture2D" uid="uid://43adu6a8ypi" path="res://Assets/Matato/Attacks/phoenix_sprite2.png" id="11_tf5m4"]
-[ext_resource type="Texture2D" uid="uid://c7mnjgjmfio3l" path="res://Assets/Matato/Attacks/phoenix_sprite3.png" id="12_ouxhp"]
-[ext_resource type="Texture2D" uid="uid://dd41v33im457l" path="res://Assets/Matato/Attacks/phoenix_sprite4.png" id="13_6twac"]
-[ext_resource type="Texture2D" uid="uid://buyneyqeumjj3" path="res://Assets/Matato/Attacks/phoenix_sprite5.png" id="14_4ku1t"]
-[ext_resource type="Texture2D" uid="uid://dkib6r7no21hi" path="res://Assets/Matato/Attacks/arcane_wave_sprite1.png" id="16_y5qjl"]
-[ext_resource type="Texture2D" uid="uid://d1713i453y15t" path="res://Assets/Matato/Attacks/arcane_wave_sprite2.png" id="17_hofrq"]
-[ext_resource type="Texture2D" uid="uid://c4ducb23cls5u" path="res://Assets/Matato/Attacks/arcane_wave_sprite3.png" id="18_otqr8"]
-[ext_resource type="Texture2D" uid="uid://tmgukrs44og8" path="res://Assets/Matato/Attacks/arcane_wave_sprite4.png" id="19_vu6bo"]
-[ext_resource type="Texture2D" uid="uid://bgg5k5ndm5tj7" path="res://Assets/Matato/Attacks/arcane_wave_sprite5.png" id="20_w3gqm"]
-[ext_resource type="Texture2D" uid="uid://ddmwqw8yud012" path="res://Assets/Matato/Attacks/arcane_wave_sprite6.png" id="21_0euq2"]
-[ext_resource type="Texture2D" uid="uid://vfpw1g4mg86t" path="res://Assets/Matato/Attacks/arcane_wave_sprite7.png" id="22_30ysb"]
-[ext_resource type="Texture2D" uid="uid://bgk774kcrxfjc" path="res://Assets/Matato/Attacks/arcane_wave_sprite8.png" id="23_fsp70"]
-[ext_resource type="Texture2D" uid="uid://db8fifiroiwb6" path="res://Assets/Matato/Attacks/time_warp_sprite1.png" id="25_h81hs"]
-[ext_resource type="Texture2D" uid="uid://by0pit5upfn8s" path="res://Assets/Matato/Attacks/time_warp_sprite2.png" id="26_gposp"]
-[ext_resource type="Texture2D" uid="uid://c6q22gll7o3ps" path="res://Assets/Matato/Attacks/time_warp_sprite11.png" id="27_x74u0"]
-[ext_resource type="Texture2D" uid="uid://cb8egu3hmn0d" path="res://Assets/Matato/Attacks/time_warp_sprite12.png" id="28_nbnj8"]
-[ext_resource type="Texture2D" uid="uid://dh7hcnw7lglkg" path="res://Assets/Matato/Attacks/time_warp_sprite13.png" id="29_ljrsf"]
-[ext_resource type="Texture2D" uid="uid://ei1xbfdy3rrb" path="res://Assets/Matato/Attacks/time_warp_sprite3.png" id="30_fhc2w"]
-[ext_resource type="Texture2D" uid="uid://ca534qmuna18c" path="res://Assets/Matato/Attacks/time_warp_sprite4.png" id="31_wtcd4"]
-[ext_resource type="Texture2D" uid="uid://c7qvqqi5cpjl" path="res://Assets/Matato/Attacks/time_warp_sprite5.png" id="32_8vipa"]
-[ext_resource type="Texture2D" uid="uid://ctsfpy8hra3vp" path="res://Assets/Matato/Attacks/time_warp_sprite6.png" id="33_db437"]
-[ext_resource type="Texture2D" uid="uid://m3w6m0n32wnc" path="res://Assets/Matato/Attacks/time_warp_sprite7.png" id="34_a7yfq"]
-[ext_resource type="Texture2D" uid="uid://bb0wl66o461ce" path="res://Assets/Matato/Attacks/time_warp_sprite8.png" id="35_d10t2"]
-[ext_resource type="Texture2D" uid="uid://dkd4j4dihaaj" path="res://Assets/Matato/Attacks/time_warp_sprite9.png" id="36_ylx2j"]
-[ext_resource type="Texture2D" uid="uid://d3kt5dt1otdi7" path="res://Assets/Matato/Attacks/time_warp_sprite10.png" id="37_ivhpk"]
+[ext_resource type="Texture2D" uid="uid://43adu6a8ypi" path="res://Assets/Matato/Attacks/phoenix_bar/phoenix_sprite2.png" id="11_u6435"]
+[ext_resource type="Texture2D" uid="uid://c7mnjgjmfio3l" path="res://Assets/Matato/Attacks/phoenix_bar/phoenix_sprite3.png" id="12_tk4oi"]
+[ext_resource type="Texture2D" uid="uid://dd41v33im457l" path="res://Assets/Matato/Attacks/phoenix_bar/phoenix_sprite4.png" id="13_xtrro"]
+[ext_resource type="Texture2D" uid="uid://buyneyqeumjj3" path="res://Assets/Matato/Attacks/phoenix_bar/phoenix_sprite5.png" id="14_wk05i"]
+[ext_resource type="Texture2D" uid="uid://dkib6r7no21hi" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite1.png" id="16_6nqn1"]
+[ext_resource type="Texture2D" uid="uid://d1713i453y15t" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite2.png" id="17_k1twt"]
+[ext_resource type="Texture2D" uid="uid://c4ducb23cls5u" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite3.png" id="18_76na3"]
+[ext_resource type="Texture2D" uid="uid://tmgukrs44og8" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite4.png" id="19_baggc"]
+[ext_resource type="Texture2D" uid="uid://bgg5k5ndm5tj7" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite5.png" id="20_2eq2j"]
+[ext_resource type="Texture2D" uid="uid://ddmwqw8yud012" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite6.png" id="21_llobo"]
+[ext_resource type="Texture2D" uid="uid://vfpw1g4mg86t" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite7.png" id="22_mcqv0"]
+[ext_resource type="Texture2D" uid="uid://bgk774kcrxfjc" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite8.png" id="23_5f357"]
+[ext_resource type="Texture2D" uid="uid://db8fifiroiwb6" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite1.png" id="25_8nd0i"]
+[ext_resource type="Texture2D" uid="uid://by0pit5upfn8s" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite2.png" id="26_2gim7"]
+[ext_resource type="Texture2D" uid="uid://c6q22gll7o3ps" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite11.png" id="27_dqrw1"]
+[ext_resource type="Texture2D" uid="uid://cb8egu3hmn0d" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite12.png" id="28_g4bvo"]
+[ext_resource type="Texture2D" uid="uid://dh7hcnw7lglkg" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite13.png" id="29_f6epq"]
+[ext_resource type="Texture2D" uid="uid://ei1xbfdy3rrb" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite3.png" id="30_nysav"]
+[ext_resource type="Texture2D" uid="uid://ca534qmuna18c" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite4.png" id="31_r3xt7"]
+[ext_resource type="Texture2D" uid="uid://c7qvqqi5cpjl" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite5.png" id="32_6s3fs"]
+[ext_resource type="Texture2D" uid="uid://ctsfpy8hra3vp" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite6.png" id="33_eflcl"]
+[ext_resource type="Texture2D" uid="uid://m3w6m0n32wnc" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite7.png" id="34_sy0me"]
+[ext_resource type="Texture2D" uid="uid://bb0wl66o461ce" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite8.png" id="35_5gyku"]
+[ext_resource type="Texture2D" uid="uid://dkd4j4dihaaj" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite9.png" id="36_c1ilh"]
+[ext_resource type="Texture2D" uid="uid://d3kt5dt1otdi7" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite10.png" id="37_ubrkb"]
+[ext_resource type="Texture2D" uid="uid://baf84h0uilcyx" path="res://Assets/Matato/Attacks/clock-Sheet.png" id="39_3nieu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcusi"]
 size = Vector2(14, 26)
@@ -122,14 +123,14 @@ events = [SubResource("InputEventKey_30i01")]
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_ms4g6"]
 frames = 5
 speed_scale = 5.6
-frame_0/texture = ExtResource("10_aeaa0")
-frame_1/texture = ExtResource("11_tf5m4")
+frame_0/texture = ExtResource("10_j7pfg")
+frame_1/texture = ExtResource("11_u6435")
 frame_1/duration = 1.0
-frame_2/texture = ExtResource("12_ouxhp")
+frame_2/texture = ExtResource("12_tk4oi")
 frame_2/duration = 1.0
-frame_3/texture = ExtResource("13_6twac")
+frame_3/texture = ExtResource("13_xtrro")
 frame_3/duration = 1.0
-frame_4/texture = ExtResource("14_4ku1t")
+frame_4/texture = ExtResource("14_wk05i")
 frame_4/duration = 1.0
 
 [sub_resource type="InputEventKey" id="InputEventKey_eq2vk"]
@@ -143,20 +144,20 @@ events = [SubResource("InputEventKey_eq2vk")]
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_q3f57"]
 frames = 8
 speed_scale = 6.5
-frame_0/texture = ExtResource("16_y5qjl")
-frame_1/texture = ExtResource("17_hofrq")
+frame_0/texture = ExtResource("16_6nqn1")
+frame_1/texture = ExtResource("17_k1twt")
 frame_1/duration = 1.0
-frame_2/texture = ExtResource("18_otqr8")
+frame_2/texture = ExtResource("18_76na3")
 frame_2/duration = 1.0
-frame_3/texture = ExtResource("19_vu6bo")
+frame_3/texture = ExtResource("19_baggc")
 frame_3/duration = 1.0
-frame_4/texture = ExtResource("20_w3gqm")
+frame_4/texture = ExtResource("20_2eq2j")
 frame_4/duration = 1.0
-frame_5/texture = ExtResource("21_0euq2")
+frame_5/texture = ExtResource("21_llobo")
 frame_5/duration = 1.0
-frame_6/texture = ExtResource("22_30ysb")
+frame_6/texture = ExtResource("22_mcqv0")
 frame_6/duration = 1.0
-frame_7/texture = ExtResource("23_fsp70")
+frame_7/texture = ExtResource("23_5f357")
 frame_7/duration = 1.0
 
 [sub_resource type="InputEventKey" id="InputEventKey_5gtcb"]
@@ -170,34 +171,103 @@ events = [SubResource("InputEventKey_5gtcb")]
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_e1nlm"]
 frames = 13
 speed_scale = 5.6
-frame_0/texture = ExtResource("25_h81hs")
-frame_1/texture = ExtResource("26_gposp")
+frame_0/texture = ExtResource("25_8nd0i")
+frame_1/texture = ExtResource("26_2gim7")
 frame_1/duration = 1.0
-frame_2/texture = ExtResource("30_fhc2w")
+frame_2/texture = ExtResource("30_nysav")
 frame_2/duration = 1.0
-frame_3/texture = ExtResource("31_wtcd4")
+frame_3/texture = ExtResource("31_r3xt7")
 frame_3/duration = 1.0
-frame_4/texture = ExtResource("32_8vipa")
+frame_4/texture = ExtResource("32_6s3fs")
 frame_4/duration = 1.0
-frame_5/texture = ExtResource("33_db437")
+frame_5/texture = ExtResource("33_eflcl")
 frame_5/duration = 1.0
-frame_6/texture = ExtResource("34_a7yfq")
+frame_6/texture = ExtResource("34_sy0me")
 frame_6/duration = 1.0
-frame_7/texture = ExtResource("35_d10t2")
+frame_7/texture = ExtResource("35_5gyku")
 frame_7/duration = 1.0
-frame_8/texture = ExtResource("36_ylx2j")
+frame_8/texture = ExtResource("36_c1ilh")
 frame_8/duration = 1.0
-frame_9/texture = ExtResource("37_ivhpk")
+frame_9/texture = ExtResource("37_ubrkb")
 frame_9/duration = 1.0
-frame_10/texture = ExtResource("27_x74u0")
+frame_10/texture = ExtResource("27_dqrw1")
 frame_10/duration = 1.0
-frame_11/texture = ExtResource("28_nbnj8")
+frame_11/texture = ExtResource("28_g4bvo")
 frame_11/duration = 1.0
-frame_12/texture = ExtResource("29_ljrsf")
+frame_12/texture = ExtResource("29_f6epq")
 frame_12/duration = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkqb4"]
 size = Vector2(25, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqenw"]
+atlas = ExtResource("39_3nieu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey23t"]
+atlas = ExtResource("39_3nieu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgd5y"]
+atlas = ExtResource("39_3nieu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma6i1"]
+atlas = ExtResource("39_3nieu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af8e0"]
+atlas = ExtResource("39_3nieu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6tyt"]
+atlas = ExtResource("39_3nieu")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji674"]
+atlas = ExtResource("39_3nieu")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bttn4"]
+atlas = ExtResource("39_3nieu")
+region = Rect2(0, 24, 56, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps0bo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqenw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey23t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgd5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma6i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af8e0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6tyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji674")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bttn4")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}]
 
 [node name="matato" type="CharacterBody2D"]
 script = ExtResource("1_5411w")
@@ -208,7 +278,7 @@ shape = SubResource("RectangleShape2D_vcusi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8yohp")
-animation = &"idle"
+animation = &"walkside"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -372,7 +442,7 @@ texture_progress = ExtResource("5_4cvin")
 tint_progress = Color(0, 0, 0.266667, 0.329412)
 
 [node name="spell3_cd" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell3"]
-wait_time = 0.5
+wait_time = 60.0
 one_shot = true
 
 [node name="key" type="Label" parent="Camera2D/combat_ui_real/HBoxContainer/spell3"]
@@ -381,6 +451,9 @@ offset_left = -251.0
 offset_top = -127.0
 offset_right = -211.0
 offset_bottom = -104.0
+
+[node name="tw_duration" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell3"]
+wait_time = 5.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/combat_ui_real"]
 anchors_preset = 7
@@ -410,6 +483,10 @@ wait_time = 0.75
 
 [node name="BulletContainer" type="Node" parent="."]
 
+[node name="tw_clock" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ps0bo")
+animation = &"empty"
+
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton" to="Camera2D/combat_ui_real/HBoxContainer/attackbutton" method="_on_pressed"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd" to="." method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd" to="Camera2D/combat_ui_real/HBoxContainer/attackbutton" method="_on_attack_cd_timeout"]
@@ -423,10 +500,12 @@ wait_time = 0.75
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="." method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="." method="_on_spell_2_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell2" method="_on_attack_cd_timeout"]
+[connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell3" to="." method="_on_spell_3_pressed"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell3" to="Camera2D/combat_ui_real/HBoxContainer/spell3" method="_on_pressed"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="." method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="." method="_on_spell_3_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell3" method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/tw_duration" to="." method="_on_tw_duration_timeout"]
 [connection signal="body_entered" from="matato_hitbox" to="." method="_on_matato_hitbox_body_entered"]
 [connection signal="body_exited" from="matato_hitbox" to="." method="_on_matato_hitbox_body_exited"]
 [connection signal="timeout" from="damage_taken_cooldown" to="." method="_on_damage_taken_cooldown_timeout"]

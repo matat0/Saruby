@@ -22,12 +22,16 @@ var attack_cd = false
 var spell1_cd = false
 var spell2_cd = false
 var spell3_cd = false
+var tw_duration_cd = false
 var damage_modifier = 1
 @onready var attack_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd
 @onready var spell1_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/spell1/spell1_cd
 @onready var spell2_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd
 @onready var spell3_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd
 @onready var sprite = $AnimatedSprite2D
+@onready var tw_duration = $Camera2D/combat_ui_real/HBoxContainer/spell3/tw_duration
+
+
 var latent_arcana_charges:
 	set(new_latent_arcana_charges):
 		if new_latent_arcana_charges >= 0 and new_latent_arcana_charges < 5:
@@ -50,6 +54,7 @@ func _ready(): #uses the current tilemap to calculate camera boundaries, should 
 	$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
 	$Camera2D.limit_bottom = tilemap_rect.end.y * tilemap_cell_size.y
 	$Camera2D.limit_top = tilemap_rect.position.x * tilemap_cell_size.y
+	$tw_clock.play("empty")
 	#get_parent().get_child(2).connect("award_loot", self, _on_brauk_death)
 	
 
@@ -167,6 +172,18 @@ func _on_spell_2_pressed():
 		elif attack_cd:
 			print("You can't attack yet, wait a sec")
 
+func _on_spell_3_pressed():
+		var enemy = Global.enemy
+		if spell3_cd == false and enemy:
+			spell3_cd = true
+			spell3_cd_timer.start()
+			print("time warp pressed")
+			$tw_clock.play("default")
+			tw_duration.start()
+				
+				
+		elif attack_cd:
+			print("You can't attack yet, wait a sec")
 
 func _on_spell_1_cd_timeout():
 	spell1_cd = false
@@ -178,3 +195,7 @@ func _on_spell_2_cd_timeout():
 
 func _on_spell_3_cd_timeout():
 	spell3_cd = false
+
+func _on_tw_duration_timeout():
+	tw_duration_cd == false
+	$tw_clock.play("empty")
