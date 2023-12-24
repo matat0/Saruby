@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgg5k5ndm5tj7"
-path="res://.godot/imported/arcane_wave_sprite5.png-a311d5d5dedddc1d0643d93c71b235ea.ctex"
+uid="uid://tmgukrs44og8"
+path="res://.godot/imported/arcane_wave_sprite4.png-dbe94d006c3164b23263d518298cee5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite5.png"
-dest_files=["res://.godot/imported/arcane_wave_sprite5.png-a311d5d5dedddc1d0643d93c71b235ea.ctex"]
+source_file="res://Assets/Matato/Attacks/arcane_wave_bar/arcane_wave_sprite4.png"
+dest_files=["res://.godot/imported/arcane_wave_sprite4.png-dbe94d006c3164b23263d518298cee5b.ctex"]
 
 [params]
 

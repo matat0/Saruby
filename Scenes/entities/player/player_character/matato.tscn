@@ -17,14 +17,14 @@
 [ext_resource type="Texture2D" uid="uid://c7mnjgjmfio3l" path="res://Assets/Matato/Attacks/phoenix_bar/phoenix_sprite3.png" id="12_tk4oi"]
 [ext_resource type="Texture2D" uid="uid://dd41v33im457l" path="res://Assets/Matato/Attacks/phoenix_bar/phoenix_sprite4.png" id="13_xtrro"]
 [ext_resource type="Texture2D" uid="uid://buyneyqeumjj3" path="res://Assets/Matato/Attacks/phoenix_bar/phoenix_sprite5.png" id="14_wk05i"]
-[ext_resource type="Texture2D" uid="uid://dkib6r7no21hi" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite1.png" id="16_6nqn1"]
-[ext_resource type="Texture2D" uid="uid://d1713i453y15t" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite2.png" id="17_k1twt"]
-[ext_resource type="Texture2D" uid="uid://c4ducb23cls5u" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite3.png" id="18_76na3"]
-[ext_resource type="Texture2D" uid="uid://tmgukrs44og8" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite4.png" id="19_baggc"]
-[ext_resource type="Texture2D" uid="uid://bgg5k5ndm5tj7" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite5.png" id="20_2eq2j"]
-[ext_resource type="Texture2D" uid="uid://ddmwqw8yud012" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite6.png" id="21_llobo"]
-[ext_resource type="Texture2D" uid="uid://vfpw1g4mg86t" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite7.png" id="22_mcqv0"]
-[ext_resource type="Texture2D" uid="uid://bgk774kcrxfjc" path="res://Assets/Matato/Attacks/phoenix_bar/arcane_wave_bar/arcane_wave_sprite8.png" id="23_5f357"]
+[ext_resource type="Texture2D" uid="uid://dkib6r7no21hi" path="res://Assets/Matato/Attacks/arcane_wave_bar/arcane_wave_sprite1.png" id="16_rhw55"]
+[ext_resource type="Texture2D" uid="uid://d1713i453y15t" path="res://Assets/Matato/Attacks/arcane_wave_bar/arcane_wave_sprite2.png" id="17_4vj3w"]
+[ext_resource type="Texture2D" uid="uid://c4ducb23cls5u" path="res://Assets/Matato/Attacks/arcane_wave_bar/arcane_wave_sprite3.png" id="18_jmdhs"]
+[ext_resource type="Texture2D" uid="uid://tmgukrs44og8" path="res://Assets/Matato/Attacks/arcane_wave_bar/arcane_wave_sprite4.png" id="19_64hi6"]
+[ext_resource type="Texture2D" uid="uid://bgg5k5ndm5tj7" path="res://Assets/Matato/Attacks/arcane_wave_bar/arcane_wave_sprite5.png" id="20_okl8j"]
+[ext_resource type="Texture2D" uid="uid://ddmwqw8yud012" path="res://Assets/Matato/Attacks/arcane_wave_bar/arcane_wave_sprite6.png" id="21_xj4lm"]
+[ext_resource type="Texture2D" uid="uid://vfpw1g4mg86t" path="res://Assets/Matato/Attacks/arcane_wave_bar/arcane_wave_sprite7.png" id="22_ucuv4"]
+[ext_resource type="Texture2D" uid="uid://bgk774kcrxfjc" path="res://Assets/Matato/Attacks/arcane_wave_bar/arcane_wave_sprite8.png" id="23_ttluo"]
 [ext_resource type="Texture2D" uid="uid://db8fifiroiwb6" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite1.png" id="25_8nd0i"]
 [ext_resource type="Texture2D" uid="uid://by0pit5upfn8s" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite2.png" id="26_2gim7"]
 [ext_resource type="Texture2D" uid="uid://c6q22gll7o3ps" path="res://Assets/Matato/Attacks/time_warp_bar/time_warp_sprite11.png" id="27_dqrw1"]
@@ -144,20 +144,20 @@ events = [SubResource("InputEventKey_eq2vk")]
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_q3f57"]
 frames = 8
 speed_scale = 6.5
-frame_0/texture = ExtResource("16_6nqn1")
-frame_1/texture = ExtResource("17_k1twt")
+frame_0/texture = ExtResource("16_rhw55")
+frame_1/texture = ExtResource("17_4vj3w")
 frame_1/duration = 1.0
-frame_2/texture = ExtResource("18_76na3")
+frame_2/texture = ExtResource("18_jmdhs")
 frame_2/duration = 1.0
-frame_3/texture = ExtResource("19_baggc")
+frame_3/texture = ExtResource("19_64hi6")
 frame_3/duration = 1.0
-frame_4/texture = ExtResource("20_2eq2j")
+frame_4/texture = ExtResource("20_okl8j")
 frame_4/duration = 1.0
-frame_5/texture = ExtResource("21_llobo")
+frame_5/texture = ExtResource("21_xj4lm")
 frame_5/duration = 1.0
-frame_6/texture = ExtResource("22_mcqv0")
+frame_6/texture = ExtResource("22_ucuv4")
 frame_6/duration = 1.0
-frame_7/texture = ExtResource("23_5f357")
+frame_7/texture = ExtResource("23_ttluo")
 frame_7/duration = 1.0
 
 [sub_resource type="InputEventKey" id="InputEventKey_5gtcb"]
