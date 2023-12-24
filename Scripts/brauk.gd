@@ -7,19 +7,30 @@ var health_bar = preload("res://Scenes/entities/boss_health.tscn")
 @onready var sprite = $body
 @onready var animation_tree : AnimationTree = $AnimationTree
 var getting_hurt = false
-var speed = 200 #this value is inverse to the actual speed (higher # = slower movement)
+var speed = 75 
 var player_chase = false
 var player = null
-var health:
+var health: 
 	set(new_health):
+		var damage_taken
+		if health == null:
+			health = new_health
+		else:
+			damage_taken = health - new_health
 		health = new_health
 		print("set new health")
 		if new_health > 0 and new_health < 5000:
 			_on_damage_taken()
-			
+			spawn_damage_number(damage_taken, self.position)
 	get:
 		return health
 		
+		
+func spawn_damage_number(amount, position):
+	var damage_number_instance = preload("res://Scenes/entities/enemy/enemy_character/damage_number.tscn").instantiate()
+	damage_number_instance.text = str(amount)
+	damage_number_instance.global_position = position
+	add_child(damage_number_instance)
 var player_in_range = false
 signal enemy_defeated
 var loot = 500
@@ -77,7 +88,10 @@ func _physics_process(delta):
 		elif direction_to_player.length() > 0.01:
 			#sprite.play("braukwalk")
 			pass
-		position += (player.position - position)/speed
+		#position += (player.position - position)/speed
+		velocity = direction_to_player * speed
+		print(direction_to_player)
+		move_and_slide()
 		#if getting_hurt:
 		#	sprite.play("braukhurt")
 			

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfwhirke78g4n"]
+
+[ext_resource type="Script" path="res://Damage Number.gd" id="1_gn3ml"]
+
+[node name="Damage Number" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_gn3ml")
