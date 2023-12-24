@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed = 200
+var speed = 200
 
 var input_direction: get = _get_input_direction
 var sprite_direction = "right": get = _get_sprite_direction	
@@ -180,8 +180,8 @@ func _on_spell_3_pressed():
 			print("time warp pressed")
 			$tw_clock.play("default")
 			tw_duration.start()
-				
-				
+			speed = 250
+							
 		elif attack_cd:
 			print("You can't attack yet, wait a sec")
 
@@ -199,3 +199,4 @@ func _on_spell_3_cd_timeout():
 func _on_tw_duration_timeout():
 	tw_duration_cd == false
 	$tw_clock.play("empty")
+	speed = 200
