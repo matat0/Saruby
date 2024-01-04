@@ -7,19 +7,33 @@ var health_bar = preload("res://Scenes/entities/boss_health.tscn")
 @onready var sprite = $body
 @onready var animation_tree : AnimationTree = $AnimationTree
 var getting_hurt = false
-var speed = 200 #this value is inverse to the actual speed (higher # = slower movement)
-var player_chase = false
+var speed = 75 
+var player_chase 
 var player = null
-var health:
+var health: 
 	set(new_health):
+		var damage_taken
+		if health == null:
+			health = new_health
+		else:
+			damage_taken = health - new_health
 		health = new_health
 		print("set new health")
 		if new_health > 0 and new_health < 5000:
 			_on_damage_taken()
-			
+			player_chase = true
+			print(player, "boss ouch")
+			_on_aggro_range_body_entered(Global.gamer)
+			spawn_damage_number(damage_taken, self.global_position)
 	get:
 		return health
 		
+		
+func spawn_damage_number(amount, position):
+	var damage_number_instance = preload("res://Scenes/entities/enemy/enemy_character/damage_number.tscn").instantiate()
+	damage_number_instance.text = str(amount)
+	#damage_number_instance.global_position = position
+	add_child(damage_number_instance)
 var player_in_range = false
 signal enemy_defeated
 var loot = 500
@@ -58,15 +72,15 @@ func _on_enemy_defeated():
 
 func _on_damage_taken():
 	getting_hurt = true
-	$aggro_range/CollisionShape2D.scale = Vector2(10,10) #scales aggro range by 10 when enemy loses/gains health
+	#$aggro_range/CollisionShape2D.scale = Vector2(10,10) #scales aggro range by 10 when enemy loses/gains health
 func _physics_process(delta):
 	#deal_with_damage() old melee function
 	var current_position = global_position
 	frame_velocity = (current_position - prev_position) / delta
 	prev_position = current_position
-
+	print(player_chase)
 	_update_animation_parameters()
-	if player_chase and health > 0:
+	if player_chase and health > 0 and player != null:
 		var direction_to_player = (player.position - position).normalized()
 		if direction_to_player.x < 0:
 			sprite.flip_h = false
@@ -77,7 +91,9 @@ func _physics_process(delta):
 		elif direction_to_player.length() > 0.01:
 			#sprite.play("braukwalk")
 			pass
-		position += (player.position - position)/speed
+		#position += (player.position - position)/speed
+		velocity = direction_to_player * speed
+		move_and_slide()
 		#if getting_hurt:
 		#	sprite.play("braukhurt")
 			
@@ -119,14 +135,15 @@ func _ready():
 	add_child(instanced_health_bar)
 
 func _on_aggro_range_body_entered(body):
-	player = body
-	player_chase = true
-	
+	if body.has_method("player"):
+		player = body
+		player_chase = true
+		print(player, body, "aggro range entered", player_chase)
 
 
-func _on_aggro_range_body_exited(body):
-	player = null
-	player_chase = false
+#func _on_aggro_range_body_exited(body):
+#	player = null
+#	player_chase = false
 
 
 func _on_brauk_hitbox_body_entered(body):
