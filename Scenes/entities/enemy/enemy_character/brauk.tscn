@@ -14,6 +14,135 @@ radius = 140.014
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlrem"]
 size = Vector2(57, 80)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8nrqm"]
+animation = &"braukdeath"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pu2y2"]
+animation = &"braukhurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ir0p"]
+animation = &"braukhurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_15n5y"]
+animation = &"braukhurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_objsa"]
+animation = &"braukhurt"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_l1xen"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_pu2y2")
+blend_point_0/pos = Vector2(-10016.8, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2ir0p")
+blend_point_1/pos = Vector2(0, 10000)
+blend_point_2/node = SubResource("AnimationNodeAnimation_15n5y")
+blend_point_2/pos = Vector2(16.8, -9281.4)
+blend_point_3/node = SubResource("AnimationNodeAnimation_objsa")
+blend_point_3/pos = Vector2(9949.7, 299.4)
+min_space = Vector2(-10000, -10000)
+max_space = Vector2(10000, 10000)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tugbc"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fddkx"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e8ilx"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sbt0i"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_bc11t"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_tugbc")
+blend_point_0/pos = Vector2(-10016.7, 239.6)
+blend_point_1/node = SubResource("AnimationNodeAnimation_fddkx")
+blend_point_1/pos = Vector2(-33.6, 9521)
+blend_point_2/node = SubResource("AnimationNodeAnimation_e8ilx")
+blend_point_2/pos = Vector2(17.1, -10359.3)
+blend_point_3/node = SubResource("AnimationNodeAnimation_sbt0i")
+blend_point_3/pos = Vector2(9966.4, 299.4)
+min_space = Vector2(-10000, -10000)
+max_space = Vector2(10000, 10000)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jonn3"]
+animation = &"braukwalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2voxj"]
+animation = &"braukwalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hgwhv"]
+animation = &"braukwalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_skexu"]
+animation = &"braukwalk"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_pdpdy"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_jonn3")
+blend_point_0/pos = Vector2(-9911.7, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2voxj")
+blend_point_1/pos = Vector2(-33.6, 9521)
+blend_point_2/node = SubResource("AnimationNodeAnimation_hgwhv")
+blend_point_2/pos = Vector2(50.4, -9760.5)
+blend_point_3/node = SubResource("AnimationNodeAnimation_skexu")
+blend_point_3/pos = Vector2(10000, -59.9)
+min_space = Vector2(-10000, -10000)
+max_space = Vector2(10000, 10000)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xflec"]
+advance_mode = 2
+advance_condition = &"is_hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ahm7n"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8jq8t"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y0u36"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t1jbg"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2l4hx"]
+advance_mode = 2
+advance_condition = &"is_hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_op00w"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6dghs"]
+advance_mode = 2
+advance_condition = &"enemy_defeated"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eec5y"]
+advance_mode = 2
+advance_condition = &"enemy_defeated"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h7g8d"]
+advance_mode = 2
+advance_condition = &"enemy_defeated"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ucdd0"]
+states/braukdeath/node = SubResource("AnimationNodeAnimation_8nrqm")
+states/braukdeath/position = Vector2(521, 255)
+states/hurt/node = SubResource("AnimationNodeBlendSpace2D_l1xen")
+states/hurt/position = Vector2(500, 30)
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_bc11t")
+states/idle/position = Vector2(386, 140)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_pdpdy")
+states/walk/position = Vector2(617, 140)
+transitions = ["idle", "hurt", SubResource("AnimationNodeStateMachineTransition_xflec"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ahm7n"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_8jq8t"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_y0u36"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_t1jbg"), "walk", "hurt", SubResource("AnimationNodeStateMachineTransition_2l4hx"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_op00w"), "hurt", "braukdeath", SubResource("AnimationNodeStateMachineTransition_6dghs"), "idle", "braukdeath", SubResource("AnimationNodeStateMachineTransition_eec5y"), "walk", "braukdeath", SubResource("AnimationNodeStateMachineTransition_h7g8d")]
+graph_offset = Vector2(-166.656, -72.8807)
+
 [sub_resource type="Animation" id="Animation_eqmko"]
 length = 0.001
 tracks/0/type = "value"
@@ -529,135 +658,6 @@ _data = {
 "idle": SubResource("Animation_apj10")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8nrqm"]
-animation = &"braukdeath"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pu2y2"]
-animation = &"braukhurt"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ir0p"]
-animation = &"braukhurt"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_15n5y"]
-animation = &"braukhurt"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_objsa"]
-animation = &"braukhurt"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_l1xen"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_pu2y2")
-blend_point_0/pos = Vector2(-10016.8, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_2ir0p")
-blend_point_1/pos = Vector2(0, 10000)
-blend_point_2/node = SubResource("AnimationNodeAnimation_15n5y")
-blend_point_2/pos = Vector2(16.8, -9281.4)
-blend_point_3/node = SubResource("AnimationNodeAnimation_objsa")
-blend_point_3/pos = Vector2(9949.7, 299.4)
-min_space = Vector2(-10000, -10000)
-max_space = Vector2(10000, 10000)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tugbc"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fddkx"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e8ilx"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sbt0i"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_bc11t"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_tugbc")
-blend_point_0/pos = Vector2(-10016.7, 239.6)
-blend_point_1/node = SubResource("AnimationNodeAnimation_fddkx")
-blend_point_1/pos = Vector2(-33.6, 9521)
-blend_point_2/node = SubResource("AnimationNodeAnimation_e8ilx")
-blend_point_2/pos = Vector2(17.1, -10359.3)
-blend_point_3/node = SubResource("AnimationNodeAnimation_sbt0i")
-blend_point_3/pos = Vector2(9966.4, 299.4)
-min_space = Vector2(-10000, -10000)
-max_space = Vector2(10000, 10000)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jonn3"]
-animation = &"braukwalk"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2voxj"]
-animation = &"braukwalk"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hgwhv"]
-animation = &"braukwalk"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_skexu"]
-animation = &"braukwalk"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_pdpdy"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_jonn3")
-blend_point_0/pos = Vector2(-9911.7, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_2voxj")
-blend_point_1/pos = Vector2(-33.6, 9521)
-blend_point_2/node = SubResource("AnimationNodeAnimation_hgwhv")
-blend_point_2/pos = Vector2(50.4, -9760.5)
-blend_point_3/node = SubResource("AnimationNodeAnimation_skexu")
-blend_point_3/pos = Vector2(10000, -59.9)
-min_space = Vector2(-10000, -10000)
-max_space = Vector2(10000, 10000)
-blend_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xflec"]
-advance_mode = 2
-advance_condition = &"is_hurt"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ahm7n"]
-advance_mode = 2
-advance_condition = &"is_moving"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8jq8t"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y0u36"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t1jbg"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"is_moving"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2l4hx"]
-advance_mode = 2
-advance_condition = &"is_hurt"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_op00w"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6dghs"]
-advance_mode = 2
-advance_condition = &"enemy_defeated"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eec5y"]
-advance_mode = 2
-advance_condition = &"enemy_defeated"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h7g8d"]
-advance_mode = 2
-advance_condition = &"enemy_defeated"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ucdd0"]
-states/braukdeath/node = SubResource("AnimationNodeAnimation_8nrqm")
-states/braukdeath/position = Vector2(521, 255)
-states/hurt/node = SubResource("AnimationNodeBlendSpace2D_l1xen")
-states/hurt/position = Vector2(500, 30)
-states/idle/node = SubResource("AnimationNodeBlendSpace2D_bc11t")
-states/idle/position = Vector2(386, 140)
-states/walk/node = SubResource("AnimationNodeBlendSpace2D_pdpdy")
-states/walk/position = Vector2(617, 140)
-transitions = ["idle", "hurt", SubResource("AnimationNodeStateMachineTransition_xflec"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ahm7n"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_8jq8t"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_y0u36"), "hurt", "walk", SubResource("AnimationNodeStateMachineTransition_t1jbg"), "walk", "hurt", SubResource("AnimationNodeStateMachineTransition_2l4hx"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_op00w"), "hurt", "braukdeath", SubResource("AnimationNodeStateMachineTransition_6dghs"), "idle", "braukdeath", SubResource("AnimationNodeStateMachineTransition_eec5y"), "walk", "braukdeath", SubResource("AnimationNodeStateMachineTransition_h7g8d")]
-graph_offset = Vector2(-166.656, -72.8807)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_sofm6"]
 atlas = ExtResource("2_b727n")
 region = Rect2(770, 279, 70, 93)
@@ -905,9 +905,6 @@ shape = SubResource("RectangleShape2D_tlrem")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../body")
-libraries = {
-"": SubResource("AnimationLibrary_b0t1a")
-}
 tree_root = SubResource("AnimationNodeStateMachine_ucdd0")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/enemy_defeated = false
