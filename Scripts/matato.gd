@@ -268,7 +268,7 @@ func _on_spell_2_pressed():
 
 func _on_spell_3_pressed():
 	"""    
-	Handles time warp logic, triggered by pressing spell 3 button (4)
+	Handles time warp logic, triggered by pressing spell 3 button (R)
 	Linked to an extra timer node that dictates how long the buff lasts
 	
 	"""
