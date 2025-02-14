@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddjlysssu1gaf"]
+
+[ext_resource type="PackedScene" uid="uid://273x8isvmh5m" path="res://Scenes/world/world.tscn" id="1_bqsx2"]
+[ext_resource type="PackedScene" uid="uid://fymr7ov40l8y" path="res://Scenes/entities/enemy/enemy_character/brauk.tscn" id="2_6qebr"]
+[ext_resource type="Script" path="res://Scripts/bg_brauk_cam.gd" id="3_p6rex"]
+
+[node name="bg_brauk" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1_bqsx2")]
+
+[node name="brauk" parent="." instance=ExtResource("2_6qebr")]
+position = Vector2(672, 415)
+script = null
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(670, 417)
+script = ExtResource("3_p6rex")
