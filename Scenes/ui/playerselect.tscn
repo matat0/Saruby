@@ -228,6 +228,10 @@ render_target_update_mode = 4
 
 [node name="bg_brauk" parent="MarginContainer2/SubViewportContainer/SubViewport" instance=ExtResource("2_pr2ir")]
 
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.729412)
+
 [node name="Panel" type="Panel" parent="."]
 visible = false
 offset_left = -1828.0
@@ -237,52 +241,52 @@ offset_bottom = 2901.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_t3o85")
 
 [node name="Des" type="Label" parent="."]
-offset_left = 469.0
-offset_top = 213.0
-offset_right = 655.0
-offset_bottom = 248.0
+offset_left = 538.0
+offset_top = 242.0
+offset_right = 724.0
+offset_bottom = 277.0
 theme_override_fonts/font = ExtResource("2_y8hij")
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 
 [node name="PlayerSelect" type="AnimatedSprite2D" parent="."]
-position = Vector2(564, 304)
+position = Vector2(633, 333)
 scale = Vector2(2.90151, 2.90151)
 sprite_frames = SubResource("SpriteFrames_yte00")
 animation = &"Butch"
 
 [node name="Left" type="Button" parent="."]
-offset_left = 344.0
-offset_top = 288.0
-offset_right = 469.0
-offset_bottom = 337.0
+offset_left = 413.0
+offset_top = 317.0
+offset_right = 538.0
+offset_bottom = 366.0
 theme_override_fonts/font = ExtResource("4_0apf5")
 theme_override_font_sizes/font_size = 32
 text = "<-"
 
 [node name="Right" type="Button" parent="."]
-offset_left = 658.0
-offset_top = 287.0
-offset_right = 783.0
-offset_bottom = 336.0
+offset_left = 727.0
+offset_top = 316.0
+offset_right = 852.0
+offset_bottom = 365.0
 theme_override_fonts/font = ExtResource("4_0apf5")
 theme_override_font_sizes/font_size = 32
 text = "->"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 472.0
-offset_top = 473.0
-offset_right = 655.0
-offset_bottom = 550.0
+offset_left = 541.0
+offset_top = 502.0
+offset_right = 724.0
+offset_bottom = 579.0
 theme_override_fonts/font = ExtResource("2_y8hij")
 theme_override_font_sizes/font_size = 32
 text = "Enter"
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 7.0
-offset_top = 562.0
-offset_right = 190.0
-offset_bottom = 636.0
+offset_left = 76.0
+offset_top = 591.0
+offset_right = 259.0
+offset_bottom = 665.0
 theme_override_fonts/font = ExtResource("2_y8hij")
 theme_override_font_sizes/font_size = 32
 text = "Back"
@@ -295,7 +299,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(577, 324)
+position = Vector2(639, 358)
 
 [connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
