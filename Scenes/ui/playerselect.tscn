@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/playerselect.gd" id="1_u06kv"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_8g4no"]
-[ext_resource type="Texture2D" uid="uid://cgd40jrcmkcnm" path="res://Assets/character_select.png" id="2_eiso6"]
 [ext_resource type="Texture2D" uid="uid://bvnn126xh7c63" path="res://Assets/hidden_character.png" id="2_j1aq8"]
+[ext_resource type="PackedScene" uid="uid://ddjlysssu1gaf" path="res://Scenes/ui/Backgrounds/bg_brauk.tscn" id="2_pr2ir"]
 [ext_resource type="FontFile" uid="uid://df854v153rmbx" path="res://Assets/Fonts/my_phone_n1280.ttf" id="2_y8hij"]
 [ext_resource type="Texture2D" uid="uid://b1v4quilqaeti" path="res://Assets/Carty/Carty.png" id="3_0uydp"]
 [ext_resource type="Texture2D" uid="uid://dx3ploj2k1m7i" path="res://Assets/Butch/Butch_the_orc.png" id="3_5yo4d"]
@@ -211,11 +211,22 @@ animations = [{
 [node name="playerselect" type="Node2D"]
 script = ExtResource("1_u06kv")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_eiso6")
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_direction = 1
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer2/SubViewportContainer"]
+disable_3d = true
+own_world_3d = true
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="bg_brauk" parent="MarginContainer2/SubViewportContainer/SubViewport" instance=ExtResource("2_pr2ir")]
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
