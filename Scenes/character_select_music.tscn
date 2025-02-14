@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcg71egh1tv8r"]
+
+[ext_resource type="AudioStream" uid="uid://ll1224nrn0pl" path="res://Assets/Music/2_choose_your_character.mp3" id="1_x7ehh"]
+
+[node name="character_select_music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_x7ehh")
+volume_db = -14.667
+autoplay = true
+parameters/looping = true

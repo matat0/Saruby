@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dx3ploj2k1m7i" path="res://Assets/Butch/Butch_the_orc.png" id="3_5yo4d"]
 [ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_0apf5"]
 [ext_resource type="Texture2D" uid="uid://vielwmqeo786" path="res://Assets/Carty/carti_with_ushanka.png" id="5_6b2to"]
-[ext_resource type="AudioStream" uid="uid://sy5go7cm2rxs" path="res://Assets/Music/choose_your_character.mp3" id="5_50oox"]
+[ext_resource type="PackedScene" uid="uid://bcg71egh1tv8r" path="res://Scenes/character_select_music.tscn" id="10_10ept"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3o85"]
 bg_color = Color(0.0196078, 0.160784, 0.0941176, 0.870588)
@@ -291,15 +291,10 @@ theme_override_fonts/font = ExtResource("2_y8hij")
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(567, 388)
-stream = ExtResource("5_50oox")
-volume_db = -5.334
-autoplay = true
-bus = &"Music"
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(639, 358)
+
+[node name="character_select_music" parent="." instance=ExtResource("10_10ept")]
 
 [connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
