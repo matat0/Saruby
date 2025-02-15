@@ -1,10 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://2v034jhwqj5w"]
+[gd_scene load_steps=15 format=3 uid="uid://2v034jhwqj5w"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_rcvxn"]
 [ext_resource type="PackedScene" uid="uid://ddjlysssu1gaf" path="res://Scenes/ui/Backgrounds/bg_brauk.tscn" id="2_7xmjv"]
 [ext_resource type="Texture2D" uid="uid://wh0xwed38nyg" path="res://Assets/Saruby.png" id="3_gauea"]
 [ext_resource type="FontFile" uid="uid://df854v153rmbx" path="res://Assets/Fonts/my_phone_n1280.ttf" id="4_xqljs"]
 [ext_resource type="PackedScene" uid="uid://cjbucihcgyh78" path="res://Scenes/a_green_start.tscn" id="5_dyjg7"]
+[ext_resource type="Texture2D" uid="uid://ckti70viqcjxu" path="res://Assets/Menu/Logo/saruby sprite clouds1.png" id="6_pfvnl"]
+[ext_resource type="Texture2D" uid="uid://dq52dmjusbsyr" path="res://Assets/Menu/Logo/saruby sprite clouds2.png" id="7_k6uty"]
+[ext_resource type="Texture2D" uid="uid://bvq1hg7r88oiq" path="res://Assets/Menu/Logo/saruby sprite clouds3.png" id="8_ioj6y"]
+[ext_resource type="Texture2D" uid="uid://bjql4b2ofv6sy" path="res://Assets/Menu/Logo/saruby sprite clouds4.png" id="9_iau2g"]
+[ext_resource type="Texture2D" uid="uid://c2nrqe8gkd06l" path="res://Assets/Menu/Logo/saruby sprite clouds5.png" id="10_deyy6"]
+[ext_resource type="Texture2D" uid="uid://dk8xdb5aml55t" path="res://Assets/Menu/Logo/saruby sprite clouds6.png" id="11_vuuh5"]
+[ext_resource type="Texture2D" uid="uid://cohvh7iemgni7" path="res://Assets/Menu/Logo/saruby sprite clouds7.png" id="12_0nb7l"]
+[ext_resource type="Script" path="res://Scenes/ui/Logo.gd" id="13_3bxs2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a5rp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pfvnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k6uty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ioj6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_iau2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_deyy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vuuh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0nb7l")
+}],
+"loop": true,
+"name": &"Logo",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -41,6 +83,7 @@ render_target_update_mode = 4
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 275.0
 offset_top = 2.0
@@ -99,6 +142,13 @@ position = Vector2(629, 351)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Logo" type="AnimatedSprite2D" parent="."]
+position = Vector2(632, 192)
+scale = Vector2(0.64, 0.64)
+sprite_frames = SubResource("SpriteFrames_a5rp6")
+animation = &"Logo"
+script = ExtResource("13_3bxs2")
 
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
