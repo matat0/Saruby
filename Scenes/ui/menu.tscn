@@ -133,7 +133,7 @@ offset_top = 642.0
 offset_right = 205.0
 offset_bottom = 668.0
 theme_override_font_sizes/font_size = 16
-text = "pre-alpha v0.2.2.1"
+text = "pre-alpha v0.2.2.4"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(629, 351)
