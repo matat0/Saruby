@@ -173,10 +173,9 @@ animations = [{
 script = ExtResource("1_wcw8q")
 
 [node name="FrostOrb" type="AnimatedSprite2D" parent="."]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_tus5v")
-animation = &"phoenix"
-frame = 1
-frame_progress = 0.797982
+animation = &"frost_orb"
 
 [node name="Area2D" type="Area2D" parent="FrostOrb"]
 
@@ -184,6 +183,7 @@ frame_progress = 0.797982
 shape = SubResource("CircleShape2D_t1g1n")
 
 [node name="frost_orb_ring" type="AnimatedSprite2D" parent="."]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_uo04m")
 frame_progress = 0.561884
 script = ExtResource("4_iytvs")
