@@ -17,6 +17,7 @@ script = ExtResource("1_uqi8v")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_direction = 1
+layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 
