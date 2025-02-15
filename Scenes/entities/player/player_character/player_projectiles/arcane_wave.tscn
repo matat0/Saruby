@@ -39,6 +39,7 @@ radius = 9.05539
 script = ExtResource("1_cvr34")
 
 [node name="arcane_wave" type="AnimatedSprite2D" parent="."]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_3ey2q")
 animation = &"arcane_wave"
 frame_progress = 0.53433
