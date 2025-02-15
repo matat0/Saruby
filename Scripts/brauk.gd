@@ -7,7 +7,7 @@ var health_bar = preload("res://Scenes/entities/boss_health.tscn")
 @onready var sprite = $body
 @onready var animation_tree : AnimationTree = $AnimationTree
 var getting_hurt = false
-var speed = 75 
+var speed = 40 
 var player_chase = false
 var player = null
 var health: 
