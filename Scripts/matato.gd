@@ -305,3 +305,7 @@ func _on_tw_duration_timeout():
 	tw_buff_duration = false
 	$tw_clock.play("empty")
 	speed = 200       #return speed to default, should be changed in future by modifier
+
+# node connection to scene change area2D object
+func _on_area_2d_area_entered(area):
+	get_tree().change_scene_to_file("res://Scenes/game.tscn")

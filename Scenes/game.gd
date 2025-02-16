@@ -5,7 +5,7 @@ extends Node2D
 func _ready(): 
 	var current_player = Global.characters[Global.PlayerSelect] #which character  did the user select?
 	var gamer = current_player.instantiate()         #instantiates actual gamer node corresponding to selection
-	gamer.global_position = Vector2(675,700)         #declares gamer's position on map
+	gamer.global_position = Vector2(100,700)         #declares gamer's position on map
 	add_child(gamer)         
 	Global.gamer = gamer     
 
