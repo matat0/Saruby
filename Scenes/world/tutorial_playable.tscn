@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cpv58ypyf5f2b" path="res://Assets/Nature/Tilesets/Tileset-Terrain2.png" id="3_j6hfd"]
 [ext_resource type="Texture2D" uid="uid://gr2pf8avqxri" path="res://Assets/Nature/Tilesets/Tileset-Animated Terrains-8 frames- transparency.png" id="4_fa4xg"]
 [ext_resource type="PackedScene" uid="uid://d3165wqb57tpe" path="res://Scenes/entities/player/player_character/matato.tscn" id="5_gj8pq"]
-[ext_resource type="Script" path="res://Scenes/world/tutorial_end_fade.gd" id="6_3peiw"]
+[ext_resource type="Script" path="res://Scripts/tutorial_end_fade.gd" id="6_3peiw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_irlxb"]
 texture = ExtResource("1_d3q1m")

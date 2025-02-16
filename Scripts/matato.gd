@@ -307,5 +307,8 @@ func _on_tw_duration_timeout():
 	speed = 200       #return speed to default, should be changed in future by modifier
 
 # node connection to scene change area2D object
+# this function calls the screen_fade.tscn scene for scene transitions
 func _on_area_2d_area_entered(area):
+	ScreenFade.transition()
+	await ScreenFade.on_transition_finished
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
