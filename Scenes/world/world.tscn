@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://u210et4e71ey" path="res://Scenes/brauk_first_encounter_theme.tscn" id="5_8txd3"]
 [ext_resource type="Texture2D" uid="uid://gr2pf8avqxri" path="res://Assets/Nature/Tilesets/Tileset-Animated Terrains-8 frames- transparency.png" id="5_xsxg2"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h0urt"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h7o35"]
 texture = ExtResource("1_xoau1")
 2:0/0 = 0
 3:0/0 = 0
@@ -250,7 +250,7 @@ texture = ExtResource("1_xoau1")
 16:13/0 = 0
 17:13/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dhvkm"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nyo1s"]
 texture = ExtResource("2_s2vc0")
 0:0/0 = 0
 1:0/0 = 0
@@ -1190,7 +1190,7 @@ texture = ExtResource("2_s2vc0")
 39:15/0 = 0
 8:15/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_be105"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t613j"]
 texture = ExtResource("3_8v85w")
 18:0/0 = 0
 19:0/0 = 0
@@ -2163,7 +2163,7 @@ texture = ExtResource("3_8v85w")
 54:27/0 = 0
 55:27/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_whkqg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1auc8"]
 texture = ExtResource("5_xsxg2")
 0:2/size_in_atlas = Vector2i(2, 2)
 0:2/animation_columns = 8
@@ -2181,10 +2181,10 @@ texture = ExtResource("5_xsxg2")
 
 [sub_resource type="TileSet" id="TileSet_ehoyi"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_h0urt")
-sources/1 = SubResource("TileSetAtlasSource_dhvkm")
-sources/2 = SubResource("TileSetAtlasSource_be105")
-sources/3 = SubResource("TileSetAtlasSource_whkqg")
+sources/0 = SubResource("TileSetAtlasSource_h7o35")
+sources/1 = SubResource("TileSetAtlasSource_nyo1s")
+sources/2 = SubResource("TileSetAtlasSource_t613j")
+sources/3 = SubResource("TileSetAtlasSource_1auc8")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_1hpc2")
