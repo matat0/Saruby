@@ -19,6 +19,7 @@ var bulletDamage = 200
 #var pathName
 #var currTarget
 #var curr
+var gcd = false #is global cooldown active
 var attack_cd = false #is frost orb on cooldown
 var spell1_cd = false #is pheonix blast on cooldown
 var spell2_cd = false #is arcane wave on cooldown
@@ -30,6 +31,7 @@ var damage_modifier = 1 #damage multiplier to use for buffs like latent arcana
 @onready var spell1_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/spell1/spell1_cd
 @onready var spell2_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd
 @onready var spell3_cd_timer = $Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd
+@onready var gcd_timer = $Camera2D/combat_ui_real/HBoxContainer/gcd_timer
 
 @onready var sprite = $AnimatedSprite2D
 @onready var tw_duration = $Camera2D/combat_ui_real/HBoxContainer/spell3/tw_duration
@@ -201,10 +203,14 @@ func attack():
 	var enemy = Global.enemy #declares the singular enemy as the boss
 	if Input.is_action_just_pressed("attack") and Global.enemy: #if the player attacks and there is an enemy to attack
 		#Global.player_current_attack = true
-		if attack_cd == false and enemy: #if the attack is off cooldown and there is an enemy (redundant enemy check) 
+		if attack_cd == false and gcd == false and enemy: #if the attack is off cooldown and there is an enemy (redundant enemy check) 
 			#put the attack on cooldown and start the timer
 			attack_cd = true
-			attack_cd_timer.start()
+			gcd = true
+			
+			#gcd_timer.start()
+			#attack_cd_timer.start()
+			
 			print("frost orb pressed")
 			
 			#predetermine the damage and target for the bullet
@@ -220,7 +226,7 @@ func attack():
 
 func _on_attack_cd_timeout():
 	"""  
-	Triggered by all timers, putting the basic attack off GCD, will probably be changed later
+	Triggered by basic attack, same cooldown as gcd, might get removed
 	"""
 	attack_cd = false
 	print("attack off cd")
@@ -231,9 +237,12 @@ func _on_spell_1_pressed():
 	Functionally the same as normal attack right now
 	"""
 	var enemy = Global.enemy  #declare target enemy
-	if spell1_cd == false and enemy:  #if the spell is off cooldown and there is an enemy
+	if spell1_cd == false and gcd == false and enemy:  #if the spell is off cooldown and there is an enemy
 		spell1_cd = true
-		spell1_cd_timer.start()
+		gcd = true
+		
+		#gcd_timer.start()
+		#spell1_cd_timer.start()
 		print("phoenix pressed")
 		
 		var tempBullet = Phoenix.instantiate()
@@ -252,17 +261,21 @@ func _on_spell_2_pressed():
 	
 	"""
 	var enemy = Global.enemy
-	if spell2_cd == false and enemy:
+	if spell2_cd == false and gcd == false and enemy:
 		spell2_cd = true
-		spell2_cd_timer.start()
-		print("arcane_wave pressed")
+		gcd = true
 		
+		#gcd_timer.start()
+		#spell2_cd_timer.start()
+		print("arcane_wave pressed")
+		"""  
 		var tempBullet = Arcane.instantiate()
 		tempBullet.target_position = enemy.global_position
 		tempBullet.bulletDamage = bulletDamage * damage_modifier
 		
 		get_node("BulletContainer").add_child(tempBullet)
 		tempBullet.global_position = $Aim.global_position
+		"""
 	elif attack_cd:
 		print("You can't attack yet, wait a sec")
 
@@ -275,9 +288,12 @@ func _on_spell_3_pressed():
 	#makes sure there is an enemy and targets it, kind of unnecessary
 	var enemy = Global.enemy 
 	
-	if spell3_cd == false and enemy:
+	if spell3_cd == false and gcd == false and enemy:
 		spell3_cd = true
-		spell3_cd_timer.start()
+		gcd = true
+		
+		#gcd_timer.start()
+		#spell3_cd_timer.start()
 		print("time warp pressed")
 		
 		$tw_clock.play("default")  #time warp sound
@@ -305,3 +321,18 @@ func _on_tw_duration_timeout():
 	tw_buff_duration = false
 	$tw_clock.play("empty")
 	speed = 200       #return speed to default, should be changed in future by modifier
+
+func _on_gcd_timer_timeout():
+	gcd = false
+	print("gcd off")
+
+
+func _on_arcane_wave_cast_time_timeout():
+	gcd = false
+	var enemy = Global.enemy
+	var tempBullet = Arcane.instantiate()
+	tempBullet.target_position = enemy.global_position
+	tempBullet.bulletDamage = bulletDamage * damage_modifier
+	
+	get_node("BulletContainer").add_child(tempBullet)
+	tempBullet.global_position = $Aim.global_position

@@ -3,6 +3,8 @@ extends TextureButton
 @onready var key = $key
 @onready var progress_bar = $TextureProgressBar
 @onready var attack_cd = $spell3_cd
+@onready var gcd_timer = $"../gcd_timer"
+
 signal attack_off_cd
 
 var change_key = "":
@@ -19,10 +21,12 @@ func _process(_delta):
 	progress_bar.value = attack_cd.time_left
 
 func _on_pressed():
-	print("button clicked")
-	attack_cd.start()
-	disabled = true
-	set_process(true)
+	if gcd_timer.is_stopped():
+		print("button R clicked")
+		attack_cd.start()
+		gcd_timer.start()
+		disabled = true
+		set_process(true)
 
 
 func _on_attack_cd_timeout():
