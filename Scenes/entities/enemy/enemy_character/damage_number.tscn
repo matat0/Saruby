@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfwhirke78g4n"]
+[gd_scene load_steps=3 format=3 uid="uid://bfwhirke78g4n"]
 
+[ext_resource type="FontFile" uid="uid://df854v153rmbx" path="res://Assets/Fonts/my_phone_n1280.ttf" id="1_c5uhu"]
 [ext_resource type="Script" path="res://Damage Number.gd" id="1_gn3ml"]
 
 [node name="Damage Number" type="Label"]
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c5uhu")
 script = ExtResource("1_gn3ml")

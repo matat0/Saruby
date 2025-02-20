@@ -295,6 +295,8 @@ text = "Back"
 position = Vector2(639, 358)
 
 [node name="character_select_music" parent="." instance=ExtResource("10_10ept")]
+position = Vector2(641, 358)
+bus = &"Music"
 
 [connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
