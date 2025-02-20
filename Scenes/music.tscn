@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c24rxriwopy3i"]
+
+[ext_resource type="AudioStream" uid="uid://1seh6brjwpt5" path="res://Assets/Music/a_green_start.mp3" id="1_tmakq"]
+[ext_resource type="Script" path="res://Scripts/music.gd" id="2_y2aic"]
+[ext_resource type="AudioStream" uid="uid://ll1224nrn0pl" path="res://Assets/Music/2_choose_your_character.mp3" id="3_qvrfg"]
+[ext_resource type="AudioStream" uid="uid://ddr32ps2b2olk" path="res://Assets/Music/brauk_first_encounter.mp3" id="4_x114j"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("2_y2aic")
+
+[node name="menu music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_tmakq")
+volume_db = -10.085
+bus = &"Music"
+parameters/looping = true
+
+[node name="player_select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qvrfg")
+volume_db = -15.758
+bus = &"Music"
+parameters/looping = true
+
+[node name="brauk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_x114j")
+volume_db = -15.127
+bus = &"Music"

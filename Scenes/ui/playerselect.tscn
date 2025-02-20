@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c844jnm2e51c2"]
+[gd_scene load_steps=44 format=3 uid="uid://c844jnm2e51c2"]
 
 [ext_resource type="Script" path="res://Scripts/playerselect.gd" id="1_u06kv"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_8g4no"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dx3ploj2k1m7i" path="res://Assets/Butch/Butch_the_orc.png" id="3_5yo4d"]
 [ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_0apf5"]
 [ext_resource type="Texture2D" uid="uid://vielwmqeo786" path="res://Assets/Carty/carti_with_ushanka.png" id="5_6b2to"]
-[ext_resource type="PackedScene" uid="uid://bcg71egh1tv8r" path="res://Scenes/character_select_music.tscn" id="10_10ept"]
 [ext_resource type="Texture2D" uid="uid://bns00rktyp3jc" path="res://Assets/Menu/Buttons/Hover_playerselect.png" id="10_jjj1v"]
 [ext_resource type="Texture2D" uid="uid://dvc420eeb687f" path="res://Assets/Menu/Buttons/Pressed_playerselect.png" id="11_cycp7"]
 [ext_resource type="Texture2D" uid="uid://ddhht502h0plr" path="res://Assets/Menu/Buttons/Normal_playerselect.png" id="12_02amg"]
@@ -333,10 +332,6 @@ text = "Back"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(639, 358)
-
-[node name="character_select_music" parent="." instance=ExtResource("10_10ept")]
-position = Vector2(641, 358)
-bus = &"Music"
 
 [connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="Right" to="." method="_on_right_pressed"]

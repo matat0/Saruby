@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3nvpejtt2nve"]
+[gd_scene load_steps=5 format=3 uid="uid://d3nvpejtt2nve"]
 
 [ext_resource type="Script" path="res://Scripts/Options.gd" id="1_uqi8v"]
 [ext_resource type="Script" path="res://Scripts/volume_slider.gd" id="2_n0okt"]
 [ext_resource type="PackedScene" uid="uid://ddjlysssu1gaf" path="res://Scenes/ui/Backgrounds/bg_brauk.tscn" id="2_nnflr"]
-[ext_resource type="PackedScene" uid="uid://cjbucihcgyh78" path="res://Scenes/a_green_start.tscn" id="3_evvnj"]
 [ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_u043w"]
 
 [node name="Options" type="Control"]
@@ -101,9 +100,6 @@ max_value = 1.0
 step = 0.001
 script = ExtResource("2_n0okt")
 bus_name = "SFX"
-
-[node name="AudioStreamPlayer2D" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_evvnj")]
-bus = &"Music"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

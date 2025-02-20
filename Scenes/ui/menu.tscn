@@ -1,11 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://2v034jhwqj5w"]
+[gd_scene load_steps=25 format=3 uid="uid://2v034jhwqj5w"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_rcvxn"]
 [ext_resource type="PackedScene" uid="uid://ddjlysssu1gaf" path="res://Scenes/ui/Backgrounds/bg_brauk.tscn" id="2_7xmjv"]
 [ext_resource type="Texture2D" uid="uid://mesb7jnni5y0" path="res://Assets/Menu/Buttons/Hover.png" id="4_ifvrb"]
 [ext_resource type="FontFile" uid="uid://df854v153rmbx" path="res://Assets/Fonts/my_phone_n1280.ttf" id="4_xqljs"]
 [ext_resource type="Texture2D" uid="uid://dp3tki6xtjp3b" path="res://Assets/Menu/Buttons/Pressed.png" id="5_4gqav"]
-[ext_resource type="PackedScene" uid="uid://cjbucihcgyh78" path="res://Scenes/a_green_start.tscn" id="5_dyjg7"]
 [ext_resource type="Texture2D" uid="uid://b4erq8dj20yui" path="res://Assets/Menu/Buttons/Normal.png" id="6_j01a4"]
 [ext_resource type="Texture2D" uid="uid://ckti70viqcjxu" path="res://Assets/Menu/Logo/saruby sprite clouds1.png" id="6_pfvnl"]
 [ext_resource type="Texture2D" uid="uid://dq52dmjusbsyr" path="res://Assets/Menu/Logo/saruby sprite clouds2.png" id="7_k6uty"]
@@ -182,10 +181,6 @@ scale = Vector2(0.64, 0.64)
 sprite_frames = SubResource("SpriteFrames_a5rp6")
 animation = &"Logo"
 script = ExtResource("13_3bxs2")
-
-[node name="menu music" parent="." instance=ExtResource("5_dyjg7")]
-position = Vector2(640, 352)
-bus = &"Music"
 
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
