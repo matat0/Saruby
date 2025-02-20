@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 200
 var locked_movement = false #used during cutscenes/transitions to lock movement
-var locked_velocity
+var locked_velocity         #the direction the player will be locked in for the cutscene, resets when scene changes
 
 var input_direction: get = _get_input_direction
 var sprite_direction = "right": get = _get_sprite_direction	
@@ -315,19 +315,8 @@ func _on_tw_duration_timeout():
 """  
 func _on_area_2d_area_entered(area):
 	print("entered the transition area of: " + str(area))
-	if area.has_method("locked_movement"):
-		print("yes lock move ")
-		velocity = area.locked_velocity
-		locked_movement = true
 	
-	ScreenFade.transition()
 	
-	await ScreenFade.on_transition_finished
-	get_tree().change_scene_to_file("res://Scenes/game.tscn")
-"""
-"""
-func _on_tutorial_cutscene_trigger_area_entered(area: Area2D) -> void:
-	print("entered the trigger area of: " + str(area))
 	ScreenFade.transition()
 	
 	await ScreenFade.on_transition_finished
