@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 var speed = 200
+var locked_movement = false #used during cutscenes/transitions to lock movement
+var locked_velocity
 
 var input_direction: get = _get_input_direction
 var sprite_direction = "right": get = _get_sprite_direction	
@@ -81,13 +83,15 @@ func _physics_process(_delta):
 		_delta (float): time between frames, currently unused
 	
 	"""
-	
-	velocity = input_direction * speed  
+	if !locked_movement:
+		velocity = input_direction * speed 
+		
+	move_and_slide() #moves the player based off of the velocity
 	
 	if Global.boss_slain == false: #only allows attack functions if boss is alive
 		attack()
 	
-	move_and_slide() #moves the player based off of the velocity
+	
 	
 	if health <= 0:   #kills the player if health reaches 0
 		player_alive = false 
@@ -308,7 +312,24 @@ func _on_tw_duration_timeout():
 
 # node connection to scene change area2D object
 # this function calls the screen_fade.tscn scene for scene transitions
+"""  
 func _on_area_2d_area_entered(area):
+	print("entered the transition area of: " + str(area))
+	if area.has_method("locked_movement"):
+		print("yes lock move ")
+		velocity = area.locked_velocity
+		locked_movement = true
+	
 	ScreenFade.transition()
+	
 	await ScreenFade.on_transition_finished
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+"""
+"""
+func _on_tutorial_cutscene_trigger_area_entered(area: Area2D) -> void:
+	print("entered the trigger area of: " + str(area))
+	ScreenFade.transition()
+	
+	await ScreenFade.on_transition_finished
+	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+"""

@@ -3,7 +3,8 @@ extends Control
 var texture_rect
 
 func _ready():
-	texture_rect = $MarginContainer2/TextureRect
+	#texture_rect = $MarginContainer2/TextureRect
+	pass
 
 func _process(_delta):
 	_on_resized()

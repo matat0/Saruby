@@ -2209,12 +2209,14 @@ layer_3/z_index = 1
 [node name="matato" parent="." instance=ExtResource("5_gj8pq")]
 position = Vector2(-974, 683)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="tutorial_cutscene_trigger" type="Area2D" parent="."]
 position = Vector2(-737, 686)
 script = ExtResource("6_3peiw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial_cutscene_trigger"]
 position = Vector2(90, -1)
 shape = SubResource("RectangleShape2D_x5ene")
 
-[connection signal="area_entered" from="Area2D" to="matato" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="tutorial_cutscene_trigger" to="matato" method="_on_tutorial_cutscene_trigger_area_entered"]
+[connection signal="area_entered" from="tutorial_cutscene_trigger" to="matato" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="tutorial_cutscene_trigger" to="tutorial_cutscene_trigger" method="_on_area_entered"]
