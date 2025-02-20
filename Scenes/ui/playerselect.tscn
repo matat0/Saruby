@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c844jnm2e51c2"]
+[gd_scene load_steps=45 format=3 uid="uid://c844jnm2e51c2"]
 
 [ext_resource type="Script" path="res://Scripts/playerselect.gd" id="1_u06kv"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_8g4no"]
@@ -10,6 +10,9 @@
 [ext_resource type="FontFile" uid="uid://ca3pydilgjxvf" path="res://Assets/Alkhemikal.ttf" id="4_0apf5"]
 [ext_resource type="Texture2D" uid="uid://vielwmqeo786" path="res://Assets/Carty/carti_with_ushanka.png" id="5_6b2to"]
 [ext_resource type="PackedScene" uid="uid://bcg71egh1tv8r" path="res://Scenes/character_select_music.tscn" id="10_10ept"]
+[ext_resource type="Texture2D" uid="uid://bns00rktyp3jc" path="res://Assets/Menu/Buttons/Hover_playerselect.png" id="10_jjj1v"]
+[ext_resource type="Texture2D" uid="uid://dvc420eeb687f" path="res://Assets/Menu/Buttons/Pressed_playerselect.png" id="11_cycp7"]
+[ext_resource type="Texture2D" uid="uid://ddhht502h0plr" path="res://Assets/Menu/Buttons/Normal_playerselect.png" id="12_02amg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3o85"]
 bg_color = Color(0.0196078, 0.160784, 0.0941176, 0.870588)
@@ -208,6 +211,24 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_27nbx"]
+texture = ExtResource("10_jjj1v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bhw75"]
+texture = ExtResource("11_cycp7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1qdmb"]
+texture = ExtResource("12_02amg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l54ch"]
+texture = ExtResource("10_jjj1v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7oht"]
+texture = ExtResource("11_cycp7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1py6m"]
+texture = ExtResource("12_02amg")
+
 [node name="playerselect" type="Node2D"]
 script = ExtResource("1_u06kv")
 
@@ -250,34 +271,49 @@ theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 
 [node name="PlayerSelect" type="AnimatedSprite2D" parent="."]
-position = Vector2(633, 333)
+position = Vector2(640, 320)
 scale = Vector2(2.90151, 2.90151)
 sprite_frames = SubResource("SpriteFrames_yte00")
 animation = &"Butch"
 
 [node name="Left" type="Button" parent="."]
-offset_left = 413.0
-offset_top = 317.0
-offset_right = 538.0
-offset_bottom = 366.0
+offset_left = 440.0
+offset_top = 280.0
+offset_right = 480.0
+offset_bottom = 376.0
+theme_override_colors/font_hover_color = Color(0.6, 0.898039, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.635294, 1, 1)
+theme_override_colors/font_color = Color(0.560784, 0.537255, 0.568627, 1)
 theme_override_fonts/font = ExtResource("4_0apf5")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxTexture_27nbx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bhw75")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1qdmb")
 text = "<-"
 
 [node name="Right" type="Button" parent="."]
-offset_left = 727.0
-offset_top = 316.0
-offset_right = 852.0
-offset_bottom = 365.0
+offset_left = 800.0
+offset_top = 280.0
+offset_right = 840.0
+offset_bottom = 376.0
+theme_override_colors/font_hover_color = Color(0.6, 0.898039, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.607843, 1, 1)
+theme_override_colors/font_color = Color(0.560784, 0.537255, 0.568627, 1)
 theme_override_fonts/font = ExtResource("4_0apf5")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxTexture_l54ch")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o7oht")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1py6m")
 text = "->"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 541.0
-offset_top = 502.0
-offset_right = 724.0
-offset_bottom = 579.0
+offset_left = 528.0
+offset_top = 512.0
+offset_right = 752.0
+offset_bottom = 577.0
+theme_override_colors/font_hover_color = Color(0.6, 0.898039, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.607843, 1, 1)
+theme_override_colors/font_color = Color(0.560784, 0.537255, 0.568627, 1)
 theme_override_fonts/font = ExtResource("2_y8hij")
 theme_override_font_sizes/font_size = 32
 text = "Enter"

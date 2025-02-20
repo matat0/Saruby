@@ -1,9 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://2v034jhwqj5w"]
+[gd_scene load_steps=26 format=3 uid="uid://2v034jhwqj5w"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_rcvxn"]
 [ext_resource type="PackedScene" uid="uid://ddjlysssu1gaf" path="res://Scenes/ui/Backgrounds/bg_brauk.tscn" id="2_7xmjv"]
+[ext_resource type="Texture2D" uid="uid://mesb7jnni5y0" path="res://Assets/Menu/Buttons/Hover.png" id="4_ifvrb"]
 [ext_resource type="FontFile" uid="uid://df854v153rmbx" path="res://Assets/Fonts/my_phone_n1280.ttf" id="4_xqljs"]
+[ext_resource type="Texture2D" uid="uid://dp3tki6xtjp3b" path="res://Assets/Menu/Buttons/Pressed.png" id="5_4gqav"]
 [ext_resource type="PackedScene" uid="uid://cjbucihcgyh78" path="res://Scenes/a_green_start.tscn" id="5_dyjg7"]
+[ext_resource type="Texture2D" uid="uid://b4erq8dj20yui" path="res://Assets/Menu/Buttons/Normal.png" id="6_j01a4"]
 [ext_resource type="Texture2D" uid="uid://ckti70viqcjxu" path="res://Assets/Menu/Logo/saruby sprite clouds1.png" id="6_pfvnl"]
 [ext_resource type="Texture2D" uid="uid://dq52dmjusbsyr" path="res://Assets/Menu/Logo/saruby sprite clouds2.png" id="7_k6uty"]
 [ext_resource type="Texture2D" uid="uid://bvq1hg7r88oiq" path="res://Assets/Menu/Logo/saruby sprite clouds3.png" id="8_ioj6y"]
@@ -12,6 +15,33 @@
 [ext_resource type="Texture2D" uid="uid://dk8xdb5aml55t" path="res://Assets/Menu/Logo/saruby sprite clouds6.png" id="11_vuuh5"]
 [ext_resource type="Texture2D" uid="uid://cohvh7iemgni7" path="res://Assets/Menu/Logo/saruby sprite clouds7.png" id="12_0nb7l"]
 [ext_resource type="Script" path="res://Scenes/ui/Logo.gd" id="13_3bxs2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1f2l7"]
+texture = ExtResource("4_ifvrb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lcumx"]
+texture = ExtResource("5_4gqav")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nhg62"]
+texture = ExtResource("6_j01a4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qd20e"]
+texture = ExtResource("4_ifvrb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dlkbw"]
+texture = ExtResource("5_4gqav")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4r1en"]
+texture = ExtResource("6_j01a4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a0te2"]
+texture = ExtResource("4_ifvrb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_76cc1"]
+texture = ExtResource("5_4gqav")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xdln7"]
+texture = ExtResource("6_j01a4")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a5rp6"]
 animations = [{
@@ -94,25 +124,39 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.6, 0.898039, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.607843, 1, 1)
+theme_override_colors/font_color = Color(0.537011, 0.537011, 0.537011, 1)
 theme_override_fonts/font = ExtResource("4_xqljs")
 theme_override_font_sizes/font_size = 75
+theme_override_styles/hover = SubResource("StyleBoxTexture_1f2l7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lcumx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nhg62")
 text = "Start"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.6, 0.898039, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.607843, 1, 1)
+theme_override_colors/font_color = Color(0.537255, 0.537255, 0.537255, 1)
 theme_override_fonts/font = ExtResource("4_xqljs")
 theme_override_font_sizes/font_size = 75
+theme_override_styles/hover = SubResource("StyleBoxTexture_qd20e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dlkbw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4r1en")
 text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.6, 0.898039, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(0.388235, 0.607843, 1, 1)
+theme_override_colors/font_color = Color(0.537255, 0.537255, 0.537255, 1)
 theme_override_fonts/font = ExtResource("4_xqljs")
 theme_override_font_sizes/font_size = 75
+theme_override_styles/hover = SubResource("StyleBoxTexture_a0te2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_76cc1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xdln7")
 text = "Quit"
-
-[node name="menu music" parent="." instance=ExtResource("5_dyjg7")]
-position = Vector2(571, 226)
-bus = &"Music"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -124,14 +168,18 @@ theme_override_font_sizes/font_size = 16
 text = "pre-alpha v0.2.2.4"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(629, 351)
+position = Vector2(640, 352)
 
 [node name="Logo" type="AnimatedSprite2D" parent="."]
-position = Vector2(632, 192)
+position = Vector2(640, 200)
 scale = Vector2(0.64, 0.64)
 sprite_frames = SubResource("SpriteFrames_a5rp6")
 animation = &"Logo"
 script = ExtResource("13_3bxs2")
+
+[node name="menu music" parent="." instance=ExtResource("5_dyjg7")]
+position = Vector2(640, 352)
+bus = &"Music"
 
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
