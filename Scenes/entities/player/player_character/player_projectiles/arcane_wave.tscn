@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://yvntm8d082n0"]
+[gd_scene load_steps=10 format=3 uid="uid://yvntm8d082n0"]
 
 [ext_resource type="Script" path="res://arcane_wave.gd" id="1_cvr34"]
 [ext_resource type="Texture2D" uid="uid://dhbhm6osoq0sv" path="res://Assets/Matato/Attacks/arcane_wave.png" id="2_bqlvh"]
+[ext_resource type="AudioStream" uid="uid://ddkub1huqauc2" path="res://Assets/Sounds/arcane_wave_cast.mp3" id="3_a1yl8"]
+[ext_resource type="AudioStream" uid="uid://opg7r7wjh1f7" path="res://Assets/Sounds/arcane_wave_impact.mp3" id="4_tturm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3lebk"]
 atlas = ExtResource("2_bqlvh")
@@ -49,4 +51,13 @@ frame_progress = 0.53433
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arcane_wave/Area2D"]
 shape = SubResource("CircleShape2D_vcsw5")
 
+[node name="cast" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_a1yl8")
+bus = &"SFX"
+
+[node name="impact" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tturm")
+bus = &"SFX"
+
 [connection signal="body_entered" from="arcane_wave/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="impact" to="." method="_on_impact_finished"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://f3o3h55o3bdf"]
+[gd_scene load_steps=9 format=3 uid="uid://f3o3h55o3bdf"]
 
 [ext_resource type="Script" path="res://phoenix.gd" id="1_h6llf"]
 [ext_resource type="Texture2D" uid="uid://y8rxlsrg2ait" path="res://Assets/Matato/Attacks/phoenix.png" id="2_f18ts"]
+[ext_resource type="AudioStream" uid="uid://kw7qsne0qxuk" path="res://Assets/Sounds/phoenix_cast.mp3" id="3_3uoks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33dy7"]
 atlas = ExtResource("2_f18ts")
@@ -49,4 +50,10 @@ frame_progress = 0.390867
 [node name="CollisionShape2D" type="CollisionShape2D" parent="phoenix/Area2D"]
 shape = SubResource("CircleShape2D_eabab")
 
+[node name="cast" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3uoks")
+bus = &"SFX"
+
+[connection signal="animation_finished" from="phoenix" to="." method="_on_phoenix_animation_finished"]
 [connection signal="body_entered" from="phoenix/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="cast" to="." method="_on_cast_finished"]

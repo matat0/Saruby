@@ -198,6 +198,7 @@ bus = &"SFX"
 [node name="impact" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_aac2x")
 volume_db = -5.233
+bus = &"SFX"
 
 [connection signal="animation_finished" from="FrostOrb" to="." method="_on_frost_orb_animation_finished"]
 [connection signal="body_entered" from="FrostOrb/Area2D" to="." method="_on_area_2d_body_entered"]
