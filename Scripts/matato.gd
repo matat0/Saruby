@@ -257,8 +257,9 @@ func _on_spell_1_pressed():
 func _on_spell_2_pressed():
 	"""    
 	Handles arcane wave logic, triggered by pressing spell 2 button (e)
-	Functionally the same as normal attack right now
 	
+	
+	"""
 	"""
 	var enemy = Global.enemy
 	if spell2_cd == false and gcd == false and enemy:
@@ -268,16 +269,18 @@ func _on_spell_2_pressed():
 		#gcd_timer.start()
 		#spell2_cd_timer.start()
 		print("arcane_wave pressed")
-		"""  
-		var tempBullet = Arcane.instantiate()
-		tempBullet.target_position = enemy.global_position
-		tempBullet.bulletDamage = bulletDamage * damage_modifier
+		if latent_arcana_charges > 0:
+			latent_arcana_charges -= 1
+			var tempBullet = Arcane.instantiate()
+			tempBullet.target_position = enemy.global_position
+			tempBullet.bulletDamage = bulletDamage * damage_modifier
+			
+			get_node("BulletContainer").add_child(tempBullet)
+			tempBullet.global_position = $Aim.global_position
 		
-		get_node("BulletContainer").add_child(tempBullet)
-		tempBullet.global_position = $Aim.global_position
-		"""
 	elif attack_cd:
 		print("You can't attack yet, wait a sec")
+	"""
 
 func _on_spell_3_pressed():
 	"""    

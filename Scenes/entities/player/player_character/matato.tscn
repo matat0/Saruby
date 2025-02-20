@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://d3165wqb57tpe"]
+[gd_scene load_steps=69 format=3 uid="uid://d3165wqb57tpe"]
 
 [ext_resource type="Script" path="res://Scripts/matato.gd" id="1_5411w"]
 [ext_resource type="Texture2D" uid="uid://cak7xs7c0jt6f" path="res://Assets/Matato/matato.png" id="2_hlev0"]
@@ -160,9 +160,6 @@ frame_6/duration = 1.0
 frame_7/texture = ExtResource("23_ttluo")
 frame_7/duration = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_58cw2"]
-load_path = "res://.godot/imported/blank 20x20.png-7c1ab9c9db71fc803714823900609845.ctex"
-
 [sub_resource type="InputEventKey" id="InputEventKey_5gtcb"]
 device = -1
 keycode = 82
@@ -293,7 +290,16 @@ drag_bottom_margin = 0.1
 
 [node name="combat_ui_real" type="CanvasLayer" parent="Camera2D"]
 
+[node name="cast_bar" type="ProgressBar" parent="Camera2D/combat_ui_real"]
+offset_left = 470.0
+offset_top = 555.0
+offset_right = 709.0
+offset_bottom = 563.0
+max_value = 1.0
+show_percentage = false
+
 [node name="Control2" type="Control" parent="Camera2D/combat_ui_real"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -392,12 +398,13 @@ offset_top = -127.0
 offset_right = -211.0
 offset_bottom = -104.0
 
-[node name="spell2" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
+[node name="spell2" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer" node_paths=PackedStringArray("player")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_8b8bp")
 texture_normal = SubResource("AnimatedTexture_q3f57")
 stretch_mode = 0
 script = ExtResource("9_xrtq8")
+player = NodePath("../../../..")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Camera2D/combat_ui_real/HBoxContainer/spell2"]
 layout_mode = 0
@@ -422,17 +429,6 @@ offset_bottom = -104.0
 
 [node name="arcane_wave_cast_time" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell2"]
 one_shot = true
-
-[node name="cast_bar" type="TextureProgressBar" parent="Camera2D/combat_ui_real/HBoxContainer/spell2"]
-layout_mode = 0
-offset_left = -64.0
-offset_top = -34.0
-offset_right = 97.0
-offset_bottom = -14.0
-fill_mode = 2
-nine_patch_stretch = true
-texture_progress = SubResource("CompressedTexture2D_58cw2")
-tint_under = Color(0.104351, 0.114146, 0.241733, 1)
 
 [node name="spell3" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
 layout_mode = 2
@@ -511,8 +507,8 @@ animation = &"empty"
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell1/spell1_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell1" method="_on_attack_cd_timeout"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell2" to="." method="_on_spell_2_pressed"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell2" to="Camera2D/combat_ui_real/HBoxContainer/spell2" method="_on_pressed"]
-[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="." method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="." method="_on_spell_2_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="." method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell2" method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/arcane_wave_cast_time" to="." method="_on_arcane_wave_cast_time_timeout"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell3" to="." method="_on_spell_3_pressed"]

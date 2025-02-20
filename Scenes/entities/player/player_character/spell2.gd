@@ -5,7 +5,9 @@ extends TextureButton
 @onready var attack_cd = $spell2_cd
 @onready var gcd_timer = $"../gcd_timer"
 @onready var cast_timer = $arcane_wave_cast_time
-@onready var cast_bar = $cast_bar
+@onready var cast_bar = $"../../cast_bar"
+
+@export var player: CharacterBody2D
 
 signal attack_off_cd
 
@@ -24,11 +26,18 @@ func _process(_delta):
 	cast_bar.value = cast_timer.time_left
 
 func _on_pressed():
+	print("button E clicked")
 	if gcd_timer.is_stopped():
-		print("button E clicked")
-		attack_cd.start()
-		cast_timer.start()
-		#gcd_timer.start()
+		if player.latent_arcana_charges >0:
+			player.latent_arcana_charges -= 1
+			player._on_arcane_wave_cast_time_timeout()
+			
+			
+			
+			#gcd_timer.start()
+		else:
+			attack_cd.start()
+			cast_timer.start()
 
 		disabled = true
 		set_process(true)
