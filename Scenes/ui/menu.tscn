@@ -124,8 +124,10 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.85098, 0.341176, 0.388235, 1)
 theme_override_colors/font_hover_color = Color(0.6, 0.898039, 0.313726, 1)
 theme_override_colors/font_pressed_color = Color(0.388235, 0.607843, 1, 1)
+theme_override_colors/font_focus_color = Color(0.6, 0.898039, 0.313726, 1)
 theme_override_colors/font_color = Color(0.537011, 0.537011, 0.537011, 1)
 theme_override_fonts/font = ExtResource("4_xqljs")
 theme_override_font_sizes/font_size = 75
@@ -136,8 +138,10 @@ text = "Start"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.85098, 0.341176, 0.388235, 1)
 theme_override_colors/font_hover_color = Color(0.6, 0.898039, 0.313726, 1)
 theme_override_colors/font_pressed_color = Color(0.388235, 0.607843, 1, 1)
+theme_override_colors/font_focus_color = Color(0.6, 0.898039, 0.313726, 1)
 theme_override_colors/font_color = Color(0.537255, 0.537255, 0.537255, 1)
 theme_override_fonts/font = ExtResource("4_xqljs")
 theme_override_font_sizes/font_size = 75
@@ -148,8 +152,10 @@ text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.85098, 0.341176, 0.388235, 1)
 theme_override_colors/font_hover_color = Color(0.6, 0.898039, 0.313726, 1)
 theme_override_colors/font_pressed_color = Color(0.388235, 0.607843, 1, 1)
+theme_override_colors/font_focus_color = Color(0.6, 0.898039, 0.313726, 1)
 theme_override_colors/font_color = Color(0.537255, 0.537255, 0.537255, 1)
 theme_override_fonts/font = ExtResource("4_xqljs")
 theme_override_font_sizes/font_size = 75

@@ -5,13 +5,13 @@ func _process(_delta):
 	match Global.PlayerSelect:
 		0:
 			get_node("PlayerSelect").play("walkside")
-			get_node("Des").text = "Matato, The Apple Mage"
+			get_node("Des").text = "Matato \n\nThe Apple Mage"
 		1:
 			get_node("PlayerSelect").play("Carty Hat")
-			get_node("Des").text = "Carty, The Skeleminer"
+			get_node("Des").text = "Carty \n\nThe Skeleminer"
 		2:
 			get_node("PlayerSelect").play("Butch")
-			get_node("Des").text = "Butch, The Rocketeer"
+			get_node("Des").text = "Butch \n\nThe Rocketeer"
 		3:
 			get_node("PlayerSelect").play("hidden")
 			get_node("Des").text = "Not Unlocked"
