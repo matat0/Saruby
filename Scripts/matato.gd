@@ -331,7 +331,18 @@ func _on_gcd_timer_timeout():
 
 
 func _on_arcane_wave_cast_time_timeout():
+	
 	gcd = false
+	var enemy = Global.enemy
+	var tempBullet = Arcane.instantiate()
+	tempBullet.target_position = enemy.global_position
+	tempBullet.bulletDamage = bulletDamage * damage_modifier
+	
+	get_node("BulletContainer").add_child(tempBullet)
+	tempBullet.global_position = $Aim.global_position
+
+func arcane_wave_instant_cast():
+	print("instant cast procced")
 	var enemy = Global.enemy
 	var tempBullet = Arcane.instantiate()
 	tempBullet.target_position = enemy.global_position

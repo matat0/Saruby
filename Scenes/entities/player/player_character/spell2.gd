@@ -17,28 +17,31 @@ var change_key = "":
 		key.text = value
 		shortcut = Shortcut.new()
 		var input_key = InputEventKey.new()
+		
+
 func _ready():
 	progress_bar.max_value = attack_cd.wait_time
 	set_process(false)
 	
 func _process(_delta):
-	progress_bar.value = attack_cd.time_left
-	cast_bar.value = cast_timer.time_left
+	print("attack_cd time left: " + str(attack_cd.time_left))
+	print("cast_timer time left: " + str(cast_timer.time_left))
+	if cast_timer.time_left >= 0 and attack_cd.time_left >= 0:
+		progress_bar.value = attack_cd.time_left
+		cast_bar.value = cast_timer.time_left
 
 func _on_pressed():
-	print("button E clicked")
-	if gcd_timer.is_stopped():
-		if player.latent_arcana_charges >0:
-			player.latent_arcana_charges -= 1
-			player._on_arcane_wave_cast_time_timeout()
-			
-			
-			
-			#gcd_timer.start()
-		else:
-			attack_cd.start()
-			cast_timer.start()
-
+	
+	if player.latent_arcana_charges >0:
+		player.latent_arcana_charges -= 1
+		player.arcane_wave_instant_cast()
+		attack_cd.stop()
+		cast_timer.stop()
+		
+	else:
+		attack_cd.start()
+		cast_timer.start()
+		gcd_timer.start()
 		disabled = true
 		set_process(true)
 

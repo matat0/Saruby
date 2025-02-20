@@ -295,7 +295,7 @@ offset_left = 470.0
 offset_top = 555.0
 offset_right = 709.0
 offset_bottom = 563.0
-max_value = 1.0
+max_value = 3.0
 show_percentage = false
 
 [node name="Control2" type="Control" parent="Camera2D/combat_ui_real"]
@@ -428,6 +428,7 @@ offset_right = -211.0
 offset_bottom = -104.0
 
 [node name="arcane_wave_cast_time" type="Timer" parent="Camera2D/combat_ui_real/HBoxContainer/spell2"]
+wait_time = 3.0
 one_shot = true
 
 [node name="spell3" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
