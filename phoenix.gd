@@ -21,5 +21,5 @@ func _physics_process(_delta):
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("enemy"):
-		body.health -= bulletDamage
+		body.health -= bulletDamage * body.vulnerability_multiplier
 		self.queue_free()

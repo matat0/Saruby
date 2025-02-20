@@ -24,8 +24,7 @@ func _ready():
 	set_process(false)
 	
 func _process(_delta):
-	print("attack_cd time left: " + str(attack_cd.time_left))
-	print("cast_timer time left: " + str(cast_timer.time_left))
+	
 	if cast_timer.time_left >= 0 and attack_cd.time_left >= 0:
 		progress_bar.value = attack_cd.time_left
 		cast_bar.value = cast_timer.time_left

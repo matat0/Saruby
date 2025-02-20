@@ -356,6 +356,6 @@ func arcane_wave_instant_cast():
 	var tempBullet = Arcane.instantiate()
 	tempBullet.target_position = enemy.global_position
 	tempBullet.bulletDamage = bulletDamage * damage_modifier
-	
+	tempBullet.latent_arcana = true
 	get_node("BulletContainer").add_child(tempBullet)
 	tempBullet.global_position = $Aim.global_position
