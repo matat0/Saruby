@@ -9,9 +9,9 @@ var bulletDamage
 
 func _ready():
 	$FrostOrb.play("frost_orb")
-	var latent_arcana_proc = randi_range(1,4)
-	if latent_arcana_proc == 4:
-		get_parent().get_parent().latent_arcana_charges += 1
+	var deep_freeze_proc = randi_range(1,4)
+	if deep_freeze_proc == 4:
+		get_parent().get_parent().deep_freeze_charges += 1
 		
 	
 func _physics_process(_delta):

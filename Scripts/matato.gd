@@ -36,16 +36,18 @@ var damage_modifier = 1 #damage multiplier to use for buffs like latent arcana
 @onready var sprite = $AnimatedSprite2D
 @onready var tw_duration = $Camera2D/combat_ui_real/HBoxContainer/spell3/tw_duration
 
-#set get for latent arcana charges
-var latent_arcana_charges:
-	set(new_latent_arcana_charges): 
-		if new_latent_arcana_charges >= 0 and new_latent_arcana_charges <= 4: #only update if between 0 and 4
-			latent_arcana_charges = new_latent_arcana_charges
-			print("set new latent_arcana_charges")
-			$Camera2D/combat_ui_real/VBoxContainer/latent_arcana_charges_label.text = "latent_arcana_charges: " + str(latent_arcana_charges)
+#set get for deep_freeze charges
+var deep_freeze_charges:
+	set(new_deep_freeze_charges): 
+		if new_deep_freeze_charges >= 0 and new_deep_freeze_charges <= 4: #only update if between 0 and 4
+			deep_freeze_charges = new_deep_freeze_charges
+			print("set new deep_freeze_charges")
+			$Camera2D/combat_ui_real/VBoxContainer/deep_freeze_charges_label.text = "deep_freeze_charges: " + str(deep_freeze_charges)
 			
 	get:
-		return latent_arcana_charges
+		return deep_freeze_charges
+	
+		
 		
 
 func _ready(): 
@@ -58,7 +60,7 @@ func _ready():
 	var instanced_health_bar = health_bar.instantiate()
 	add_child(instanced_health_bar)
 	
-	latent_arcana_charges = 0 #init buff charges
+	deep_freeze_charges = 0 #init buff charges
 	"""
 	
 	"""
@@ -119,7 +121,14 @@ func set_animation(animation):
 		
 	else: 
 		pass
-
+	
+	if deep_freeze_charges >= 1 and not $deep_freeze_proc.is_playing():
+		$deep_freeze_proc.visible = true
+		$deep_freeze_proc.play("default")
+	elif deep_freeze_charges == 0:
+		$deep_freeze_proc.visible = false
+		$deep_freeze_proc.stop()
+		
 func _get_input_direction(): 
 	""" 
 	Takes player input and creates a 2d vector
@@ -269,8 +278,8 @@ func _on_spell_2_pressed():
 		#gcd_timer.start()
 		#spell2_cd_timer.start()
 		print("arcane_wave pressed")
-		if latent_arcana_charges > 0:
-			latent_arcana_charges -= 1
+		if deep_freeze_charges > 0:
+			deep_freeze_charges -= 1
 			var tempBullet = Arcane.instantiate()
 			tempBullet.target_position = enemy.global_position
 			tempBullet.bulletDamage = bulletDamage * damage_modifier

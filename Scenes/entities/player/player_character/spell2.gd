@@ -32,8 +32,8 @@ func _process(_delta):
 
 func _on_pressed():
 	
-	if player.latent_arcana_charges >0:
-		player.latent_arcana_charges -= 1
+	if player.deep_freeze_charges >0:
+		player.deep_freeze_charges -= 1
 		player.arcane_wave_instant_cast()
 		attack_cd.stop()
 		cast_timer.stop()
