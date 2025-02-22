@@ -25,9 +25,7 @@ func _on_area_2d_body_entered(body):
 	if body.has_method("enemy"):
 		
 		if latent_arcana:
-			print("trying to add stacks")
-			var new_timer = debuff_timer.instantiate()
-			body.add_child(new_timer)
-			body.vulnerability_multiplier += 1
+			print("trying to add debuff")
+			body.player_debuff_1 = true
 		body.health -= bulletDamage
 		self.queue_free()

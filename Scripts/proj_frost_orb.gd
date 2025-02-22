@@ -24,7 +24,12 @@ func _physics_process(_delta):
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("enemy"):
-		body.health -= bulletDamage * body.vulnerability_multiplier
+		if body.player_debuff_1:
+			body.health -= bulletDamage * 1.5
+			body.player_debuff_1 = false
+		else:
+			body.health -= bulletDamage 
+		
 		$FrostOrb.play("orb_impact")
 
 func _on_frost_orb_animation_finished():

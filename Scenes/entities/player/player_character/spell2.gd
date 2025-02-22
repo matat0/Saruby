@@ -23,26 +23,28 @@ func _ready():
 	progress_bar.max_value = attack_cd.wait_time
 	set_process(false)
 	
+
 func _process(_delta):
-	
-	if cast_timer.time_left >= 0 and attack_cd.time_left >= 0:
-		progress_bar.value = attack_cd.time_left
-		cast_bar.value = cast_timer.time_left
+	progress_bar.value = attack_cd.time_left
+	cast_bar.value = cast_timer.time_left
+	if !cast_timer.is_stopped():
+		player.gcd = true
 
 func _on_pressed():
-	
-	if player.deep_freeze_charges >0:
-		player.deep_freeze_charges -= 1
-		player.arcane_wave_instant_cast()
-		attack_cd.stop()
-		cast_timer.stop()
-		
-	else:
-		attack_cd.start()
-		cast_timer.start()
-		gcd_timer.start()
-		disabled = true
-		set_process(true)
+	if !player.gcd:
+		if player.deep_freeze_charges >0:
+			player.deep_freeze_charges -= 1
+			player.arcane_wave_instant_cast()
+			attack_cd.stop()
+			cast_timer.stop()
+			
+		else:
+			player.casting = true
+			attack_cd.start()
+			cast_timer.start()
+			gcd_timer.start()
+			disabled = true
+			set_process(true)
 
 
 func _on_attack_cd_timeout():

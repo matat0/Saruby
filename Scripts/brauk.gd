@@ -1,7 +1,8 @@
 extends CharacterBody2D
 var frame_velocity
 var health_bar = preload("res://Scenes/entities/boss_health.tscn")
-var vulnerability_multiplier = 1#incoming damage multiplier
+var vulnerability_multiplier = 1  #incoming damage multiplier
+var player_debuff_1 = false 
 
 @onready var death_timer = $"boss death scene timer"
 @onready var prev_position : Vector2 = Vector2.ZERO
@@ -22,7 +23,7 @@ var health:
 			damage_taken = health - new_health
 		health = new_health
 		print("set new health")
-		if new_health > 0 and new_health < 5000:
+		if new_health > 0 and new_health < 20000:
 			_on_damage_taken()  #just sets getting_hurt to true for animation
 			
 			player_chase = true #starts aggro if player hasn't already
@@ -63,7 +64,7 @@ func _update_animation_parameters():
 	"""  
 	Updates animation tree based off of brauk's movement
 	"""
-	print("vulnerability: " + str(vulnerability_multiplier))
+	#print("vulnerability: " + str(vulnerability_multiplier))
 	if(frame_velocity != Vector2.ZERO):  #if brauk is moving
 		#blend animation in animation tree based off of velocity
 		animation_tree["parameters/hurt/blend_position"] = frame_velocity 
@@ -190,7 +191,7 @@ func _ready():
 	Global.enemy = $"." #sets itself as the global enemy
 	#sprite.play("idle")
 	animation_tree.active = true #activated animation tree
-	health = 5000
+	health = 20000
 	#instantiates and adds health bar
 	var instanced_health_bar = health_bar.instantiate()
 	add_child(instanced_health_bar)

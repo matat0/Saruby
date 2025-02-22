@@ -19,6 +19,7 @@ var bulletDamage = 200
 #var pathName
 #var currTarget
 #var curr
+var casting = false
 var gcd = false #is global cooldown active
 var attack_cd = false #is frost orb on cooldown
 var spell1_cd = false #is pheonix blast on cooldown
@@ -39,7 +40,7 @@ var damage_modifier = 1 #damage multiplier to use for buffs like latent arcana
 #set get for deep_freeze charges
 var deep_freeze_charges:
 	set(new_deep_freeze_charges): 
-		if new_deep_freeze_charges >= 0 and new_deep_freeze_charges <= 4: #only update if between 0 and 4
+		if new_deep_freeze_charges >= 0 and new_deep_freeze_charges <= 1: #only update if between 0 and 1
 			deep_freeze_charges = new_deep_freeze_charges
 			print("set new deep_freeze_charges")
 			$Camera2D/combat_ui_real/VBoxContainer/deep_freeze_charges_label.text = "deep_freeze_charges: " + str(deep_freeze_charges)
@@ -238,6 +239,7 @@ func _on_attack_cd_timeout():
 	Triggered by basic attack, same cooldown as gcd, might get removed
 	"""
 	attack_cd = false
+	gcd = false
 	print("attack off cd")
 
 func _on_spell_1_pressed():
@@ -246,6 +248,7 @@ func _on_spell_1_pressed():
 	Functionally the same as normal attack right now
 	"""
 	var enemy = Global.enemy  #declare target enemy
+	print("ok its here" + str(spell1_cd))
 	if spell1_cd == false and gcd == false and enemy:  #if the spell is off cooldown and there is an enemy
 		spell1_cd = true
 		gcd = true
@@ -256,11 +259,11 @@ func _on_spell_1_pressed():
 		
 		var tempBullet = Phoenix.instantiate()
 		tempBullet.target_position = enemy.global_position
-		tempBullet.bulletDamage = bulletDamage * damage_modifier
+		tempBullet.bulletDamage = bulletDamage/2 * damage_modifier
 		
 		get_node("BulletContainer").add_child(tempBullet)
 		tempBullet.global_position = $Aim.global_position
-	elif attack_cd:
+	else:
 		print("You can't attack yet, wait a sec")
 
 func _on_spell_2_pressed():
@@ -340,7 +343,12 @@ func _on_gcd_timer_timeout():
 
 
 func _on_arcane_wave_cast_time_timeout():
+	"""  
+	Used to cast arcane wave normally, without deep freeze proc
+	triggered when the arcane_wave_cast_time timer ends
 	
+	"""
+	casting = false
 	gcd = false
 	var enemy = Global.enemy
 	var tempBullet = Arcane.instantiate()
@@ -351,7 +359,9 @@ func _on_arcane_wave_cast_time_timeout():
 	tempBullet.global_position = $Aim.global_position
 
 func arcane_wave_instant_cast():
-	print("instant cast procced")
+	"""  
+	Used for instant casting arcane wave, triggered if matato has deep_freeze > 0 in spell2 script
+	"""
 	var enemy = Global.enemy
 	var tempBullet = Arcane.instantiate()
 	tempBullet.target_position = enemy.global_position

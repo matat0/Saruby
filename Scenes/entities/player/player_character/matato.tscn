@@ -377,12 +377,13 @@ scale = Vector2(1.25, 1.25)
 size_flags_horizontal = 8
 size_flags_vertical = 4
 
-[node name="attackbutton" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
+[node name="attackbutton" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer" node_paths=PackedStringArray("player")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_24lpq")
 texture_normal = SubResource("AnimatedTexture_tyab7")
 stretch_mode = 0
 script = ExtResource("4_0s8f5")
+player = NodePath("../../../..")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Camera2D/combat_ui_real/HBoxContainer/attackbutton"]
 layout_mode = 0
@@ -405,12 +406,13 @@ offset_top = -127.0
 offset_right = -211.0
 offset_bottom = -104.0
 
-[node name="spell1" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer"]
+[node name="spell1" type="TextureButton" parent="Camera2D/combat_ui_real/HBoxContainer" node_paths=PackedStringArray("player")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_mo27d")
 texture_normal = SubResource("AnimatedTexture_ms4g6")
 stretch_mode = 0
 script = ExtResource("7_o4g48")
+player = NodePath("../../../..")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Camera2D/combat_ui_real/HBoxContainer/spell1"]
 layout_mode = 0
@@ -542,19 +544,18 @@ animation = &"blank"
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd" to="Camera2D/combat_ui_real/HBoxContainer/attackbutton" method="_on_attack_cd_timeout"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell1" to="." method="_on_spell_1_pressed"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell1" to="Camera2D/combat_ui_real/HBoxContainer/spell1" method="_on_pressed"]
-[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell1/spell1_cd" to="." method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell1/spell1_cd" to="." method="_on_spell_1_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell1/spell1_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell1" method="_on_attack_cd_timeout"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell2" to="." method="_on_spell_2_pressed"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell2" to="Camera2D/combat_ui_real/HBoxContainer/spell2" method="_on_pressed"]
-[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="." method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="." method="_on_spell_2_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="." method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/spell2_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell2" method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/arcane_wave_cast_time" to="." method="_on_arcane_wave_cast_time_timeout"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell3" to="." method="_on_spell_3_pressed"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell3" to="Camera2D/combat_ui_real/HBoxContainer/spell3" method="_on_pressed"]
-[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="." method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="." method="_on_spell_3_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="." method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell3" method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/tw_duration" to="." method="_on_tw_duration_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/gcd_timer" to="." method="_on_gcd_timer_timeout"]
