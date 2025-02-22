@@ -232,7 +232,7 @@ func attack():
 			get_node("BulletContainer").add_child(tempBullet)
 			tempBullet.global_position = $Aim.global_position
 		elif attack_cd:
-			print("You can't attack yet, wait a sec")
+			print("You can't attack yet attack_cd: " + str(attack_cd) + " gcd: " + str(gcd) )
 
 func _on_attack_cd_timeout():
 	"""  

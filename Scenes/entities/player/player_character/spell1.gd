@@ -23,7 +23,6 @@ func _process(_delta):
 	progress_bar.value = attack_cd.time_left
 
 func _on_pressed():
-	print("why is this " + str(player.gcd))
 	
 	if gcd_timer.is_stopped() and !player.casting:
 		print("button W clicked")
