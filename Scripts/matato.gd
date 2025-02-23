@@ -21,7 +21,7 @@ var bulletDamage = 200
 #var curr
 var casting = false
 var gcd = false #is global cooldown active
-var attack_cd = false #is frost orb on cooldown
+#var attack_cd = false #is frost orb on cooldown
 var spell1_cd = false #is pheonix blast on cooldown
 var spell2_cd = false #is arcane wave on cooldown
 var spell3_cd = false #is time warp (cast) on cooldown
@@ -207,15 +207,17 @@ func _on_damage_taken_cooldown_timeout():
 
 func attack():
 	"""  
-	Handles the logic surrounding the basic attack (frost orb) for the player
+	Old and kinda stupid, replaced with _on_attackbutton_pressed
+	Handles the logic surrounding the basic attack (frost orb) for the player 
 	
-	"""
+	
 	var enemy = Global.enemy #declares the singular enemy as the boss
 	if Input.is_action_just_pressed("attack") and Global.enemy: #if the player attacks and there is an enemy to attack
 		#Global.player_current_attack = true
-		if attack_cd == false and gcd == false and enemy: #if the attack is off cooldown and there is an enemy (redundant enemy check) 
+		if !gcd and enemy: #if the attack is off cooldown and there is an enemy (redundant enemy check) [Used to check if attack_cd is false
 			#put the attack on cooldown and start the timer
-			attack_cd = true
+			
+			#attack_cd = true    testing this
 			gcd = true
 			
 			#gcd_timer.start()
@@ -231,16 +233,44 @@ func attack():
 			#actually places the bullet into the world and fires it
 			get_node("BulletContainer").add_child(tempBullet)
 			tempBullet.global_position = $Aim.global_position
-		elif attack_cd:
-			print("You can't attack yet attack_cd: " + str(attack_cd) + " gcd: " + str(gcd) )
+		elif gcd:
+			print("You can't attack yet gcd: " + str(gcd) )
+	"""
 
 func _on_attack_cd_timeout():
 	"""  
 	Triggered by basic attack, same cooldown as gcd, might get removed
 	"""
-	attack_cd = false
+	#attack_cd = false
 	gcd = false
 	print("attack off cd")
+
+
+func _on_attackbutton_pressed():
+	var enemy = Global.enemy
+	if !gcd and enemy: #if the attack is off cooldown and there is an enemy (redundant enemy check) [previously checked if attack_cd is false
+			#put the attack on cooldown and start the timer
+			
+			#attack_cd = true    testing this
+			gcd = true
+			
+			gcd_timer.start()
+			#attack_cd_timer.start()
+			
+			print("frost orb pressed")
+			
+			#predetermine the damage and target for the bullet
+			var tempBullet = Bullet.instantiate()
+			tempBullet.target_position = enemy.global_position #target is where enemy is
+			tempBullet.bulletDamage = bulletDamage * damage_modifier #determine bullet damage
+			
+			#actually places the bullet into the world and fires it
+			get_node("BulletContainer").add_child(tempBullet)
+			tempBullet.global_position = $Aim.global_position
+	elif gcd:
+		print("You can't attack yet gcd: " + str(gcd) )
+	
+
 
 func _on_spell_1_pressed():
 	"""  
@@ -316,7 +346,7 @@ func _on_spell_3_pressed():
 		speed = 250  #increases player speed, default is 200, eventually speed 
 					 #should be calculated by default speed added to or multiplied by modifiers
 						
-	elif attack_cd:
+	elif spell3_cd:
 		print("Time warp not ready")
 
 

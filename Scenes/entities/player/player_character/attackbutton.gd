@@ -2,11 +2,9 @@ extends TextureButton
 
 @onready var key = $key
 @onready var progress_bar = $TextureProgressBar
-@onready var attack_cd = $attack_cd
+#@onready var attack_cd = $attack_cd
 @onready var gcd_timer = $"../gcd_timer"
 @export var player : CharacterBody2D
-
-signal attack_off_cd
 
 var change_key = "":
 	set(value):
@@ -16,26 +14,40 @@ var change_key = "":
 		var input_key = InputEventKey.new()
 
 func _ready():
-	progress_bar.max_value = attack_cd.wait_time
+	#progress_bar.max_value = attack_cd.wait_time
+	progress_bar.max_value = gcd_timer.wait_time
 	set_process(false)
 	
 
 func _process(_delta):
-	progress_bar.value = attack_cd.time_left
+	if !gcd_timer.is_stopped():
+		print(gcd_timer.time_left)
+	#print(attack_cd.time_left)
+
+	#progress_bar.value = attack_cd.time_left
+	progress_bar.value = gcd_timer.time_left
+
 
 func _on_pressed():
-	
-	if !player.gcd:
+	set_process(true)
+	print("button Q clicked")
+	"""
+	if !player.gcd:  #and !player.attack_cd
 		if gcd_timer.is_stopped():
-			print("button Q clicked")
-			attack_cd.start()
+			#attack_cd.start()
 			gcd_timer.start()
 			disabled = true
 			set_process(true)
+	"""
 
-
+"""
 func _on_attack_cd_timeout():
 	
 	disabled = false
 	set_process(false)
 	emit_signal("attack_off_cd")
+"""
+
+
+func _on_gcd_timer_timeout() -> void:
+	set_process(false)

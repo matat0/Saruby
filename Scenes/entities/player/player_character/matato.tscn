@@ -539,6 +539,7 @@ animation = &"empty"
 sprite_frames = SubResource("SpriteFrames_ge021")
 animation = &"blank"
 
+[connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton" to="." method="_on_attackbutton_pressed"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton" to="Camera2D/combat_ui_real/HBoxContainer/attackbutton" method="_on_pressed"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd" to="." method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/attackbutton/attack_cd" to="Camera2D/combat_ui_real/HBoxContainer/attackbutton" method="_on_attack_cd_timeout"]
@@ -554,11 +555,12 @@ animation = &"blank"
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell2/arcane_wave_cast_time" to="." method="_on_arcane_wave_cast_time_timeout"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell3" to="." method="_on_spell_3_pressed"]
 [connection signal="pressed" from="Camera2D/combat_ui_real/HBoxContainer/spell3" to="Camera2D/combat_ui_real/HBoxContainer/spell3" method="_on_pressed"]
-[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="." method="_on_spell_3_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="." method="_on_spell_3_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/spell3_cd" to="Camera2D/combat_ui_real/HBoxContainer/spell3" method="_on_attack_cd_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/spell3/tw_duration" to="." method="_on_tw_duration_timeout"]
 [connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/gcd_timer" to="." method="_on_gcd_timer_timeout"]
+[connection signal="timeout" from="Camera2D/combat_ui_real/HBoxContainer/gcd_timer" to="Camera2D/combat_ui_real/HBoxContainer/attackbutton" method="_on_gcd_timer_timeout"]
 [connection signal="body_entered" from="matato_hitbox" to="." method="_on_matato_hitbox_body_entered"]
 [connection signal="body_exited" from="matato_hitbox" to="." method="_on_matato_hitbox_body_exited"]
 [connection signal="timeout" from="damage_taken_cooldown" to="." method="_on_damage_taken_cooldown_timeout"]
