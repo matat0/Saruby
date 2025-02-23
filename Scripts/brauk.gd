@@ -1,6 +1,11 @@
 extends CharacterBody2D
 var frame_velocity
 var health_bar = preload("res://Scenes/entities/boss_health.tscn")
+var vulnerability_multiplier = 1  #incoming damage multiplier
+var player_debuff_1 = false 
+var next_damage_color = false
+var next_next_damage_color = false
+
 @onready var death_timer = $"boss death scene timer"
 @onready var prev_position : Vector2 = Vector2.ZERO
 @onready var direction : Vector2 = Vector2.ZERO
@@ -20,8 +25,9 @@ var health:
 			damage_taken = health - new_health
 		health = new_health
 		print("set new health")
-		if new_health > 0 and new_health < 5000:
-			_on_damage_taken()  #just sets getting_hurt to true
+		if new_health > 0 and new_health < 20000:
+			_on_damage_taken()  #just sets getting_hurt to true for animation
+			
 			player_chase = true #starts aggro if player hasn't already
 			#print(player, "boss ouch")
 			_on_aggro_range_body_entered(Global.gamer) #sets player as target for chase
@@ -35,14 +41,23 @@ func spawn_damage_number(amount, position):
 	Creates damage numbers
 	Parameters:
 		amount(int): value of damage number
-		position(Vector2): 2d vector, coordinate to spawn label
+		position(Vector2): 2d vector, coordinate to spawn label UNUSED
 	"""
 	
 	#preloads the damage number and sets the damage amount
 	var damage_number_instance = preload("res://Scenes/entities/enemy/enemy_character/damage_number.tscn").instantiate()
 	damage_number_instance.text = str(amount)
 	
-	
+	if next_damage_color:
+		var purp = Color(0.5,0,1)
+		damage_number_instance.set("theme_override_colors/font_color",purp)
+		next_damage_color = false
+		next_next_damage_color = true
+	elif next_next_damage_color:
+		var red = Color(1,0,0)
+		damage_number_instance.set("theme_override_colors/font_color",red)
+		next_next_damage_color = false
+		
 	#damage_number_instance.global_position = position
 	
 	#adds the damage number to brauk node
@@ -60,7 +75,7 @@ func _update_animation_parameters():
 	"""  
 	Updates animation tree based off of brauk's movement
 	"""
-	
+	#print("vulnerability: " + str(vulnerability_multiplier))
 	if(frame_velocity != Vector2.ZERO):  #if brauk is moving
 		#blend animation in animation tree based off of velocity
 		animation_tree["parameters/hurt/blend_position"] = frame_velocity 
@@ -187,7 +202,7 @@ func _ready():
 	Global.enemy = $"." #sets itself as the global enemy
 	#sprite.play("idle")
 	animation_tree.active = true #activated animation tree
-	health = 5000
+	health = 20000
 	#instantiates and adds health bar
 	var instanced_health_bar = health_bar.instantiate()
 	add_child(instanced_health_bar)

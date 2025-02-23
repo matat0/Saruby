@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://caurlyvhs2iot"]
+
+[ext_resource type="Script" path="res://debuff_1_timer.gd" id="1_l2ia5"]
+
+[node name="debuff_1_timer" type="Timer"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+script = ExtResource("1_l2ia5")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]
