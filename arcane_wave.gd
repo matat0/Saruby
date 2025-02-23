@@ -27,5 +27,6 @@ func _on_area_2d_body_entered(body):
 		if latent_arcana:
 			print("trying to add debuff")
 			body.player_debuff_1 = true
+			body.next_damage_color = true
 		body.health -= bulletDamage
 		self.queue_free()

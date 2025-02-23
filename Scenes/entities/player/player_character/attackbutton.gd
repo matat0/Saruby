@@ -16,7 +16,7 @@ var change_key = "":
 func _ready():
 	#progress_bar.max_value = attack_cd.wait_time
 	progress_bar.max_value = gcd_timer.wait_time
-	set_process(false)
+	
 	
 
 func _process(_delta):
@@ -29,7 +29,7 @@ func _process(_delta):
 
 
 func _on_pressed():
-	set_process(true)
+	
 	print("button Q clicked")
 	"""
 	if !player.gcd:  #and !player.attack_cd
@@ -49,5 +49,5 @@ func _on_attack_cd_timeout():
 """
 
 
-func _on_gcd_timer_timeout() -> void:
-	set_process(false)
+func _on_gcd_timer_timeout():
+	pass

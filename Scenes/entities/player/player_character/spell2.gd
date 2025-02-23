@@ -6,6 +6,7 @@ extends TextureButton
 @onready var gcd_timer = $"../gcd_timer"
 @onready var cast_timer = $arcane_wave_cast_time
 @onready var cast_bar = $"../../cast_bar"
+@onready var gcd_bar = $gcd_bar
 
 @export var player: CharacterBody2D
 
@@ -20,13 +21,15 @@ var change_key = "":
 		
 
 func _ready():
+	gcd_bar.max_value = gcd_timer.wait_time
 	progress_bar.max_value = attack_cd.wait_time
-	set_process(false)
+	
 	
 
 func _process(_delta):
 	progress_bar.value = attack_cd.time_left
 	cast_bar.value = cast_timer.time_left
+	gcd_bar.value = gcd_timer.time_left
 	if !cast_timer.is_stopped():
 		player.gcd = true
 
@@ -44,7 +47,7 @@ func _on_pressed():
 			cast_timer.start()
 			gcd_timer.start()
 			disabled = true
-			set_process(true)
+			
 
 
 func _on_attack_cd_timeout():

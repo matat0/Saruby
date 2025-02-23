@@ -336,14 +336,14 @@ func _on_spell_3_pressed():
 	if spell3_cd == false and gcd == false and enemy:
 		spell3_cd = true
 		gcd = true
-		
+		gcd_timer.wait_time = 0.25
 		#gcd_timer.start()
 		#spell3_cd_timer.start()
 		print("time warp pressed")
 		
 		$tw_clock.play("default")  #time warp sound
 		tw_duration.start()        #start buff duration timer
-		speed = 250  #increases player speed, default is 200, eventually speed 
+		speed = 300  #increases player speed, default is 200, eventually speed 
 					 #should be calculated by default speed added to or multiplied by modifiers
 						
 	elif spell3_cd:
@@ -365,6 +365,7 @@ func _on_spell_3_cd_timeout():
 func _on_tw_duration_timeout():
 	tw_buff_duration = false
 	$tw_clock.play("empty")
+	gcd_timer.wait_time = 0.5
 	speed = 200       #return speed to default, should be changed in future by modifier
 
 func _on_gcd_timer_timeout():

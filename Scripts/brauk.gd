@@ -3,6 +3,8 @@ var frame_velocity
 var health_bar = preload("res://Scenes/entities/boss_health.tscn")
 var vulnerability_multiplier = 1  #incoming damage multiplier
 var player_debuff_1 = false 
+var next_damage_color = false
+var next_next_damage_color = false
 
 @onready var death_timer = $"boss death scene timer"
 @onready var prev_position : Vector2 = Vector2.ZERO
@@ -39,14 +41,23 @@ func spawn_damage_number(amount, position):
 	Creates damage numbers
 	Parameters:
 		amount(int): value of damage number
-		position(Vector2): 2d vector, coordinate to spawn label
+		position(Vector2): 2d vector, coordinate to spawn label UNUSED
 	"""
 	
 	#preloads the damage number and sets the damage amount
 	var damage_number_instance = preload("res://Scenes/entities/enemy/enemy_character/damage_number.tscn").instantiate()
 	damage_number_instance.text = str(amount)
 	
-	
+	if next_damage_color:
+		var purp = Color(0.5,0,1)
+		damage_number_instance.set("theme_override_colors/font_color",purp)
+		next_damage_color = false
+		next_next_damage_color = true
+	elif next_next_damage_color:
+		var red = Color(1,0,0)
+		damage_number_instance.set("theme_override_colors/font_color",red)
+		next_next_damage_color = false
+		
 	#damage_number_instance.global_position = position
 	
 	#adds the damage number to brauk node
